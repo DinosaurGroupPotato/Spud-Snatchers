@@ -8,5 +8,18 @@ namespace SpudSnatch.Model
 {
     class Homer: Character
     {
+        public override void AddToObjects()
+        {
+            throw new NotImplementedException();
+        }
+        public override string Serialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Deserialize()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

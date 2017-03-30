@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace SpudSnatch.Model
 {
-    class GameController
+    class GameController: Serialized
     {
+        /// <summary>
+        /// merely for tracking level progress, highscroes can go here for now.
+        /// </summary>
+        public virtual void AddToObjects()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual string Serialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual string Deserialize()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

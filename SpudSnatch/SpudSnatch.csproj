@@ -99,6 +99,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\Serialize.cs" />
     <Compile Include="Model\DamagingObstacle.cs" />
     <Compile Include="Model\Enemy.cs" />
     <Compile Include="Model\GameController.cs" />
