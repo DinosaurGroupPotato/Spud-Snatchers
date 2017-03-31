@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SpudSnatch.Model.Serialization;
 
-namespace SpudSnatch.Model
+namespace SpudSnatch.Model.Objects
 {
-    class Enemy: Character, Serialized
+    class Character: Serialized
     {
-        public override void AddToObjects()
+        public virtual void AddToObjects()
         {
             throw new NotImplementedException();
         }
-        public override string Serialize()
+        public virtual string Serialize()
         {
             throw new NotImplementedException();
         }
 
-        public override string Deserialize()
+        public virtual string Deserialize()
         {
             throw new NotImplementedException();
         }

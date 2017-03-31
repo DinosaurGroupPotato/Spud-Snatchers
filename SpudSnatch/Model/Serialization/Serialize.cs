@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpudSnatch.Model
+namespace SpudSnatch.Model.Serialization
 {
     interface Serialized
     {

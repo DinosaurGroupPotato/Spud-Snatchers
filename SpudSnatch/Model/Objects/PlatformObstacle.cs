@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SpudSnatch.Model.Serialization;
 
-namespace SpudSnatch.Model
+namespace SpudSnatch.Model.Objects
 {
     class PlatformObstacle: Obstacle
     {

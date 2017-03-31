@@ -98,16 +98,17 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Character.cs" />
-    <Compile Include="Model\Serialize.cs" />
-    <Compile Include="Model\DamagingObstacle.cs" />
-    <Compile Include="Model\Enemy.cs" />
+    <Compile Include="Model\High Scores\HighScore.cs" />
+    <Compile Include="Model\Objects\Character.cs" />
+    <Compile Include="Model\Serialization\Serialize.cs" />
+    <Compile Include="Model\Objects\DamagingObstacle.cs" />
+    <Compile Include="Model\Objects\Enemy.cs" />
     <Compile Include="Model\GameController.cs" />
-    <Compile Include="Model\Homer.cs" />
-    <Compile Include="Model\Obstacle.cs" />
+    <Compile Include="Model\Objects\Homer.cs" />
+    <Compile Include="Model\Objects\Obstacle.cs" />
     <Compile Include="Model\GamePlatform.cs" />
-    <Compile Include="Model\PlatformObstacle.cs" />
-    <Compile Include="Model\Wall.cs" />
+    <Compile Include="Model\Objects\PlatformObstacle.cs" />
+    <Compile Include="Model\Objects\Wall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
