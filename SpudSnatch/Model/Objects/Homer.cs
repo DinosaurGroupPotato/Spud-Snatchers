@@ -7,7 +7,7 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    class Homer: Character
+    public class Homer: Character
     {
         public override void AddToObjects()
         {
@@ -24,6 +24,16 @@ namespace SpudSnatch.Model.Objects
         }
 
         public Homer(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int[] Jump()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int[] Walk()
         {
             throw new NotImplementedException();
         }
