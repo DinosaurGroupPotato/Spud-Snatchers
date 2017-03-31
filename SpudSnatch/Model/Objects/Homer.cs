@@ -22,5 +22,10 @@ namespace SpudSnatch.Model.Objects
         {
             throw new NotImplementedException();
         }
+
+        public Homer(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

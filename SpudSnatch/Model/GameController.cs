@@ -12,6 +12,9 @@ namespace SpudSnatch.Model
         /// <summary>
         /// merely for tracking level progress, highscroes can go here for now.
         /// </summary>
+
+        public static int levelProgress = 1;
+
         public virtual void AddToObjects()
         {
             throw new NotImplementedException();
@@ -22,6 +25,11 @@ namespace SpudSnatch.Model
         }
 
         public virtual string Deserialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void LevelProgressAdvance()
         {
             throw new NotImplementedException();
         }
