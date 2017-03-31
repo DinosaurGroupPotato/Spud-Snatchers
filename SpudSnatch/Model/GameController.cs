@@ -13,6 +13,7 @@ namespace SpudSnatch.Model
         /// merely for tracking level progress, highscroes can go here for now.
         /// </summary>
 
+        public Dictionary<string, int> scores;
         public static int levelProgress = 1;
 
         public virtual void AddToObjects()
@@ -30,6 +31,21 @@ namespace SpudSnatch.Model
         }
 
         public virtual void LevelProgressAdvance()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void DisplayHighscores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayEnvironment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void UpdateScores()
         {
             throw new NotImplementedException();
         }
