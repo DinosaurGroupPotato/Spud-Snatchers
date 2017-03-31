@@ -8,5 +8,9 @@ namespace SpudSnatch.Model.Objects
 {
     class Obstacle
     {
+        public int[] GetLocation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

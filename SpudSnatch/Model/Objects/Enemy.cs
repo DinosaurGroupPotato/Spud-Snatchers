@@ -22,5 +22,14 @@ namespace SpudSnatch.Model.Objects
         {
             throw new NotImplementedException();
         }
+        public int[] Jump()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int[] Walk()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

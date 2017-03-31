@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SpudSnatch.Model.Objects;
+using System.IO;
 
 namespace SpudTest
 {
     [TestClass]
-    class SpudTest
+    public class SpudTest
     {
         [TestMethod]
         public void TestJump()
@@ -31,6 +32,27 @@ namespace SpudTest
             int initialStart = 5;
             int intendedFinish = 20;
             Assert.IsTrue(finish == intendedFinish && initialStart == start);
+        }
+
+        [TestMethod]
+        public void TestLoad()
+        {
+            using (StreamReader loadTest = File.OpenText("LoadTest.txt"))
+            {
+                string[] data = loadTest.ReadLine().Split(',');
+                if(data[0] == "this")
+                {
+                    Assert.IsTrue(data[1] == "is" && data[2] == "a");
+                }
+                if(data[0] == "test")
+                {
+                    Assert.IsTrue(data[1] == "save");
+                }
+                if(data[0] == "00")
+                {
+                    Assert.IsTrue(data[1] == "170" && data[2] == "06");
+                }
+            }
         }
     }
 }

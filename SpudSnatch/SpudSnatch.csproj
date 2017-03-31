@@ -144,11 +144,6 @@
     <Folder Include="Data\Homer\Animations\" />
     <Folder Include="Data\Homer\Static Images\" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.Tips.OrderedTest.Tip">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\PrivateAssemblies\Microsoft.VisualStudio.QualityTools.Tips.OrderedTest.Tip.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
