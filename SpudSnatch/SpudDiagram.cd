@@ -13,19 +13,22 @@
     <Position X="0.698" Y="5.833" Height="0.489" Width="1.7" />
   </Comment>
   <Comment CommentText="Enemy with basic movement">
-    <Position X="6.719" Y="4.24" Height="0.562" Width="1.7" />
+    <Position X="7.052" Y="4.448" Height="0.562" Width="1.7" />
   </Comment>
   <Comment CommentText="Player character with position saving and basic movement">
-    <Position X="4.687" Y="4.042" Height="0.718" Width="1.7" />
+    <Position X="4.937" Y="4.532" Height="0.718" Width="1.7" />
   </Comment>
   <Comment CommentText="Manages game progress. Initializes the game">
-    <Position X="2.875" Y="4.75" Height="0.718" Width="1.7" />
+    <Position X="2.875" Y="5.667" Height="0.718" Width="1.7" />
   </Comment>
   <Comment CommentText="Game visuals are displayed through here.">
     <Position X="0.5" Y="3" Height="0.718" Width="1.7" />
   </Comment>
+  <Comment CommentText="Is the state of the game">
+    <Position X="4.104" Y="1.135" Height="0.385" Width="1.7" />
+  </Comment>
   <Class Name="SpudSnatch.Model.Objects.Character" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Model\Objects\Character.cs</FileName>
@@ -40,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SpudSnatch.Model.Objects.Enemy">
-    <Position X="6.75" Y="2" Width="1.5" />
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAACBAIAAAAAAAAAAAAIA=</HashCode>
       <FileName>Model\Objects\Enemy.cs</FileName>
@@ -48,7 +51,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SpudSnatch.Model.Objects.Homer">
-    <Position X="4.75" Y="1.75" Width="1.5" />
+    <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAACBAIAAAAAAAAAAAAIA=</HashCode>
       <FileName>Model\Objects\Homer.cs</FileName>
@@ -77,11 +80,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SpudSnatch.Model.GameController">
-    <Position X="3" Y="1.75" Width="1.5" />
+    <Position X="3" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAAAgIAAAgACBAAAAAAAAAIAAAAYA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAAAgIAAAgACBAAAAIAAAAIAAAAYA=</HashCode>
       <FileName>Model\GameController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="game" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SpudSnatch.MainPage">
@@ -93,12 +99,20 @@
     <ShowAsAssociation>
       <Field Name="game" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SpudSnatch.Model.Highscore">
     <Position X="0.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAABAgAAAAAAAAA=</HashCode>
       <FileName>Model\Highscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpudSnatch.Model.GamePlatform" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GamePlatform.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

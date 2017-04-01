@@ -8,5 +8,9 @@ namespace SpudSnatch.Model
 {
     class GamePlatform
     {
+        public void Setup()
+        {
+            //initializes the game
+        }
     }
 }

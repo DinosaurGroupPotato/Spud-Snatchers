@@ -15,6 +15,7 @@ namespace SpudSnatch.Model
 
         public Dictionary<string, int> scores;
         public static int levelProgress = 1;
+        public static GamePlatform game = new GamePlatform();
 
         public virtual void AddToObjects()
         {
