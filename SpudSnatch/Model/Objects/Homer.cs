@@ -31,6 +31,7 @@ namespace SpudSnatch.Model.Objects
             positionY = y;
         }
 
+        public Homer(){ }
         public void Jump()
         {
             for (int i = 0; i < 6; i++)

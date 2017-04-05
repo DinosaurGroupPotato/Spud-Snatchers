@@ -17,9 +17,6 @@ namespace SpudSnatch.Model
         public Dictionary<string, int> scores;
         public static int levelProgress = 1;
         public static int score = 0;
-        public static List<Potato> potatoes = new List<Potato>();
-        public static List<Character> enemies = new List<Character>();
-        public static List<Obstacle> obstacles = new List<Obstacle>();
         private bool GameOver = false;
 
         public Level Level { get; set; }
