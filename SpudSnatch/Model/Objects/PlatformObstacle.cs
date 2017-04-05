@@ -11,9 +11,5 @@ namespace SpudSnatch.Model.Objects
     {
         int positionX;
         int positionY;
-        public int[] GetLocation()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

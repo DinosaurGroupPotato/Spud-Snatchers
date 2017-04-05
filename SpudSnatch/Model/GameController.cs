@@ -19,24 +19,36 @@ namespace SpudSnatch.Model
         public static Level game = new Level();
         public static int score = 0;
         public static List<Potato> potatoes = new List<Potato>();
-        public static List<Character> characters = new List<Character>();
+        public static List<Character> enemies = new List<Character>();
         public static List<Obstacle> obstacles = new List<Obstacle>();
+        public static Homer homer = new Homer(0,0);
 
         public virtual void AddToObjects()
         {
             //necessary only for the interface, not for this class
         }
-        public virtual string Serialize()
+        public static string Serialize()
         {
-            throw new NotImplementedException();
+            string data = "gc" + "," + Convert.ToString(levelProgress) + "," + Convert.ToString(score);
+            return data;
         }
 
-        public virtual string Deserialize()
+        public string LevelSerialize()
         {
-            throw new NotImplementedException();
+            string data = "gl" + "," + Convert.ToString(levelProgress);
+            return data;
         }
 
-        public virtual void LevelProgressAdvance()
+        public static void Deserialize(string[] line)
+        {
+            potatoes = new List<Potato>();
+            enemies = new List<Character>();
+            obstacles = new List<Obstacle>();
+            levelProgress = Convert.ToInt32(line[1]);
+            score = Convert.ToInt32(line[2]);
+        }
+
+        public void LevelProgressAdvance()
         {
             throw new NotImplementedException();
         }

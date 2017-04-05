@@ -36,7 +36,7 @@ namespace SpudSnatch.Model.Objects
 
         public string Serialize()
         {
-            string data = "88" + Convert.ToString(positionX) + "," + Convert.ToString(positionX) + "," + Convert.ToString(retrieved);
+            string data = "po" + Convert.ToString(positionX) + "," + Convert.ToString(positionX) + "," + Convert.ToString(retrieved);
             return data;
         }
 

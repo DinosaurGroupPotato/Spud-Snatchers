@@ -21,7 +21,7 @@ namespace SpudSnatch.Model.Objects
         }
         public string Serialize()
         {
-            string data = "01" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            string data = "en" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
             return data;
         }
 

@@ -11,39 +11,41 @@ namespace SpudSnatch.Model.Serialization
     interface Serialized
     {
         void AddToObjects();
-        string Serialize();
 
     }
 
     class SerializeData
     {
-        static List<Serialized> objects = new List<Serialized>();
-
         static List<string> csv = new List<string>();
 
-        public static void SerializeInfo()
+        public static void SerializeInfo(string filename)
         {
-            foreach (Serialized obj in objects)
+            csv = new List<string>();
+            csv.Add(GameController.Serialize());
+            foreach (Potato obj in GameController.potatoes)
             {
                 csv.Add(obj.Serialize());
             }
-            using (StreamWriter saveFile = File.AppendText("SaveData.txt"))
+            foreach (Enemy obj in GameController.enemies)
+            {
+                csv.Add(obj.Serialize());
+            }
+            csv.Add(GameController.homer.Serialize());
+            using (StreamWriter saveFile = File.AppendText(filename + ".txt"))
             {
                 foreach (string line in csv)
                 {
                     saveFile.WriteLine(line);
                 }
             }
-
-            //will do research and rework
         }
 
-        public static void DeserializeInfo()
+        public static void DeserializeInfo(string filename)
         {
             csv = new List<string>();
             ///implementation of choosing which type here
             ///recommend that each type start with its own 2 character identifier
-            using (StreamReader saveFile = File.OpenText("SaveData.txt"))
+            using (StreamReader saveFile = File.OpenText(filename + ".txt"))
             {
                 csv.Add(saveFile.ReadLine());
             }
@@ -51,17 +53,21 @@ namespace SpudSnatch.Model.Serialization
             foreach(string line in csv)
             {
                 string[] attr = line.Split(',');
-                if(attr[0] == "00")
+                if(attr[0] =="gc")
                 {
-                    Homer homer = new Homer(Convert.ToInt32(attr[1]), Convert.ToInt32(attr[2]));
+                    GameController.Deserialize(attr);
                 }
-                else if(attr[0] =="88")
+                else if(attr[0] == "hm")
+                {
+                    Homer.Deserialize(attr);
+                }
+                else if(attr[0] =="po")
                 {
                     Potato.Deserialize(attr);
                 }
-                else
+                else if(attr[0] == "en")
                 {
-                    GameController.levelProgress += Convert.ToInt32(attr[1]) - 1;
+                    Enemy.Deserialize(attr);
                 }
                
             }

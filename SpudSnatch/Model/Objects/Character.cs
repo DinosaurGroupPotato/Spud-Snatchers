@@ -11,5 +11,13 @@ namespace SpudSnatch.Model.Objects
     {
         public int positionX;
         public int positionY;
+
+        public int[] GetLocation()
+        {
+            int[] position = new int[2];
+            position[1] = positionX;
+            position[2] = positionY;
+            return position;
+        }
     }
 }

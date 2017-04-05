@@ -11,17 +11,18 @@ namespace SpudSnatch.Model.Objects
     {
         public void AddToObjects()
         {
-            GameController.characters.Add(this);
+            GameController.homer = this;
         }
         public string Serialize()
         {
-            string data = "00" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            string data = "hm" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
             return data;
         }
 
-        public string Deserialize()
+        public static void Deserialize(string[] line)
         {
-            throw new NotImplementedException();
+            Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
+            GameController.homer = ida;
         }
 
         public Homer(int x, int y)
