@@ -2,18 +2,28 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using SpudSnatch.Model;
+using SpudSnatch.Model.Objects;
+using System.Collections.Generic;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace SpudSnatch
 {
 
     public sealed partial class GamePage : Page
     {
-
-        // Instance variables for the GameController
-        private GameController ctrl;
-
+        
         // Timer to keep track of updates
         DispatcherTimer timer;
+
+        // Labels for score and time
+        TextBlock ScoreLabel;
+        TextBlock TimeLabel;
+
+        // Lists of image objects
+        List<Image> Potatoes;
+        // List<Image> Enemies; // (No enemies yet)
+        List<Image> Obstacles;
+        Image Homer;
 
         public GamePage()
         {
@@ -28,11 +38,42 @@ namespace SpudSnatch
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, object e)
+        private void SetUpImages()
         {
-            throw new NotImplementedException();
+            // Add potatoes
+            foreach (Potato potato in GameController.Level.potatoes)
+            {
+                Image PotatoImage = new Image();
+                PotatoImage.Margin = new Windows.UI.Xaml.Thickness(potato.positionX, potato.positionY, 0, 0);
+                PotatoImage.Width = 20;
+                PotatoImage.Height = 20;
+                PotatoImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Potato/Potato.png"));
+                Potatoes.Add(PotatoImage);
+                GameGrid.Children.Add(PotatoImage);
+            }
+            // Add Obstacles
+            foreach (Obstacle obstacle in GameController.Level.obstacles)
+            {
+                Image obstacleImage = new Image();
+                obstacleImage.Margin = new Windows.UI.Xaml.Thickness(obstacle.positionX, obstacle.positionY, 0, 0);
+                obstacleImage.Width = 150;
+                obstacleImage.Height = 100;
+                obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Platform/Platform.png"));
+                Obstacles.Add(obstacleImage);
+                GameGrid.Children.Add(obstacleImage);
+            }
+            // Add Homer
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Level.player.positionX, GameController.Level.player.positionY, 0, 0);
+            Homer.Width = 50;
+            Homer.Height = 50;
+            Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
+            GameGrid.Children.Add(Homer);
         }
 
+        private void Timer_Tick(object sender, object e)
+        {
+            // Update objects
+        }
 
     }
 }

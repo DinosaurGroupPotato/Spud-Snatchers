@@ -9,9 +9,9 @@ namespace SpudSnatch.Model.Objects
 {
     class Potato: Serialized
     {
-        int positionX;
-        int positionY;
-        bool retrieved = false;
+        public int positionX;
+        public int positionY;
+        public bool retrieved = false;
 
         public Potato(int x,int y)
         {
@@ -31,7 +31,7 @@ namespace SpudSnatch.Model.Objects
 
         public void AddToObjects()
         {
-            GameController.potatoes.Add(this);
+            //GameController.potatoes.Add(this);
         }
 
         public string Serialize()

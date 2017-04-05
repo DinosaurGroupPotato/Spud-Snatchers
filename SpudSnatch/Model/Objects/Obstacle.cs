@@ -8,8 +8,8 @@ namespace SpudSnatch.Model.Objects
 {
     class Obstacle
     {
-        int positionX;
-        int positionY;
+        public int positionX;
+        public int positionY;
         public int[] GetLocation()
         {
             int[] position = new int[2];

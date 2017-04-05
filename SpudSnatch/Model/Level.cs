@@ -9,10 +9,10 @@ namespace SpudSnatch.Model
 {
     class Level
     {
-        public static Homer player = new Homer(0, 0);
-        public static List<Potato> potatoes = new List<Potato>();
-        public static List<Character> enemies = new List<Character>();
-        public static List<Obstacle> obstacles = new List<Obstacle>();
+        public Homer player = new Homer(0, 0);
+        public List<Potato> potatoes = new List<Potato>();
+        public List<Character> enemies = new List<Character>();
+        public List<Obstacle> obstacles = new List<Obstacle>();
         public Level()
         {
             //initializes the game
