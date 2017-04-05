@@ -40,7 +40,7 @@ namespace SpudTest
         [TestMethod]
         public void TestLoad()
         {
-            SerializeData.DeserializeInfo("SaveDataTest.txt");
+            SerializeData.DeserializeInfo("SaveDataTest");
             Assert.IsTrue(GameController.levelProgress == 5 && GameController.score == 9001);
             Assert.IsTrue(Level.player.positionX == 15 && Level.player.positionY == 87);
             List<Potato> potatoes = Level.potatoes;
