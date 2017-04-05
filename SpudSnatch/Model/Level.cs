@@ -7,7 +7,7 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
-    class Level
+    public class Level
     {
         public static Homer player = new Homer(0, 0);
         public static List<Potato> potatoes = new List<Potato>();

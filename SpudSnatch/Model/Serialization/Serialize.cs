@@ -14,7 +14,7 @@ namespace SpudSnatch.Model.Serialization
 
     }
 
-    class SerializeData
+    public class SerializeData
     {
         static List<string> csv = new List<string>();
 
@@ -22,15 +22,15 @@ namespace SpudSnatch.Model.Serialization
         {
             csv = new List<string>();
             csv.Add(GameController.Serialize());
-            foreach (Potato obj in GameController.potatoes)
+            foreach (Potato obj in Level.potatoes)
             {
                 csv.Add(obj.Serialize());
             }
-            foreach (Enemy obj in GameController.enemies)
+            foreach (Enemy obj in Level.enemies)
             {
                 csv.Add(obj.Serialize());
             }
-            csv.Add(GameController.homer.Serialize());
+            csv.Add(Level.player.Serialize());
             using (StreamWriter saveFile = File.AppendText(filename + ".txt"))
             {
                 foreach (string line in csv)

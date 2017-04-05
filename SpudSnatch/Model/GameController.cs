@@ -8,7 +8,7 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
-    class GameController: Serialized
+    public class GameController: Serialized
     {
         /// <summary>
         /// merely for tracking level progress, highscroes can go here for now.
@@ -44,9 +44,9 @@ namespace SpudSnatch.Model
 
         public static void Deserialize(string[] line)
         {
-            potatoes = new List<Potato>();
-            enemies = new List<Character>();
-            obstacles = new List<Obstacle>();
+            Level.potatoes = new List<Potato>();
+            Level.enemies = new List<Character>();
+            Level.obstacles = new List<Obstacle>();
             levelProgress = Convert.ToInt32(line[1]);
             score = Convert.ToInt32(line[2]);
         }

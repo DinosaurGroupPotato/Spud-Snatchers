@@ -7,11 +7,11 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    class Potato: Serialized
+    public class Potato: Serialized
     {
-        int positionX;
-        int positionY;
-        bool retrieved = false;
+        public int positionX;
+        public int positionY;
+        public bool retrieved = false;
 
         public Potato(int x,int y)
         {
@@ -44,6 +44,7 @@ namespace SpudSnatch.Model.Objects
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
             potato.retrieved = Convert.ToBoolean(line[3]);
+            potato.AddToObjects();
         }
 
     }
