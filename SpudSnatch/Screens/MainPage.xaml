@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Height="100" Width="100" Source="Data/Homer/StaticImages/stand.jpg"/>
+        <Image x:Name="TitleScreen" Width="1280" Source="Data/ScreenBackgrounds/TitleScreen.png"/>
     </Grid>
 </Page>

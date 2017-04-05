@@ -133,6 +133,9 @@
     <None Include="SpudSnatch_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Homer\StaticImages\stand.jpg" />
+    <Content Include="Data\Objects\DamagingObstacle\fryer.gif" />
+    <Content Include="Data\ScreenBackgrounds\TitleScreen.png" />
     <Content Include="Model\Serialization\SaveData.txt" />
     <Content Include="Assets\potato.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -171,8 +174,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Enemy\Animations\" />
+    <Folder Include="Data\Enemy\StaticImages\" />
     <Folder Include="Data\Homer\Animations\" />
-    <Folder Include="Data\Homer\Static Images\" />
+    <Folder Include="Data\Objects\Platform\" />
+    <Folder Include="Data\Objects\Wall\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
