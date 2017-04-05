@@ -9,23 +9,25 @@ namespace SpudSnatch.Model.Objects
 {
     public class Homer: Character, Serialized
     {
-        public override void AddToObjects()
+        public void AddToObjects()
         {
-            throw new NotImplementedException();
+            GameController.characters.Add(this);
         }
-        public override string Serialize()
+        public string Serialize()
         {
-            throw new NotImplementedException();
+            string data = "00" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            return data;
         }
 
-        public override string Deserialize()
+        public string Deserialize()
         {
             throw new NotImplementedException();
         }
 
         public Homer(int x, int y)
         {
-            throw new NotImplementedException();
+            positionX = x;
+            positionY = y;
         }
 
         public int[] Jump()

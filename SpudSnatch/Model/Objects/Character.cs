@@ -7,20 +7,9 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Character: Serialized
+    public class Character
     {
-        public virtual void AddToObjects()
-        {
-            throw new NotImplementedException();
-        }
-        public virtual string Serialize()
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual string Deserialize()
-        {
-            throw new NotImplementedException();
-        }
+        public int positionX;
+        public int positionY;
     }
 }

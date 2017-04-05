@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpudSnatch.Model.Serialization;
+using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
@@ -16,10 +17,14 @@ namespace SpudSnatch.Model
         public Dictionary<string, int> scores;
         public static int levelProgress = 1;
         public static Level game = new Level();
+        public static int score = 0;
+        public static List<Potato> potatoes = new List<Potato>();
+        public static List<Character> characters = new List<Character>();
+        public static List<Obstacle> obstacles = new List<Obstacle>();
 
         public virtual void AddToObjects()
         {
-            throw new NotImplementedException();
+            //necessary only for the interface, not for this class
         }
         public virtual string Serialize()
         {
@@ -49,6 +54,11 @@ namespace SpudSnatch.Model
         public static void UpdateScores()
         {
             throw new NotImplementedException();
+        }
+
+        public static void IncreaseScore()
+        {
+            score += 20;
         }
     }
 }

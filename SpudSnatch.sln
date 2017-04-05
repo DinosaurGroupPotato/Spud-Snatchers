@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpudSnatch", "SpudSnatch\SpudSnatch.csproj", "{AE458C43-2849-489E-8799-5136FE8EE28A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpudTest", "UnitTestProject1\SpudTest.csproj", "{AC2DA6F7-6B35-47B1-B53A-3FD72863A09D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpudTest", "SpudTest\SpudTest.csproj", "{AC2DA6F7-6B35-47B1-B53A-3FD72863A09D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,18 +9,26 @@ namespace SpudSnatch.Model.Objects
 {
     class Enemy: Character, Serialized
     {
-        public override void AddToObjects()
+
+        public Enemy(int x, int y)
+        {
+            positionX = x;
+            positionY = y;
+        }
+        public void AddToObjects()
         {
             throw new NotImplementedException();
         }
-        public override string Serialize()
+        public string Serialize()
         {
-            throw new NotImplementedException();
+            string data = "01" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            return data;
         }
 
-        public override string Deserialize()
+        public static void Deserialize(string[] line)
         {
-            throw new NotImplementedException();
+            Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
+            enemy.AddToObjects();
         }
         public int[] Jump()
         {

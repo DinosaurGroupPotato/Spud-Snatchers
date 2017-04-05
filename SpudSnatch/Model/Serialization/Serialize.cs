@@ -12,7 +12,6 @@ namespace SpudSnatch.Model.Serialization
     {
         void AddToObjects();
         string Serialize();
-        string Deserialize();
 
     }
 
@@ -55,6 +54,10 @@ namespace SpudSnatch.Model.Serialization
                 if(attr[0] == "00")
                 {
                     Homer homer = new Homer(Convert.ToInt32(attr[1]), Convert.ToInt32(attr[2]));
+                }
+                else if(attr[0] =="88")
+                {
+                    Potato.Deserialize(attr);
                 }
                 else
                 {
