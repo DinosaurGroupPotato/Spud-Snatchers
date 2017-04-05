@@ -7,7 +7,7 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    class Enemy: Character, Serialized
+    public class Enemy: Character, Serialized
     {
 
         public Enemy(int x, int y)

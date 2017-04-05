@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpudSnatch.Model.Objects
 {
-    class Obstacle
+    public class Obstacle
     {
         public int positionX;
         public int positionY;
