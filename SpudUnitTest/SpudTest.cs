@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SpudSnatch.Model.Objects;
 using System.IO;
-using 
+using SpudSnatch.Model.Serialization;
 
 namespace SpudTest
 {
@@ -38,10 +38,6 @@ namespace SpudTest
         [TestMethod]
         public void TestLoad()
         {
-            using (StreamReader loadTest = File.OpenText("SaveDataTest.txt"))
-            {
-                
-
         }
     }
 }

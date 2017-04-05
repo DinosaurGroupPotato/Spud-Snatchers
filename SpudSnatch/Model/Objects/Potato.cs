@@ -31,7 +31,7 @@ namespace SpudSnatch.Model.Objects
 
         public void AddToObjects()
         {
-            GameController.potatoes.Add(this);
+            Level.potatoes.Add(this);
         }
 
         public string Serialize()

@@ -138,6 +138,7 @@
     <Content Include="Data\ScreenBackgrounds\TitleScreen.png" />
     <Content Include="Model\Serialization\SaveData.txt" />
     <Content Include="Assets\potato.png" />
+    <Content Include="Model\Serialization\SaveDataTest.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
