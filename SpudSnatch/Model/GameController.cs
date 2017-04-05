@@ -17,12 +17,9 @@ namespace SpudSnatch.Model
         public Dictionary<string, int> scores;
         public static int levelProgress = 1;
         public static int score = 0;
-        public static List<Potato> potatoes = new List<Potato>();
-        public static List<Character> enemies = new List<Character>();
-        public static List<Obstacle> obstacles = new List<Obstacle>();
-        private bool GameOver = false;
+        private static bool GameOver = false;
 
-        public Level Level { get; set; }
+        public static Level Level { get; set; }
 
         public GameController()
         {
@@ -47,9 +44,6 @@ namespace SpudSnatch.Model
 
         public static void Deserialize(string[] line)
         {
-            potatoes = new List<Potato>();
-            enemies = new List<Character>();
-            obstacles = new List<Obstacle>();
             levelProgress = Convert.ToInt32(line[1]);
             score = Convert.ToInt32(line[2]);
         }

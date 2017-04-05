@@ -5,15 +5,15 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity Name="df8cb8f8-7132-4414-9f2a-0a9d1067b4ac"
-            Publisher="CN=Guest PC"
+  <Identity Name="7dae873f-aae7-4f46-90a2-53c18a1f7300"
+            Publisher="CN=Superuser"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="df8cb8f8-7132-4414-9f2a-0a9d1067b4ac" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="7dae873f-aae7-4f46-90a2-53c18a1f7300" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>UnitTestProject1</DisplayName>
-    <PublisherDisplayName>Guest PC</PublisherDisplayName>
+    <DisplayName>SpudUnitTest</DisplayName>
+    <PublisherDisplayName>Superuser</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   
@@ -27,12 +27,12 @@
   <Applications>
     <Application Id="vstest.executionengine.universal.App" 
         Executable="$targetnametoken$.exe"
-        EntryPoint="UnitTestProject1.App">
+        EntryPoint="SpudUnitTest.App">
       <uap:VisualElements
-        DisplayName="UnitTestProject1"
+        DisplayName="SpudUnitTest"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="UnitTestProject1"
+        Description="SpudUnitTest"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
