@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model.Serialization
-{
-    interface Serialized
-    {
-        void AddToObjects();
-
-    }
+{ 
 
     public class SerializeData
     {

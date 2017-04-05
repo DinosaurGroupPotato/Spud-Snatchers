@@ -8,7 +8,7 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
-    public class GameController: Serialized
+    public class GameController
     {
         /// <summary>
         /// merely for tracking level progress, highscroes can go here for now.
@@ -26,10 +26,6 @@ namespace SpudSnatch.Model
             level = new Level();
         }
 
-        public virtual void AddToObjects()
-        {
-            //necessary only for the interface, not for this class
-        }
         public static string Serialize()
         {
             string data = "gc" + "," + Convert.ToString(levelProgress) + "," + Convert.ToString(score);

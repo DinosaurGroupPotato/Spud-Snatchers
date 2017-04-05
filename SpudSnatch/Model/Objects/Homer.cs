@@ -7,12 +7,8 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Homer: Character, Serialized
+    public class Homer: Character
     {
-        public void AddToObjects()
-        {
-            GameController.level.player = this;
-        }
         public string Serialize()
         {
             string data = "hm" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
@@ -22,7 +18,7 @@ namespace SpudSnatch.Model.Objects
         public static void Deserialize(string[] line)
         {
             Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            //GameController.homer = ida;
+            GameController.level.player = ida;
         }
 
         public Homer(int x, int y)
