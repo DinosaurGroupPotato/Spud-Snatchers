@@ -17,7 +17,7 @@ namespace SpudSnatch.Model.Objects
         }
         public void AddToObjects()
         {
-            throw new NotImplementedException();
+            GameController.level.enemies.Add(this);
         }
         public string Serialize()
         {

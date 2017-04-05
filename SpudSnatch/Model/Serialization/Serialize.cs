@@ -14,7 +14,7 @@ namespace SpudSnatch.Model.Serialization
 
     }
 
-    class SerializeData
+    public class SerializeData
     {
         static List<string> csv = new List<string>();
 

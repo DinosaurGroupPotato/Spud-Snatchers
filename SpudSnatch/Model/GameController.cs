@@ -8,7 +8,7 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
-    class GameController: Serialized
+    public class GameController: Serialized
     {
         /// <summary>
         /// merely for tracking level progress, highscroes can go here for now.
@@ -19,11 +19,11 @@ namespace SpudSnatch.Model
         public static int score = 0;
         private static bool GameOver = false;
 
-        public static Level Level { get; set; }
+        public static Level level { get; set; }
 
         public GameController()
         {
-            Level = new Level();
+            level = new Level();
         }
 
         public virtual void AddToObjects()

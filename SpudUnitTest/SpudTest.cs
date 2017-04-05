@@ -42,12 +42,12 @@ namespace SpudTest
         {
             SerializeData.DeserializeInfo("SaveDataTest");
             Assert.IsTrue(GameController.levelProgress == 5 && GameController.score == 9001);
-            Assert.IsTrue(Level.player.positionX == 15 && Level.player.positionY == 87);
-            List<Potato> potatoes = Level.potatoes;
+            Assert.IsTrue(GameController.level.player.positionX == 15 && GameController.level.player.positionY == 87);
+            List<Potato> potatoes = GameController.level.potatoes;
             Assert.IsTrue(potatoes[0].positionX == 5 && potatoes[0].positionY == 15 && potatoes[0].retrieved == true);
             Assert.IsTrue(potatoes[1].positionX == 9 && potatoes[1].positionY == 67 && potatoes[1].retrieved == false);
             Assert.IsTrue(potatoes[2].positionX == 0 && potatoes[2].positionY == 0 && potatoes[2].retrieved == true);
-            List<Character> enemies = Level.enemies;
+            List<Character> enemies = GameController.level.enemies;
             Assert.IsTrue(enemies[0].positionX == 5 && enemies[0].positionY == 0);
             Assert.IsTrue(enemies[1].positionX == 10 && enemies[1].positionY == 9);
         }

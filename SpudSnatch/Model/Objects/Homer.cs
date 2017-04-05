@@ -11,7 +11,7 @@ namespace SpudSnatch.Model.Objects
     {
         public void AddToObjects()
         {
-            //GameController.homer = this;
+            GameController.level.player = this;
         }
         public string Serialize()
         {
