@@ -41,7 +41,7 @@ namespace SpudSnatch
         private void SetUpImages()
         {
             // Add potatoes
-            foreach (Potato potato in GameController.level.potatoes)
+            foreach (Potato potato in GameController.level.GetPotatoes())
             {
                 Image PotatoImage = new Image();
                 PotatoImage.Margin = new Windows.UI.Xaml.Thickness(potato.positionX, potato.positionY, 0, 0);
@@ -52,7 +52,7 @@ namespace SpudSnatch
                 GameGrid.Children.Add(PotatoImage);
             }
             // Add Obstacles
-            foreach (Obstacle obstacle in GameController.level.obstacles)
+            foreach (Obstacle obstacle in GameController.level.GetObstacles())
             {
                 Image obstacleImage = new Image();
                 obstacleImage.Margin = new Windows.UI.Xaml.Thickness(obstacle.positionX, obstacle.positionY, 0, 0);
@@ -63,7 +63,7 @@ namespace SpudSnatch
                 GameGrid.Children.Add(obstacleImage);
             }
             // Add Homer
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.player.positionX, GameController.level.player.positionY, 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
             Homer.Width = 50;
             Homer.Height = 50;
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
