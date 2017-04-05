@@ -7,7 +7,7 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
-    class GamePlatform
+    class Level
     {
         Homer player = new Homer(0,0);
         public void Setup()

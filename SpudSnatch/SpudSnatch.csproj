@@ -96,8 +96,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HighScore.xaml.cs">
+      <DependentUpon>HighScore.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -111,7 +120,7 @@
     <Compile Include="Model\GameController.cs" />
     <Compile Include="Model\Objects\Homer.cs" />
     <Compile Include="Model\Objects\Obstacle.cs" />
-    <Compile Include="Model\GamePlatform.cs" />
+    <Compile Include="Model\Level.cs" />
     <Compile Include="Model\Objects\PlatformObstacle.cs" />
     <Compile Include="Model\Objects\Wall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,7 +148,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Screens\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Screens\GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\HighScore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
