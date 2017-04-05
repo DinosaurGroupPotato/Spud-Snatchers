@@ -8,7 +8,7 @@ namespace SpudTest
     [TestClass]
     public class SpudTest
     {
-        [TestMethod]
+        /*[TestMethod]
         public void TestJump()
         {
             Homer homer = new Homer(5,0);
@@ -20,9 +20,9 @@ namespace SpudTest
             int intendedland = 0;
             int initialStart = 0;
             Assert.IsTrue(max == intendedMax && last == intendedland && initialStart == start);
-        }
+        }*/
 
-        [TestMethod]
+        /*[TestMethod]
         public void TestWalk()
         {
             Homer homer = new Homer(5, 0);
@@ -32,7 +32,7 @@ namespace SpudTest
             int initialStart = 5;
             int intendedFinish = 20;
             Assert.IsTrue(finish == intendedFinish && initialStart == start);
-        }
+        }*/
 
         [TestMethod]
         public void TestLoad()
