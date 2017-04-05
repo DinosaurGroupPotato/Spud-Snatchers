@@ -31,14 +31,31 @@ namespace SpudSnatch.Model.Objects
             positionY = y;
         }
 
-        public int[] Jump()
+        public void Jump()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < 6; i++)
+            {
+                positionY += i;
+            }
+            for (int ii = 0; ii < 6; ii++)
+            {
+                positionY -= ii;
+            }
         }
 
-        public int[] Walk()
+        public void Walk(string direction)
         {
-            throw new NotImplementedException();
+            //Walking left
+            if (direction == "left")
+            {
+                positionX += 1;
+            }
+
+            //Walking right
+            else
+            {
+                positionX -= 1;
+            }
         }
     }
 }
