@@ -135,6 +135,8 @@
   <ItemGroup>
     <Content Include="Data\Homer\StaticImages\stand.jpg" />
     <Content Include="Data\Objects\DamagingObstacle\fryer.gif" />
+    <Content Include="Data\Objects\Platform\Platform.png" />
+    <Content Include="Data\Objects\Potato\Potato.png" />
     <Content Include="Data\ScreenBackgrounds\TitleScreen.png" />
     <Content Include="Model\Serialization\SaveData.txt" />
     <Content Include="Assets\potato.png" />
@@ -177,8 +179,7 @@
   <ItemGroup>
     <Folder Include="Data\Enemy\Animations\" />
     <Folder Include="Data\Enemy\StaticImages\" />
-    <Folder Include="Data\Homer\Animations\" />
-    <Folder Include="Data\Objects\Platform\" />
+    <Folder Include="Data\Homer\StaticImages\Animations\" />
     <Folder Include="Data\Objects\Wall\" />
   </ItemGroup>
   <ItemGroup>

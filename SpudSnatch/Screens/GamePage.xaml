@@ -7,7 +7,5 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="Page_Loaded">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Height="100" Width="100" Source="Data/Homer/StaticImages/stand.jpg"/>
-    </Grid>
+    <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 </Page>

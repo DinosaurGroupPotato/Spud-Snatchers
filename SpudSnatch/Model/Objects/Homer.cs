@@ -11,7 +11,7 @@ namespace SpudSnatch.Model.Objects
     {
         public void AddToObjects()
         {
-            Level.player = this;
+            //GameController.homer = this;
         }
         public string Serialize()
         {
@@ -22,7 +22,7 @@ namespace SpudSnatch.Model.Objects
         public static void Deserialize(string[] line)
         {
             Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            Level.player = ida;
+            //GameController.homer = ida;
         }
 
         public Homer(int x, int y)

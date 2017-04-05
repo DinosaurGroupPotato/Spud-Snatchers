@@ -7,7 +7,7 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Potato: Serialized
+    class Potato: Serialized
     {
         public int positionX;
         public int positionY;
@@ -31,7 +31,7 @@ namespace SpudSnatch.Model.Objects
 
         public void AddToObjects()
         {
-            Level.potatoes.Add(this);
+            //GameController.potatoes.Add(this);
         }
 
         public string Serialize()
@@ -44,7 +44,6 @@ namespace SpudSnatch.Model.Objects
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
             potato.retrieved = Convert.ToBoolean(line[3]);
-            potato.AddToObjects();
         }
 
     }

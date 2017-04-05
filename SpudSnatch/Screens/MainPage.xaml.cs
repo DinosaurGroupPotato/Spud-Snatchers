@@ -39,5 +39,10 @@ namespace SpudSnatch
         {
             throw new NotImplementedException();
         }
+
+        private void StartGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage));
+        }
     }
 }
