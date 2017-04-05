@@ -36,11 +36,14 @@ namespace SpudSnatch
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            SetUpImages();
         }
 
         private void SetUpImages()
         {
             // Add potatoes
+            Potatoes = new List<Image>();
             foreach (Potato potato in GameController.level.GetPotatoes())
             {
                 Image PotatoImage = new Image();
@@ -52,6 +55,7 @@ namespace SpudSnatch
                 GameGrid.Children.Add(PotatoImage);
             }
             // Add Obstacles
+            Obstacles = new List<Image>();
             foreach (Obstacle obstacle in GameController.level.GetObstacles())
             {
                 Image obstacleImage = new Image();
@@ -63,6 +67,7 @@ namespace SpudSnatch
                 GameGrid.Children.Add(obstacleImage);
             }
             // Add Homer
+            Homer = new Image();
             Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
             Homer.Width = 50;
             Homer.Height = 50;
