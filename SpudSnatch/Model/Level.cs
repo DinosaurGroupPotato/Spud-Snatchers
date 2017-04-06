@@ -77,5 +77,14 @@ namespace SpudSnatch.Model
                 return partialcoordinate;
             }
         }
+        public void MovePlayerLeft(Homer homer)
+        {
+            homer.positionX += 5;
+        }
+
+        public void MovePlayerRight(Homer homer)
+        {
+            homer.positionX -= 5;
+        }
     }
 }
