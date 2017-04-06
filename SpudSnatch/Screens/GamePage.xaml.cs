@@ -5,6 +5,7 @@ using SpudSnatch.Model;
 using SpudSnatch.Model.Objects;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Media.Imaging;
+using SpudSnatch.State;
 
 namespace SpudSnatch
 {
@@ -38,6 +39,7 @@ namespace SpudSnatch
             timer.Start();
 
             SetUpImages();
+            KeyboardState.InitializeKeys();
         }
 
         private void SetUpImages()
@@ -77,7 +79,50 @@ namespace SpudSnatch
 
         private void Timer_Tick(object sender, object e)
         {
-            // Update objects
+            // Update objects (using KeyBoardState)
+        }
+
+        private void UpdatePotatoes(int id)
+        {
+
+        }
+
+        private void UpdateHomer()
+        {
+
+        }
+
+        private void UpdateObjects(int id)
+        {
+
+        }
+
+        private void Page_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.E) { KeyboardState.E = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
+        }
+
+        private void Page_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.E) { KeyboardState.E = KeyState.Up; }
+            if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Up; }
         }
 
     }
