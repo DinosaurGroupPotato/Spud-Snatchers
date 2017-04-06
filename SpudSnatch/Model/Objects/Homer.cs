@@ -62,12 +62,12 @@ namespace SpudSnatch.Model.Objects
         public void Update()
         {
             bool update = false;
-            if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
+            if (KeyboardState.A == KeyState.Down || KeyboardState.Right == KeyState.Down)
             {
                 update = true;
                 Walk("left");
             }
-            if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
+            if (KeyboardState.D == KeyState.Down || KeyboardState.Left == KeyState.Down)
             {
                 update = true;
                 Walk("right");
