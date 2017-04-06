@@ -132,23 +132,25 @@ namespace SpudSnatch.SpudSnatch_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
+            _typeNameTable = new string[8];
             _typeNameTable[0] = "SpudSnatch.Screens.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "SpudSnatch.GamePage";
-            _typeNameTable[4] = "SpudSnatch.Screens.Help";
-            _typeNameTable[5] = "SpudSnatch.Screens.HighScore";
-            _typeNameTable[6] = "SpudSnatch.MainPage";
+            _typeNameTable[3] = "SpudSnatch.Screens.EndScreen";
+            _typeNameTable[4] = "SpudSnatch.GamePage";
+            _typeNameTable[5] = "SpudSnatch.Screens.Help";
+            _typeNameTable[6] = "SpudSnatch.Screens.HighScore";
+            _typeNameTable[7] = "SpudSnatch.MainPage";
 
-            _typeTable = new global::System.Type[7];
+            _typeTable = new global::System.Type[8];
             _typeTable[0] = typeof(global::SpudSnatch.Screens.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::SpudSnatch.GamePage);
-            _typeTable[4] = typeof(global::SpudSnatch.Screens.Help);
-            _typeTable[5] = typeof(global::SpudSnatch.Screens.HighScore);
-            _typeTable[6] = typeof(global::SpudSnatch.MainPage);
+            _typeTable[3] = typeof(global::SpudSnatch.Screens.EndScreen);
+            _typeTable[4] = typeof(global::SpudSnatch.GamePage);
+            _typeTable[5] = typeof(global::SpudSnatch.Screens.Help);
+            _typeTable[6] = typeof(global::SpudSnatch.Screens.HighScore);
+            _typeTable[7] = typeof(global::SpudSnatch.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -184,10 +186,11 @@ namespace SpudSnatch.SpudSnatch_XamlTypeInfo
         }
 
         private object Activate_0_About() { return new global::SpudSnatch.Screens.About(); }
-        private object Activate_3_GamePage() { return new global::SpudSnatch.GamePage(); }
-        private object Activate_4_Help() { return new global::SpudSnatch.Screens.Help(); }
-        private object Activate_5_HighScore() { return new global::SpudSnatch.Screens.HighScore(); }
-        private object Activate_6_MainPage() { return new global::SpudSnatch.MainPage(); }
+        private object Activate_3_EndScreen() { return new global::SpudSnatch.Screens.EndScreen(); }
+        private object Activate_4_GamePage() { return new global::SpudSnatch.GamePage(); }
+        private object Activate_5_Help() { return new global::SpudSnatch.Screens.Help(); }
+        private object Activate_6_HighScore() { return new global::SpudSnatch.Screens.HighScore(); }
+        private object Activate_7_MainPage() { return new global::SpudSnatch.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -214,30 +217,37 @@ namespace SpudSnatch.SpudSnatch_XamlTypeInfo
                 xamlType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  SpudSnatch.GamePage
+            case 3:   //  SpudSnatch.Screens.EndScreen
                 userType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_GamePage;
+                userType.Activator = Activate_3_EndScreen;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  SpudSnatch.Screens.Help
+            case 4:   //  SpudSnatch.GamePage
                 userType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Help;
+                userType.Activator = Activate_4_GamePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  SpudSnatch.Screens.HighScore
+            case 5:   //  SpudSnatch.Screens.Help
                 userType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_HighScore;
+                userType.Activator = Activate_5_Help;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  SpudSnatch.MainPage
+            case 6:   //  SpudSnatch.Screens.HighScore
                 userType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+                userType.Activator = Activate_6_HighScore;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  SpudSnatch.MainPage
+                userType = new global::SpudSnatch.SpudSnatch_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
