@@ -93,9 +93,11 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Highscore.cs" />
     <Compile Include="Model\Objects\Potato.cs" />
     <Compile Include="Screens\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
