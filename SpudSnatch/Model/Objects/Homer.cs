@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpudSnatch.Model.Serialization;
+using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
     public class Homer: Character
     {
+
+        public EventHandler HomerUpdated;
+
         public string Serialize()
         {
             string data = "hm" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
@@ -52,6 +56,31 @@ namespace SpudSnatch.Model.Objects
             else
             {
                 positionX -= 1;
+            }
+        }
+
+        public void Update()
+        {
+            bool update = false;
+            if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
+            {
+                update = true;
+                Walk("left");
+            }
+            if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
+            {
+                update = true;
+                Walk("right");
+            }
+            if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
+            {
+                update = true;
+                Jump();
+            }
+
+            if (update == true && HomerUpdated != null)
+            {
+                HomerUpdated(this, null);
             }
         }
     }

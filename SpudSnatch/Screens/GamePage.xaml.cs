@@ -38,6 +38,8 @@ namespace SpudSnatch
             timer.Tick += Timer_Tick;
             timer.Start();
 
+            GameController.level.player.HomerUpdated += UpdateHomer;
+
             SetUpImages();
             KeyboardState.InitializeKeys();
         }
@@ -89,17 +91,18 @@ namespace SpudSnatch
 
         }
 
-        private void UpdateHomer()
+        private void UpdateHomer(object sender, EventArgs e)
         {
-
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
         }
+
 
         private void UpdateObjects(int id)
         {
 
         }
 
-        private void Page_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void Grid_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
             if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; GameController.level.MovePlayerLeft(GameController.level.GetHomer()); }
@@ -113,7 +116,7 @@ namespace SpudSnatch
             if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
         }
 
-        private void Page_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void Grid_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Up; }
             if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Up; }
