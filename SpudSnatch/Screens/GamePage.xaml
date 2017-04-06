@@ -8,6 +8,6 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp"/>
     </Grid>
 </Page>

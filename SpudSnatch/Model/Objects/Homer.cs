@@ -36,11 +36,11 @@ namespace SpudSnatch.Model.Objects
         {
             for (int i = 0; i < 6; i++)
             {
-                positionY += i;
+                positionY -= i;
             }
-            for (int ii = 0; ii < 6; ii++)
+            for (int j = 0; j < 6; j++)
             {
-                positionY -= ii;
+                positionY += j;
             }
         }
 
@@ -65,12 +65,12 @@ namespace SpudSnatch.Model.Objects
             if (KeyboardState.A == KeyState.Down || KeyboardState.Right == KeyState.Down)
             {
                 update = true;
-                Walk("left");
+                Walk("right");
             }
             if (KeyboardState.D == KeyState.Down || KeyboardState.Left == KeyState.Down)
             {
                 update = true;
-                Walk("right");
+                Walk("left");
             }
             if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
             {
