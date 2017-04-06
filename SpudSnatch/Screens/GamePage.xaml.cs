@@ -82,8 +82,7 @@ namespace SpudSnatch
         private void Timer_Tick(object sender, object e)
         {
             // Update objects (using KeyBoardState)
-			GameController.UpdateGameController();
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
+            GameController.level.player.Update();
         }
 
         private void UpdatePotatoes(int id)
