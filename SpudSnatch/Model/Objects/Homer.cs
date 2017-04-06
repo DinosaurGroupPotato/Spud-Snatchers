@@ -49,13 +49,13 @@ namespace SpudSnatch.Model.Objects
             //Walking left
             if (direction == "left")
             {
-                positionX += 1;
+                positionX += 50;
             }
 
             //Walking right
             else
             {
-                positionX -= 1;
+                positionX -= 50;
             }
         }
 
