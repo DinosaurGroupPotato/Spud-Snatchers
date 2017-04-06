@@ -9,6 +9,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Width="1280" />
-        <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Left" Margin="259,131,0,0" VerticalAlignment="Top" Click="StartGameButton_Click"/>
+        <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Click="StartGameButton_Click"/>
     </Grid>
 </Page>
