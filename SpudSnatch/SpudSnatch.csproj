@@ -113,7 +113,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\High Scores\HighScore.cs" />
-    <Compile Include="Model\Highscore.cs" />
     <Compile Include="Model\Objects\Character.cs" />
     <Compile Include="Model\Serialization\Serialize.cs" />
     <Compile Include="Model\Objects\DamagingObstacle.cs" />
