@@ -5,8 +5,8 @@ Work Completed: Potato objects, Homer, GameController, Level, KeyboardState all 
 Known Issues: To move a Textbox in the top left was added to provide a place for input, unit tests not finished  
 Recording: https://www.youtube.com/watch?v=Apm3-VxJyow
 Expenses
-|-----------|-------------|----------------|
 |Name|Time Used| Time Left |
+|-----------|-------------|----------------:|
 |Boye| 13.25 hours| 36.75 hours left |
 |Fleisher| 14.07 hours| 35.93 hours left |
 |Longacre| 15.5 hours | 34.5 hours left |
