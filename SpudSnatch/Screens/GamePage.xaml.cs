@@ -95,26 +95,26 @@ namespace SpudSnatch
             Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
         }
 
-
         private void UpdateObjects(int id)
         {
 
         }
 
+        // Handles the key-up event and sets the values in the keyboard state accordingly
         private void Grid_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; GameController.level.MovePlayerRight(GameController.level.GetHomer()); }
+            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; }
             if (e.Key == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Down; GameController.level.MovePlayerLeft(GameController.level.GetHomer()); }
+            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Down; }
             if (e.Key == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Down; GameController.level.MovePlayerRight(GameController.level.GetHomer()); }
+            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Down; }
             if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; GameController.level.MovePlayerLeft(GameController.level.GetHomer()); }
-            if (e.Key == Windows.System.VirtualKey.E) { KeyboardState.E = KeyState.Down; }
+            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
             if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
         }
 
+        // Handles the key-down event and sets the values in the keyboard state accordingly
         private void Grid_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Up; }
@@ -125,7 +125,6 @@ namespace SpudSnatch
             if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Up; }
             if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Up; }
             if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.E) { KeyboardState.E = KeyState.Up; }
             if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Up; }
         }
 

@@ -44,33 +44,33 @@ namespace SpudSnatch.Model.Objects
             }
         }
 
-        public void Walk(string direction)
+        public void Walk(Direction dir)
         {
             //Walking left
-            if (direction == "left")
+            if (dir == Direction.Left)
             {
-                positionX += 50;
+                positionX -= 35;
             }
 
             //Walking right
-            else
+            if (dir == Direction.Right)
             {
-                positionX -= 50;
+                positionX += 35;
             }
         }
 
         public void Update()
         {
             bool update = false;
-            if (KeyboardState.A == KeyState.Down || KeyboardState.Right == KeyState.Down)
+            if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
             {
                 update = true;
-                Walk("right");
+                Walk(Direction.Left);
             }
-            if (KeyboardState.D == KeyState.Down || KeyboardState.Left == KeyState.Down)
+            if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
             {
                 update = true;
-                Walk("left");
+                Walk(Direction.Right);
             }
             if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
             {
