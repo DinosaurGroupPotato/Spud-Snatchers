@@ -13,6 +13,7 @@ namespace SpudSnatch.State
     }
     class KeyboardState
     {
+
         public static KeyState W { get; set; }
         public static KeyState A { get; set; }
         public static KeyState S { get; set; }
@@ -21,7 +22,6 @@ namespace SpudSnatch.State
         public static KeyState Left { get; set; }
         public static KeyState Down { get; set; }
         public static KeyState Right { get; set; }
-        public static KeyState E { get; set; }
         public static KeyState Space { get; set; }
 
         public static void InitializeKeys()
@@ -34,7 +34,6 @@ namespace SpudSnatch.State
             Left = KeyState.Up;
             Down = KeyState.Up;
             Right = KeyState.Up;
-            E = KeyState.Up;
             Space = KeyState.Up;
         }
 

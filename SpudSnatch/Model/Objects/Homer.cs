@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpudSnatch.Model.Serialization;
+using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
     public class Homer: Character
     {
+
+        public EventHandler HomerUpdated;
+
         public string Serialize()
         {
             string data = "hm" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
@@ -32,26 +36,51 @@ namespace SpudSnatch.Model.Objects
         {
             for (int i = 0; i < 6; i++)
             {
-                positionY += i;
+                positionY -= i;
             }
-            for (int ii = 0; ii < 6; ii++)
+            for (int j = 0; j < 6; j++)
             {
-                positionY -= ii;
+                positionY += j;
             }
         }
 
-        public void Walk(string direction)
+        public void Walk(Direction dir)
         {
             //Walking left
-            if (direction == "left")
+            if (dir == Direction.Left)
             {
-                positionX += 1;
+                positionX -= 35;
             }
 
             //Walking right
-            else
+            if (dir == Direction.Right)
             {
-                positionX -= 1;
+                positionX += 35;
+            }
+        }
+
+        public void Update()
+        {
+            bool update = false;
+            if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
+            {
+                update = true;
+                Walk(Direction.Left);
+            }
+            if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
+            {
+                update = true;
+                Walk(Direction.Right);
+            }
+            if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
+            {
+                update = true;
+                Jump();
+            }
+
+            if (update == true && HomerUpdated != null)
+            {
+                HomerUpdated(this, null);
             }
         }
     }

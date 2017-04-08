@@ -7,6 +7,15 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
+
+    public enum Direction
+    {
+        Left,
+        Right,
+        Up,
+        Down
+    }
+
     public class Character
     {
         public int positionX;

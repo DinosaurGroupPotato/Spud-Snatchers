@@ -5,7 +5,9 @@
     xmlns:local="using:SpudSnatch"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="Page_Loaded" KeyDown="Page_KeyDown" KeyUp="Page_KeyUp">
+    mc:Ignorable="d" Loaded="Page_Loaded">
 
-    <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp"/>
+    </Grid>
 </Page>
