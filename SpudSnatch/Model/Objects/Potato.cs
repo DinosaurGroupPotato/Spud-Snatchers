@@ -7,10 +7,8 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Potato
+    public class Potato : Obstacle
     {
-        public int positionX;
-        public int positionY;
         public bool retrieved = false;
 
         public Potato(int x,int y)

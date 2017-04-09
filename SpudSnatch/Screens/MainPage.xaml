@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Width="1280" />
+        <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Stretch="Fill" />
         <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Click="StartGameButton_Click"/>
     </Grid>
 </Page>
