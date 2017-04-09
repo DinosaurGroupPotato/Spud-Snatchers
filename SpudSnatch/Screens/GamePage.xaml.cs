@@ -21,9 +21,7 @@ namespace SpudSnatch
         TextBlock TimeLabel;
 
         // Lists of image objects
-        List<Image> Potatoes;
-        // List<Image> Enemies; // (No enemies yet)
-        List<Image> Obstacles;
+        List<Image> Potatoes, Obstacles, Enemies;
         Image Homer;
 
         public GamePage()
@@ -57,6 +55,18 @@ namespace SpudSnatch
                 PotatoImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Potato/Potato.png"));
                 Potatoes.Add(PotatoImage);
                 GameGrid.Children.Add(PotatoImage);
+            }
+            // Add enemies
+            Enemies = new List<Image>();
+            foreach (Enemy enemy in GameController.level.GetEnemies())
+            {
+                Image EnemyImage = new Image();
+                EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.positionX, enemy.positionY, 0, 0);
+                EnemyImage.Width = 50;
+                EnemyImage.Height = 50;
+                EnemyImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Enemy/StaticImages/Enemy_standing.png"));
+                Enemies.Add(EnemyImage);
+                GameGrid.Children.Add(EnemyImage);
             }
             // Add Obstacles
             Obstacles = new List<Image>();

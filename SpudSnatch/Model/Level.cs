@@ -18,7 +18,6 @@ namespace SpudSnatch.Model
             //initializes the game
             PlaceObjects();
             PlaceEnemies();
-            PlaceHomer();
         }
 
         public Homer GetHomer()
@@ -44,18 +43,56 @@ namespace SpudSnatch.Model
         public void PlaceObjects()
         {
             //Places platforms, potatoes, and damaging objects
+            var rand = new Random();
+            var neg = new Random();
+            for (int pot = 0; pot < 10; pot++)
+            {
+                int check_polarity = neg.Next(4);
+                if (check_polarity == 0)
+                {
+                    potatoes.Add(new Potato(rand.Next(250), rand.Next(250)));
+                }
+                else if (check_polarity == 1)
+                {
+                    potatoes.Add(new Potato(rand.Next(250), rand.Next(250) * -1));
+                }
+                else if (check_polarity == 2)
+                {
+                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250)));
+                }
+                else 
+                {
+                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250) * -1));
+                }
+            }
         }
 
         public void PlaceEnemies()
         {
             //Places enemies
-
+            var rand = new Random();
+            var neg = new Random();
+            for (int pot = 0; pot < 2; pot++)
+            {
+                int check_polarity = neg.Next(4);
+                if (check_polarity == 0)
+                {
+                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250)));
+                }
+                else if (check_polarity == 1)
+                {
+                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250) * -1));
+                }
+                else if (check_polarity == 2)
+                {
+                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250)));
+                }
+                else
+                {
+                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250) * -1));
+                }
+            }
             //Should have some way to check if they're on a platform
-        }
-
-        public void PlaceHomer()
-        {
-            //Place Homer at start location
         }
 
         public int ReturnPlayerPosition(string partial, Homer homer)

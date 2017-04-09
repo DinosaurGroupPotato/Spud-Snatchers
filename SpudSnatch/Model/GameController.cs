@@ -30,7 +30,9 @@ namespace SpudSnatch.Model
 		public static void UpdateGameController()
         {
             UpdateHomer();
+            //UpdateEnemies();
         }
+
         public static string Serialize()
         {
             string data = "gc" + "," + Convert.ToString(levelProgress) + "," + Convert.ToString(score);
@@ -73,6 +75,11 @@ namespace SpudSnatch.Model
         {
             level.ReturnPlayerPosition("x", level.GetHomer());
             level.ReturnPlayerPosition("y", level.GetHomer());
+        }
+        private static void UpdateEnemies()
+        {
+            //level.
+            throw new NotImplementedException();
         }
 
         public static void IncreaseScore()

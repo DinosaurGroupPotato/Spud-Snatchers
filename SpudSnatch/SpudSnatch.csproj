@@ -136,6 +136,7 @@
     <None Include="SpudSnatch_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Enemy\StaticImages\Enemy_standing.png" />
     <Content Include="Data\Homer\StaticImages\stand.jpg" />
     <Content Include="Data\Objects\DamagingObstacle\fryer.gif" />
     <Content Include="Data\Objects\Platform\Platform.png" />
@@ -187,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Enemy\Animations\" />
-    <Folder Include="Data\Enemy\StaticImages\" />
     <Folder Include="Data\Homer\StaticImages\Animations\" />
     <Folder Include="Data\Objects\Wall\" />
   </ItemGroup>

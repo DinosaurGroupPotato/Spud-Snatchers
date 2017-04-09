@@ -9,7 +9,10 @@ namespace SpudSnatch.Model.Objects
 {
     class Wall: Obstacle
     {
-        int positionX;
-        int positionY;
+        public Wall(int x, int y)
+        {
+            positionX = x;
+            positionY = y;
+        }
     }
 }

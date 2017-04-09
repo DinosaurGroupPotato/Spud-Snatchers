@@ -32,9 +32,38 @@ namespace SpudSnatch.Model.Objects
             throw new NotImplementedException();
         }
 
-        public int[] Walk()
+        public void Walk(Enemy Phil)
         {
-            throw new NotImplementedException();
+            var walker = new Random();
+            int direction = walker.Next(2);
+
+            if (direction == 0)
+            {
+                walkLeft(Phil);
+                Walk(Phil);
+            }
+            else
+            {
+                walkRight(Phil);
+                Walk(Phil);
+            }
+            
+        }
+
+        private void walkRight(Enemy Jack)
+        {
+            for (int steps = 0; steps < 10; steps++)
+            {
+                Jack.positionX += 1;
+            }
+        }
+
+        private void walkLeft(Enemy Toledo)
+        {
+            for (int steps = 0; steps < 10; steps++)
+            {
+                Toledo.positionX -= 1;
+            }
         }
     }
 }
