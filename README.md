@@ -7,6 +7,6 @@ Recording: https://www.youtube.com/watch?v=Apm3-VxJyow
 ## Expenses  
 | Name | Time Used | Time Left |
 |------|-----------|-----------:|
-|Boye| 13.25 hours| 36.75 hours left |
+|Boye| 13.75 hours| 36.25 hours left |
 |Fleisher| 14.07 hours| 35.93 hours left |
 |Longacre| 15.5 hours | 34.5 hours left |
