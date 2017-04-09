@@ -79,12 +79,12 @@ namespace SpudSnatch.Model
         }
         public void MovePlayerLeft(Homer homer)
         {
-            homer.positionX += 5;
+            homer.positionX += 1;
         }
 
         public void MovePlayerRight(Homer homer)
         {
-            homer.positionX -= 5;
+            homer.positionX -= 1;
         }
     }
 }
