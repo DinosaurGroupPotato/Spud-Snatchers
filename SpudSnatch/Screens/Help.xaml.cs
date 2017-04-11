@@ -26,5 +26,10 @@ namespace SpudSnatch.Screens
         {
             this.InitializeComponent();
         }
+
+        private void returnToMainPage_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }
