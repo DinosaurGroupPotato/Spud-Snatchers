@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TemplateBackground.png" Stretch="Fill" />
+        <TextBlock x:Name="Help" HorizontalAlignment="Center" Margin="0,0,950,500" TextWrapping="Wrap" Text="Help" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="72"/>
+        <Image x:Name="HelpScreen" Source="/Data/ScreenBackgrounds/HelpScreen.png" Stretch="None" />
+        
     </Grid>
 </Page>

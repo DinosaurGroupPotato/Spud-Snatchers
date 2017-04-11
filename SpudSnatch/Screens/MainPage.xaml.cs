@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SpudSnatch.Model;
+using SpudSnatch.Screens;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -43,6 +44,21 @@ namespace SpudSnatch
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));
+        }
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(About));
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Help));
+        }
+
+        private void HighScoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HighScore));
         }
     }
 }

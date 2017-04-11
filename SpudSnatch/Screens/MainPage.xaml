@@ -10,5 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Stretch="Fill" />
         <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Click="StartGameButton_Click"/>
+        <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Center" Margin="593,487,593,201" VerticalAlignment="Center" Width="94" Click="AboutButton_Click"/>
+        <Button x:Name="HelpButton" Content="Help" HorizontalAlignment="Center" Margin="593,436,593,252" VerticalAlignment="Center" Width="94" Click="HelpButton_Click"/>
+        <Button x:Name="HighScoreButton" Content="High Scores" HorizontalAlignment="Center" Margin="593,390,593,298" VerticalAlignment="Center" Width="94" Click="HighScoreButton_Click"/>
     </Grid>
 </Page>

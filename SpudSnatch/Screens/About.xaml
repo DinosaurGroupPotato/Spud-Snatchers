@@ -8,6 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TemplateBackground.png" Stretch="Fill" />
+        <TextBlock x:Name="AboutMe" HorizontalAlignment="Center" Margin="0,0,950,500" TextWrapping="Wrap" Text="About" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="72"/>
+        <TextBlock x:Name="AboutText" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="We made a thing, and we made a thing that does things. We three, two young and one old." VerticalAlignment="Center" FontFamily ="Goudy Old Style" FontSize="32"/>
     </Grid>
 </Page>

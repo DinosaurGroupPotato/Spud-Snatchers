@@ -142,6 +142,7 @@
     <Content Include="Data\Objects\Platform\Platform.png" />
     <Content Include="Data\Objects\Potato\Potato.png" />
     <Content Include="Data\ScreenBackgrounds\EasyModeEnd.jpg" />
+    <Content Include="Data\ScreenBackgrounds\HelpScreen.png" />
     <Content Include="Data\ScreenBackgrounds\TemplateBackground.png" />
     <Content Include="Data\ScreenBackgrounds\TitleScreen.png" />
     <Content Include="Model\Serialization\SaveData.txt" />
