@@ -10,11 +10,8 @@ namespace SpudSnatch.Model
 {
     public class GameController
     {
-        /// <summary>
-        /// merely for tracking level progress, highscroes can go here for now.
-        /// </summary>
 
-        public Dictionary<string, int> scores;
+        public static Dictionary<string, int> scores;
         public static int levelProgress = 1;
         public static int score = 0;
         public static string LevelDifficulty;
@@ -36,6 +33,15 @@ namespace SpudSnatch.Model
         public static string Serialize()
         {
             string data = "gc" + "," + Convert.ToString(levelProgress) + "," + Convert.ToString(score);
+            return data;
+        }
+        public static string ScoreSerialize()
+        {
+            string data = "sc";
+            foreach(string key in scores.Keys)
+            {
+                data += "," + key + "." + Convert.ToString(scores[key]);
+            }
             return data;
         }
 

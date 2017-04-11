@@ -9,9 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Stretch="Fill" />
-        <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Click="StartGameButton_Click"/>
-        <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Center" Margin="593,487,593,201" VerticalAlignment="Center" Width="94" Click="AboutButton_Click"/>
-        <Button x:Name="HelpButton" Content="Help" HorizontalAlignment="Center" Margin="593,436,593,252" VerticalAlignment="Center" Width="94" Click="HelpButton_Click"/>
-        <Button x:Name="HighScoreButton" Content="High Scores" HorizontalAlignment="Center" Margin="593,390,593,298" VerticalAlignment="Center" Width="94" Click="HighScoreButton_Click"/>
+        <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Center" Width ="100" Click="StartGameButton_Click"/>
+        <Button x:Name="AboutButton" Content="About"  Width ="100" Click="AboutButton_Click" Margin="0,489,0,199" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="HelpButton" Content="Help" Margin="0,429,0,236" Height="35" Width ="100" Click="HelpButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="HighScoreButton" Content="High Scores"  Margin="0,390,0,298"  Width ="100" Click="HighScoreButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
