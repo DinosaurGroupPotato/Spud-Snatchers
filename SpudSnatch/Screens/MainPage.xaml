@@ -10,8 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TitleScreen.png" Stretch="Fill" />
         <Button x:Name="StartGameButton" Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Center" Width ="100" Click="StartGameButton_Click" FontFamily="Goudy Old Style" FontSize="16"/>
-        <Button x:Name="AboutButton" Content="About"  Width ="100" Click="AboutButton_Click" Margin="0,489,0,199" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
+        <Button x:Name="AboutButton" Content="About" Height="35" Width ="100" Click="AboutButton_Click" Margin="0,489,0,199" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
         <Button x:Name="HelpButton" Content="Help" Margin="0,429,0,236" Height="35" Width ="100" Click="HelpButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
-        <Button x:Name="HighScoreButton" Content="High Scores"  Margin="0,390,0,298"  Width ="100" Click="HighScoreButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
+        <Button x:Name="HighScoreButton" Content="High Scores"  Margin="0,390,0,298" Height="35" Width ="100" Click="HighScoreButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
     </Grid>
 </Page>
