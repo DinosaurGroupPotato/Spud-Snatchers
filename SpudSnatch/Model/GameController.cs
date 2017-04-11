@@ -82,9 +82,16 @@ namespace SpudSnatch.Model
             throw new NotImplementedException();
         }
 
-        public static void IncreaseScore()
+        public static void IncreaseScore(bool big, bool poisoned)
         {
-            score += 20;
+            if (big)
+                score += 60;
+            else if (poisoned)
+                score = score - 20;
+            else if (poisoned && big)
+                score = score - 60;
+            else
+                score += 20;
         }
     }
 }

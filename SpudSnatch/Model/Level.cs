@@ -11,6 +11,7 @@ namespace SpudSnatch.Model
     {
         public Homer player = new Homer(0, 0);
         List<Potato> potatoes = new List<Potato>();
+        List<Potato> collectedPotatoes = new List<Potato>();
         List<Character> enemies = new List<Character>();
         List<Obstacle> obstacles = new List<Obstacle>();
         public Level()
@@ -92,6 +93,21 @@ namespace SpudSnatch.Model
                     enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250) * -1));
                 }
             }
+            for (int pot = 0; pot < potatoes.Count(); pot += 3)
+            {
+                if(pot < potatoes.Count())
+                {
+                    potatoes[pot].big = true;
+                }
+            }
+            for (int pot = 0; pot < potatoes.Count(); pot += 5)
+            {
+                if (pot < potatoes.Count())
+                {
+                    potatoes[pot].poisoned = true;
+                }
+            }
+
             //Should have some way to check if they're on a platform
         }
 

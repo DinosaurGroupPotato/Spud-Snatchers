@@ -10,6 +10,8 @@ namespace SpudSnatch.Model.Objects
     public class Potato : Obstacle
     {
         public bool retrieved = false;
+        public bool big = false;
+        public bool poisoned = false;
 
         public Potato(int x,int y)
         {
@@ -22,7 +24,7 @@ namespace SpudSnatch.Model.Objects
             if(!retrieved)
             {
                 retrieved = true;
-                GameController.IncreaseScore();
+                GameController.IncreaseScore(big, poisoned);
             }
             
         }

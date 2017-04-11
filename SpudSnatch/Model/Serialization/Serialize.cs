@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model.Serialization
-{ 
+{
 
     public class SerializeData
     {
@@ -29,10 +29,10 @@ namespace SpudSnatch.Model.Serialization
             //using (StreamWriter saveFile = File.AppendText(filename + ".txt"))
             //{
             //    foreach (string line in csv)
-             //   {
+            //   {
             //        saveFile.WriteLine(line);
             //    }
-            }
+        }
 
 
         public static void DeserializeInfo(string filename)
