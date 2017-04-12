@@ -44,7 +44,7 @@ namespace SpudTest
             csv.Add("asdfasdf");
             //using (FileStream save = new FileStream(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             //{
-            FileStream data = File.Open(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream data = File.Open(@"Data\Levels\TestLevel.txt", FileMode.Open, FileAccess.ReadWrite);
             //foreach (string line in csv)
             //wr.WriteLine(line);
 
