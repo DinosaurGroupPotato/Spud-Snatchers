@@ -72,18 +72,22 @@ namespace SpudSnatch.Model.Objects
 
         public void Update()
         {
-            if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
+            if ((KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down) && State != HomerState.Ducking)
             {
                 Walk(Direction.Left);
             }
-            if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
+            if ((KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down) && State != HomerState.Ducking)
             {
                 Walk(Direction.Right);
             }
-            if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
+            if ((KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down) && State == HomerState.Standing)
             {
                 Jump();
             }
+            //if ((KeyboardState.S == KeyState.Down || KeyboardState.Down == KeyState.Down) && State != HomerState.Ducking)
+            //{
+            //    State = HomerState.Ducking;
+            //}
 
             if (State == HomerState.Jumping)
             {
