@@ -10,8 +10,19 @@ namespace SpudSnatch.Model.Objects
 {
     public class Homer: Character
     {
+        public enum HomerState
+        {
+            Standing,
+            Jumping,
+            Ducking
+        }
+
+        public HomerState State;
+
+        public int momentumY;
 
         public EventHandler HomerUpdated;
+
 
         public string Serialize()
         {
@@ -27,20 +38,19 @@ namespace SpudSnatch.Model.Objects
 
         public Homer(int x, int y)
         {
+            ID = 0;
             positionX = x;
             positionY = y;
+            State = HomerState.Standing;
         }
 
         public Homer(){ }
         public void Jump()
         {
-            for (int i = 0; i < 6; i++)
+            if (State == HomerState.Standing)
             {
-                positionY -= i;
-            }
-            for (int j = 0; j < 6; j++)
-            {
-                positionY += j;
+                State = HomerState.Jumping;
+                momentumY = 10;
             }
         }
 
@@ -51,38 +61,38 @@ namespace SpudSnatch.Model.Objects
             if (dir == Direction.Left)
             {
                 positionX -= 7;
+                positionY -= 7;
             }
 
             //Walking right
             if (dir == Direction.Right)
             {
                 positionX += 7;
+                positionY += 7;
             }
         }
 
         public void Update()
         {
-            bool update = false;
             if (KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down)
             {
-                update = true;
                 Walk(Direction.Left);
             }
             if (KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down)
             {
-                update = true;
                 Walk(Direction.Right);
             }
             if (KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down)
             {
-                update = true;
                 Jump();
             }
 
-            if (update == true && HomerUpdated != null)
+            if (State == HomerState.Jumping)
             {
-                HomerUpdated(this, null);
+                positionY -= momentumY;
+                momentumY--;
             }
+            HomerUpdated?.Invoke(this, null);
         }
     }
 }
