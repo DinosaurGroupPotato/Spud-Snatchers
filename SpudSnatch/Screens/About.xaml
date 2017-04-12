@@ -12,5 +12,6 @@
         <TextBlock x:Name="AboutMe" HorizontalAlignment="Center" Margin="0,0,950,500" TextWrapping="Wrap" Text="About" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="72"/>
         <TextBlock x:Name="AboutText" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="We made a thing, and we made a thing that does things. We three, two young and one old." VerticalAlignment="Center" FontFamily ="Goudy Old Style" FontSize="32"/>
         <Button x:Name="returnToMainPage" Content="Go Back" HorizontalAlignment="Left" Margin="1015,603,0,0" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="32" Click="returnToMainPage_Click"/>
+        <TextBlock x:Name="creators" HorizontalAlignment="Left" Margin="379,435,0,0" TextWrapping="Wrap" Text="Created by Boye, Fleisher, and Longacre" VerticalAlignment="Top" FontFamily ="Goudy Old Style" FontSize="32"/>
     </Grid>
 </Page>

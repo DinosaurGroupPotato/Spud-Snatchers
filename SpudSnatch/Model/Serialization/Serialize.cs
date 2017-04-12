@@ -27,51 +27,55 @@ namespace SpudSnatch.Model.Serialization
                 csv.Add(obj.Serialize());
             }
             csv.Add(GameController.level.player.Serialize());
-            using (StreamWriter saveFile = File.AppendText(filename + ".txt"))
+            //  Task save = Task.Run(() =>
+            // {
+            using (StreamWriter saveFile = File.AppendText(@"C:\Users\Public\Documents\SaveData.txt"))// +filename + ".txt"))
             {
                 foreach (string line in csv)
                 {
                     saveFile.WriteLine(line);
                 }
             }
+            //});
+
         }
 
 
-    public static void DeserializeInfo(string filename)
-    {
-        csv = new List<string>();
-        ///implementation of choosing which type here
-        ///recommend that each type start with its own 2 character identifier
-        using (StreamReader saveFile = File.OpenText("..//..//..//..//" + filename + ".txt"))
+        public static void DeserializeInfo(string filename)
         {
-            csv.Add(saveFile.ReadLine());
+            csv = new List<string>();
+            ///implementation of choosing which type here
+            ///recommend that each type start with its own 2 character identifier
+            using (StreamReader saveFile = File.OpenText(@"../../../..//SaveData.txt")) // + filename + ".txt")
+            {
+                csv.Add(saveFile.ReadLine());
+            }
+
+            foreach (string line in csv)
+            {
+                string[] attr = line.Split(',');
+                if (attr[0] == "gc")
+                {
+                    GameController.Deserialize(attr);
+                }
+                else if (attr[0] == "hm")
+                {
+                    Homer.Deserialize(attr);
+                }
+                else if (attr[0] == "po")
+                {
+                    Potato.Deserialize(attr);
+                }
+                else if (attr[0] == "en")
+                {
+                    Enemy.Deserialize(attr);
+                }
+
+            }
+            ///object specific data
+            ///level progress
+            ///x,y,health
+
         }
-
-        foreach (string line in csv)
-        {
-            string[] attr = line.Split(',');
-            if (attr[0] == "gc")
-            {
-                GameController.Deserialize(attr);
-            }
-            else if (attr[0] == "hm")
-            {
-                Homer.Deserialize(attr);
-            }
-            else if (attr[0] == "po")
-            {
-                Potato.Deserialize(attr);
-            }
-            else if (attr[0] == "en")
-            {
-                Enemy.Deserialize(attr);
-            }
-
-        }
-        ///object specific data
-        ///level progress
-        ///x,y,health
-
     }
-}
 }

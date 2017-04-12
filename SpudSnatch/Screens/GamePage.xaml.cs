@@ -95,9 +95,20 @@ namespace SpudSnatch
 
             GameController.level.player.Update();
             GameController.UpdateGameController();
+            UpdateScore();
+            UpdateTime(); 
+        }
 
-            //TimeLabel.Text = GameController.Time.ToString();
-            //ScoreLabel.Text = GameController.Score.ToString();
+        private int gameTime = 0;
+        private void UpdateTime()
+        {
+            gameTime++;
+            timeDisplay.Text = Convert.ToString(gameTime);
+        }
+
+        private void UpdateScore()
+        {
+            scoreBox.Text = Convert.ToString(GameController.Score);
         }
 
         private void UpdatePotatoes(int id)
