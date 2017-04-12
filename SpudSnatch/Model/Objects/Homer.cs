@@ -46,16 +46,17 @@ namespace SpudSnatch.Model.Objects
 
         public void Walk(Direction dir)
         {
+            playerDirection = dir;
             //Walking left
             if (dir == Direction.Left)
             {
-                positionX -= 35;
+                positionX -= 7;
             }
 
             //Walking right
             if (dir == Direction.Right)
             {
-                positionX += 35;
+                positionX += 7;
             }
         }
 

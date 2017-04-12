@@ -43,6 +43,7 @@ namespace SpudSnatch.Model
 
         public void PlaceObjects()
         {
+            potatoes.Add(new Potato(150,0));
             //Places platforms, potatoes, and damaging objects
             var rand = new Random();
             var neg = new Random();
@@ -130,7 +131,7 @@ namespace SpudSnatch.Model
                 return partialcoordinate;
             }
         }
-        public void MovePlayerLeft(Homer homer)
+        /*public void MovePlayerLeft(Homer homer)
         {
             homer.positionX += 1;
         }
@@ -138,6 +139,6 @@ namespace SpudSnatch.Model
         public void MovePlayerRight(Homer homer)
         {
             homer.positionX -= 1;
-        }
+        }*/
     }
 }

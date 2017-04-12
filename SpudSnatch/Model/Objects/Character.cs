@@ -20,6 +20,7 @@ namespace SpudSnatch.Model.Objects
     {
         public int positionX;
         public int positionY;
+        public Direction playerDirection;
 
         public int[] GetLocation()
         {

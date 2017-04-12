@@ -93,8 +93,12 @@ namespace SpudSnatch.Model
 
 		public static void UpdateHomer()
         {
-            level.ReturnPlayerPosition("x", level.GetHomer());
-            level.ReturnPlayerPosition("y", level.GetHomer());
+            int xpos = level.ReturnPlayerPosition("x", level.GetHomer());
+            int ypos = level.ReturnPlayerPosition("y", level.GetHomer());
+            foreach (Potato potato in GameController.level.GetPotatoes())
+            {
+                CheckPotatoCollected(xpos, ypos, potato);
+            }
         }
         private static void UpdateEnemies()
         {
@@ -112,6 +116,14 @@ namespace SpudSnatch.Model
                 GameController.Score = GameController.Score - 60;
             else
                 GameController.Score += 20;
+        }
+
+        public static void CheckPotatoCollected(int xposit, int yposit, Potato potato)
+        {
+            if (xposit == potato.positionX && yposit == potato.positionY)
+            {
+                potato.CollectPotato();
+            }
         }
     }
 }

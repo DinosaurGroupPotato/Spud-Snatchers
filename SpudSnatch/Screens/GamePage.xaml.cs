@@ -93,6 +93,8 @@ namespace SpudSnatch
         {
             // Update objects (using KeyBoardState)
             GameController.level.player.Update();
+            GameController.UpdateGameController();
+            scoreBox.Text = Convert.ToString(GameController.Score);
         }
 
         private void UpdatePotatoes(int id)

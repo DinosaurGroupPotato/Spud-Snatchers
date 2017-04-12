@@ -137,6 +137,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Enemy\StaticImages\Enemy_standing.png" />
+    <Content Include="Data\Homer\Animations\walk\walk_left\walk_left.gif" />
+    <Content Include="Data\Homer\Animations\walk\walk_left\walk_left1.jpg" />
+    <Content Include="Data\Homer\Animations\walk\walk_left\walk_left2.jpg" />
+    <Content Include="Data\Homer\Animations\walk\walk_left\walk_left3.jpg" />
+    <Content Include="Data\Homer\Animations\walk\walk_right\walk_right.gif" />
+    <Content Include="Data\Homer\Animations\walk\walk_right\walk_right1.jpg" />
+    <Content Include="Data\Homer\Animations\walk\walk_right\walk_right2.jpg" />
+    <Content Include="Data\Homer\Animations\walk\walk_right\walk_right3.jpg" />
     <Content Include="Data\Homer\StaticImages\stand.jpg" />
     <Content Include="Data\Objects\DamagingObstacle\fryer.gif" />
     <Content Include="Data\Objects\Platform\Platform.png" />
@@ -188,7 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Enemy\Animations\" />
-    <Folder Include="Data\Homer\StaticImages\Animations\" />
     <Folder Include="Data\Objects\Wall\" />
   </ItemGroup>
   <ItemGroup>
