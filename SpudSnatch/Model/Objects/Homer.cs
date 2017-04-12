@@ -91,8 +91,13 @@ namespace SpudSnatch.Model.Objects
 
             if (State == HomerState.Jumping)
             {
-                positionY -= momentumY;
-                momentumY--;
+                //positionY += 1;
+                //while (GameController.level.GetFloor() != positionY)
+                //{
+                    positionY -= momentumY;
+                    momentumY--;
+                //}
+                //State = HomerState.Standing;
             }
             HomerUpdated?.Invoke(this, null);
         }

@@ -33,5 +33,6 @@ namespace SpudSnatch.Model.Objects
             position[1] = positionY;
             return position;
         }
+        
     }
 }
