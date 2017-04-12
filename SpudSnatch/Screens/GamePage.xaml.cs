@@ -87,6 +87,16 @@ namespace SpudSnatch
             Homer.Height = 50;
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
             GameGrid.Children.Add(Homer);
+
+            // Add Score and Time labels
+            ScoreLabel = new TextBlock();
+            ScoreLabel.HorizontalAlignment = HorizontalAlignment.Left;
+            ScoreLabel.VerticalAlignment = VerticalAlignment.Top;
+            GameGrid.Children.Add(ScoreLabel);
+            TimeLabel = new TextBlock();
+            TimeLabel.HorizontalAlignment = HorizontalAlignment.Right;
+            TimeLabel.VerticalAlignment = VerticalAlignment.Top;
+            GameGrid.Children.Add(TimeLabel);
         }
 
         private void Timer_Tick(object sender, object e)
@@ -103,12 +113,12 @@ namespace SpudSnatch
         private void UpdateTime()
         {
             gameTime++;
-            timeDisplay.Text = Convert.ToString(gameTime);
+            TimeLabel.Text = "Time: " + Convert.ToString(gameTime);
         }
 
         private void UpdateScore()
         {
-            scoreBox.Text = Convert.ToString(GameController.Score);
+            ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Score);
         }
 
         private void UpdatePotatoes(int id)
