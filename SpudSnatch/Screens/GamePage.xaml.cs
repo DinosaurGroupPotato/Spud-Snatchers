@@ -94,6 +94,19 @@ namespace SpudSnatch
             // Update objects (using KeyBoardState)
             GameController.level.player.Update();
             GameController.UpdateGameController();
+            UpdateScore();
+            UpdateTime(); 
+        }
+
+        private int gameTime = 0;
+        private void UpdateTime()
+        {
+            gameTime++;
+            timeDisplay.Text = Convert.ToString(gameTime);
+        }
+
+        private void UpdateScore()
+        {
             scoreBox.Text = Convert.ToString(GameController.Score);
         }
 
