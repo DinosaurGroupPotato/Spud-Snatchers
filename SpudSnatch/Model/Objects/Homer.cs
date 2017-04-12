@@ -61,14 +61,12 @@ namespace SpudSnatch.Model.Objects
             if (dir == Direction.Left)
             {
                 positionX -= 7;
-                positionY -= 7;
             }
 
             //Walking right
             if (dir == Direction.Right)
             {
                 positionX += 7;
-                positionY += 7;
             }
         }
 
