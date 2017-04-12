@@ -10,20 +10,34 @@ namespace SpudSnatch.Model
 {
     public class GameController
     {
-
-        public static Dictionary<string, int> scores;
-        public static int levelProgress = 1;
-        public static int score = 0;
-        public static string LevelDifficulty;
+        private static GameController instance = new GameController();
+        private static Dictionary<string, int> scores;
+        private static string LevelDifficulty;
         private static bool GameOver = false;
 
         public static Level level { get; set; }
+        public static int Score { get; set; }
 
-        public GameController()
+        public static int LevelProgress { get; set; }
+
+        private GameController()
         {
             level = new Level();
+            GameController.LevelProgress = 1;
+            GameController.Score = 0;
         }
 
+        public static GameController Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GameController();
+                }
+                return instance;
+            }
+        }
 		public static void UpdateGameController()
         {
             UpdateHomer();
@@ -32,7 +46,7 @@ namespace SpudSnatch.Model
 
         public static string Serialize()
         {
-            string data = "gc" + "," + Convert.ToString(levelProgress) + "," + Convert.ToString(score);
+            string data = "gc" + "," + Convert.ToString(GameController.LevelProgress) + "," + Convert.ToString(GameController.Score);
             return data;
         }
         public static string ScoreSerialize()
@@ -47,14 +61,14 @@ namespace SpudSnatch.Model
 
         public string LevelSerialize()
         {
-            string data = "gl" + "," + Convert.ToString(levelProgress);
+            string data = "gl" + "," + Convert.ToString(GameController.LevelProgress);
             return data;
         }
 
         public static void Deserialize(string[] line)
         {
-            levelProgress = Convert.ToInt32(line[1]);
-            score = Convert.ToInt32(line[2]);
+            GameController.LevelProgress = Convert.ToInt32(line[1]);
+            GameController.Score = Convert.ToInt32(line[2]);
         }
 
         public void LevelProgressAdvance()
@@ -91,13 +105,13 @@ namespace SpudSnatch.Model
         public static void IncreaseScore(bool big, bool poisoned)
         {
             if (big)
-                score += 60;
+                GameController.Score += 60;
             else if (poisoned)
-                score = score - 20;
+                GameController.Score = GameController.Score - 20;
             else if (poisoned && big)
-                score = score - 60;
+                GameController.Score = GameController.Score - 60;
             else
-                score += 20;
+                GameController.Score += 20;
         }
     }
 }

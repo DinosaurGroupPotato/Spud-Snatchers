@@ -24,7 +24,7 @@ namespace SpudSnatch
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        GameController game = new GameController();
+        static GameController game = GameController.Instance;
 
         public MainPage()
         {
