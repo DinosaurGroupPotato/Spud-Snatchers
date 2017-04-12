@@ -12,6 +12,8 @@ namespace SpudSnatch.Model.Objects
 
         public Enemy(int x, int y)
         {
+            ID = nextID;
+            nextID++;
             positionX = x;
             positionY = y;
         }

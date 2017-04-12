@@ -17,6 +17,7 @@ namespace SpudSnatch.Model
 
         public static Level level { get; set; }
         public static int Score { get; set; }
+        public static int Time { get; set; }
 
         public static int LevelProgress { get; set; }
 
@@ -25,6 +26,7 @@ namespace SpudSnatch.Model
             level = new Level();
             GameController.LevelProgress = 1;
             GameController.Score = 0;
+            GameController.Time = 0;
         }
 
         public static GameController Instance

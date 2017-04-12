@@ -7,14 +7,22 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Potato : Obstacle
+    public class Potato
     {
+        public static int nextID = 1;
+        public int ID;
+
+        public int positionX;
+        public int positionY;
+
         public bool retrieved = false;
         public bool big = false;
         public bool poisoned = false;
 
         public Potato(int x,int y)
         {
+            ID = nextID;
+            nextID++;
             positionX = x;
             positionY = y;
         }
