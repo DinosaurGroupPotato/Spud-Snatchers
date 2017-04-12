@@ -38,6 +38,20 @@ namespace SpudTest
         }*/
 
         [TestMethod]
+        public void TestSave()
+        {
+            List<string> csv = new List<string>();
+            csv.Add("asdfasdf");
+            //using (FileStream save = new FileStream(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            //{
+            FileStream data = File.Open(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            //foreach (string line in csv)
+            //wr.WriteLine(line);
+
+        }
+
+
+        [TestMethod]
         public void TestLoad()
         {
             SerializeData.DeserializeInfo("SaveDataTest");
