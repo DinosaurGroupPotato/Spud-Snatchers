@@ -18,6 +18,10 @@ namespace SpudSnatch.Model.Objects
 
     public class Character
     {
+
+        public static int nextID = 1;
+
+        public int ID;
         public int positionX;
         public int positionY;
         public Direction playerDirection;

@@ -37,7 +37,7 @@ namespace SpudSnatch
             timer.Start();
 
             GameController.level.player.HomerUpdated += UpdateHomer;
-
+            
             SetUpImages();
             KeyboardState.InitializeKeys();
         }
@@ -92,8 +92,22 @@ namespace SpudSnatch
         private void Timer_Tick(object sender, object e)
         {
             // Update objects (using KeyBoardState)
+
             GameController.level.player.Update();
             GameController.UpdateGameController();
+            UpdateScore();
+            UpdateTime(); 
+        }
+
+        private int gameTime = 0;
+        private void UpdateTime()
+        {
+            gameTime++;
+            timeDisplay.Text = Convert.ToString(gameTime);
+        }
+
+        private void UpdateScore()
+        {
             scoreBox.Text = Convert.ToString(GameController.Score);
         }
 
