@@ -46,7 +46,7 @@ namespace SpudSnatch.Model.Serialization
             csv = new List<string>();
             ///implementation of choosing which type here
             ///recommend that each type start with its own 2 character identifier
-            using (StreamReader saveFile = File.OpenText(@"../../../..//SaveData.txt")) // + filename + ".txt"))
+            using (StreamReader saveFile = File.OpenText(@"../../../..//SaveData.txt")) // + filename + ".txt")
             {
                 csv.Add(saveFile.ReadLine());
             }
