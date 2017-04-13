@@ -80,21 +80,6 @@ namespace SpudSnatch.Model
             throw new NotImplementedException();
         }
 
-        public static void DisplayHighscores()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DisplayEnvironment()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void UpdateScores()
-        {
-            throw new NotImplementedException();
-        }
-
 		public static void UpdateHomer()
         {
             int xpos = level.ReturnPlayerPosition("x", level.GetHomer());
