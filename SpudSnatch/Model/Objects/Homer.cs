@@ -90,10 +90,10 @@ namespace SpudSnatch.Model.Objects
             {
                 Jump();
             }
-            //if ((KeyboardState.S == KeyState.Down || KeyboardState.Down == KeyState.Down) && State != HomerState.Ducking)
-            //{
-            //    State = HomerState.Ducking;
-            //}
+            if ((KeyboardState.S == KeyState.Down || KeyboardState.Down == KeyState.Down) && State != HomerState.Ducking)
+            {
+                State = HomerState.Ducking;
+            }
 
             if (GameController.level.GetFloor() < positionY)
             {
