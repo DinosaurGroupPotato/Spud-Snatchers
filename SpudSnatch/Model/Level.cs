@@ -74,12 +74,12 @@ namespace SpudSnatch.Model
             //Places platforms, potatoes, and damaging objects
             var rand = new Random();
             var neg = new Random();
-            for (int pot = 0; pot < 10; pot++)
+            for (int pot = 0; pot < 20; pot++)
             {
                 int check_polarity = neg.Next(4);
                 if (check_polarity == 0)
                 {
-                    potatoes.Add(new Potato(rand.Next(250), rand.Next(250)));
+                    potatoes.Add(new Potato(rand.Next(250), rand.Next(550)));
                 }
                 else if (check_polarity == 1)
                 {
@@ -128,7 +128,7 @@ namespace SpudSnatch.Model
                     potatoes[pot].big = true;
                 }
             }
-            for (int pot = 0; pot < potatoes.Count(); pot += 5)
+            for (int pot = 0; pot < potatoes.Count(); pot += 8)
             {
                 if (pot < potatoes.Count())
                 {

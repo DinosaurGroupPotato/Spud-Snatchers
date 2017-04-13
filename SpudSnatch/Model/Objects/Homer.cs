@@ -48,16 +48,19 @@ namespace SpudSnatch.Model.Objects
         {
             Homer player = GameController.level.GetHomer();
             while(!GameController.GameOver)
-            foreach (Potato tater in GameController.level.GetPotatoes())
             {
-                if(tater.positionX - 7 < player.positionX && player.positionX < tater.positionX + 7)
+                foreach (Potato tater in GameController.level.GetPotatoes())
                 {
-                    if (tater.positionY - 2 < player.positionY && player.positionY < tater.positionY + 2)
+                    if (tater.positionX - 5 < player.positionX && player.positionX < tater.positionX + 5)
                     {
-                        tater.CollectPotato();
+                        if (tater.positionY - 500 < player.positionY && player.positionY < tater.positionY + 500)
+                        {
+                            tater.CollectPotato();
+                        }
                     }
                 }
             }
+
         }
 
         public Homer(){ }
