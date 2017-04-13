@@ -112,14 +112,14 @@ namespace SpudSnatch.Model
 
         public static void IncreaseScore(bool big, bool poisoned)
         {
-            if (big && !poisoned)
-                GameController.Score += 60;
-            else if (poisoned && !big)
-                GameController.Score = GameController.Score - 20;
-            else if (poisoned && big)
-                GameController.Score = GameController.Score - 60;
-            else
-                GameController.Score += 20;
+            //if (big && !poisoned)
+            //    GameController.Score += 60;
+            //else if (poisoned && !big)
+            //    GameController.Score = GameController.Score - 20;
+            //else if (poisoned && big)
+            //    GameController.Score = GameController.Score - 60;
+            //else
+            //    GameController.Score += 20;
         }
         
         public static void CheckPotatoCollected(int xposit, int yposit, Potato potato)
