@@ -110,6 +110,10 @@ namespace SpudSnatch.Model.Objects
             {
                 State = HomerState.Ducking;
             }
+            if (KeyboardState.S == KeyState.Up && KeyboardState.Down == KeyState.Up && State == HomerState.Ducking)
+            {
+                State = HomerState.Standing;
+            }
 
             if (GameController.level.GetFloor() < positionY)
             {
