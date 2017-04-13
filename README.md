@@ -7,6 +7,6 @@ Beta Recording: https://youtu.be/HIJHsAU-sLo
 ## Expenses  
 | Name | Time Used | Time Left |
 |------|-----------|-----------:|
-|Boye| 13.75 hours| 36.25 hours left |
-|Fleisher| 14.07 hours| 35.93 hours left |
-|Longacre| 15.5 hours | 34.5 hours left |
+|Boye| 20.75 hours| 29.25 hours left |
+|Fleisher| 22.61 hours| 27.39 hours left |
+|Longacre| 22.5 hours | 27.5 hours left |
