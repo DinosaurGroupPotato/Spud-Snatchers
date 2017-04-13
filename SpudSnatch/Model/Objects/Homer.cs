@@ -97,23 +97,20 @@ namespace SpudSnatch.Model.Objects
                 return true;
             }
             //Jumping up
-            if (dir == Direction.Up)
+            if (dir == Direction.Down)
             {
                 positionY += distance;
                 if (positionY + distance > 100)
                 {
                     positionY = 0;
                     State = HomerState.Standing;
-                }
-                if (positionY == 0)
-                {
                     return false;
                 }
                 return true;
             }
 
             //Falling down
-            if (dir == Direction.Down)
+            if (dir == Direction.Up)
             {
                
                 positionY += distance;
@@ -121,9 +118,6 @@ namespace SpudSnatch.Model.Objects
                 {
                     positionY = 0;
                     State = HomerState.Standing;
-                }
-                if (positionY == 0)
-                {
                     return false;
                 }
                 return true;
@@ -159,7 +153,7 @@ namespace SpudSnatch.Model.Objects
 
             if (Walk(Direction.Up, momentumY))
             {
-                momentumY -= 3;
+                momentumY += 3;
             }
 
             HomerUpdated?.Invoke(this, null);
