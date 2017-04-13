@@ -11,7 +11,7 @@ namespace SpudSnatch.Model
     public class GameController
     {
         private static GameController instance = new GameController();
-        private static Dictionary<string, int> scores;
+        private static Dictionary<string, int> scores = new Dictionary<string, int>();
         private static string LevelDifficulty;
         private static bool GameOver = false;
 

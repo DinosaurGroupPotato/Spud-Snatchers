@@ -42,14 +42,17 @@ namespace SpudTest
         {
             List<string> csv = new List<string>();
             csv.Add("asdfasdf");
-            //using (FileStream save = new FileStream(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-            //{
-            FileStream data = File.Open(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            //foreach (string line in csv)
-            //wr.WriteLine(line);
-
+            using (StreamWriter save = File.AppendText(@"C:\Users\Shirou\Documents\Visual Studio 2015\Projects\Spud-Snatchers\SpudSnatch\Data\Saves\SaveData.txt"))
+            {
+                foreach (string line in csv)
+                    save.WriteLine(line);
+            }
+            using (StreamReader data = File.OpenText(@"C:\Users\Shirou\Documents\Visual Studio 2015\Projects\Spud-Snatchers\SpudSnatch\Data\Saves\SaveData.txt"))
+            {
+                string stuff = data.ReadLine();
+                Assert.IsTrue(stuff == csv[0]);
+            }
         }
-
 
         [TestMethod]
         public void TestLoad()

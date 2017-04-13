@@ -197,6 +197,7 @@
   <ItemGroup>
     <Folder Include="Data\Enemy\Animations\" />
     <Folder Include="Data\Objects\Wall\" />
+    <Folder Include="Data\Saves\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
