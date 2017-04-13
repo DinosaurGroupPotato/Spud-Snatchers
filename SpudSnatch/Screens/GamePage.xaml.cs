@@ -6,6 +6,7 @@ using SpudSnatch.Model.Objects;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Media.Imaging;
 using SpudSnatch.State;
+using SpudSnatch.Screens;
 
 namespace SpudSnatch
 {
@@ -141,6 +142,10 @@ namespace SpudSnatch
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Score);
+            if (GameController.Score > 100)
+            {
+                Frame.Navigate(typeof(EndScreen));
+            }
         }
 
         private void UpdatePotatoes(int id)
