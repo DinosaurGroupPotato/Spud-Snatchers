@@ -1,9 +1,9 @@
 # Spud-Snatchers
 Instructions: push the left and right keys to move (alt keys are A and D).  
-Work Completed: Potato objects, Homer, GameController, Level, KeyboardState all completed.
-      Most objects and backgrounds drawn. Serialization finished for alpha.  \
-Known Issues: To move a Textbox in the top left was added to provide a place for input, unit tests not finished  
-Recording: https://www.youtube.com/watch?v=Apm3-VxJyow  
+Work Completed: Potato objects in all forms, Score calculation, GameController, Level, KeyboardState all completed for Beta.
+      All objects and background images drawn. Homer mostly done.
+Known Issues: To move a Textbox for movement now in bottom right, jump logic is broken in this build.
+Beta Recording: https://youtu.be/HIJHsAU-sLo 
 ## Expenses  
 | Name | Time Used | Time Left |
 |------|-----------|-----------:|
