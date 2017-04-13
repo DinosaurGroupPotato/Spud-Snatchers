@@ -11,6 +11,8 @@ namespace SpudSnatch.Model.Objects
     {
         public Wall(int x, int y)
         {
+            ID = nextID;
+            nextID++;
             positionX = x;
             positionY = y;
         }

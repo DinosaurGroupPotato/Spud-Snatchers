@@ -119,7 +119,7 @@ namespace SpudSnatch.Model
             else
                 GameController.Score += 20;
         }
-
+        
         public static void CheckPotatoCollected(int xposit, int yposit, Potato potato)
         {
             if (xposit == potato.positionX && yposit == potato.positionY)

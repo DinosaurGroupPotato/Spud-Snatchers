@@ -10,10 +10,12 @@ namespace SpudSnatch.Model
     public class Level
     {
         public Homer player = new Homer(0, 0);
-        List<Potato> potatoes = new List<Potato>();
+        public List<Potato> potatoes = new List<Potato>();
         List<Potato> collectedPotatoes = new List<Potato>();
         List<Character> enemies = new List<Character>();
         List<Obstacle> obstacles = new List<Obstacle>();
+        private int floor = 0;
+
         public Level()
         {
             //initializes the game
@@ -24,6 +26,11 @@ namespace SpudSnatch.Model
         public Homer GetHomer()
         {
             return player;
+        }
+
+        public int GetFloor()
+        {
+            return floor;
         }
 
         public List<Potato> GetPotatoes()
@@ -131,14 +138,6 @@ namespace SpudSnatch.Model
                 return partialcoordinate;
             }
         }
-        /*public void MovePlayerLeft(Homer homer)
-        {
-            homer.positionX += 1;
-        }
 
-        public void MovePlayerRight(Homer homer)
-        {
-            homer.positionX -= 1;
-        }*/
     }
 }
