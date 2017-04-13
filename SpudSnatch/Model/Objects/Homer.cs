@@ -44,6 +44,22 @@ namespace SpudSnatch.Model.Objects
             State = HomerState.Standing;
         }
 
+        public static void GrabTater()
+        {
+            Homer player = GameController.level.GetHomer();
+            while(!GameController.GameOver)
+            foreach (Potato tater in GameController.level.GetPotatoes())
+            {
+                if(tater.positionX - 7 < player.positionX && player.positionX < tater.positionX + 7)
+                {
+                    if (tater.positionY - 2 < player.positionY && player.positionY < tater.positionY + 2)
+                    {
+                        tater.CollectPotato();
+                    }
+                }
+            }
+        }
+
         public Homer(){ }
         public void Jump()
         {
