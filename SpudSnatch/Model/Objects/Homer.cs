@@ -59,7 +59,7 @@ namespace SpudSnatch.Model.Objects
             return State;
         }
 
-        public void Walk(Direction dir)
+        public void Walk(Direction dir, int distance)
         {
             //Walking left
             if (dir == Direction.Left)
