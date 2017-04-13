@@ -148,6 +148,7 @@
     <Content Include="Data\Homer\Animations\walk\walk_right\walk_right2.jpg" />
     <Content Include="Data\Homer\Animations\walk\walk_right\walk_right3.jpg" />
     <Content Include="Data\Homer\StaticImages\duck.jpg" />
+    <Content Include="Data\Homer\StaticImages\jump_left.png" />
     <Content Include="Data\Homer\StaticImages\stand.jpg" />
     <Content Include="Data\Levels\TestLevel.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

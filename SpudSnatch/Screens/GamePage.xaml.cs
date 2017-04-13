@@ -120,7 +120,7 @@ namespace SpudSnatch
             switch (currentAnimation)
             {
                 case "jumping":
-                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.jpg"));
                     //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
                     break;
                 case "ducking":
