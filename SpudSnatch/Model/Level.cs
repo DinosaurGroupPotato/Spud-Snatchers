@@ -11,10 +11,10 @@ namespace SpudSnatch.Model
     {
         public Homer player = new Homer(0, 0);
         public List<Potato> potatoes = new List<Potato>();
-        List<Potato> collectedPotatoes = new List<Potato>();
-        List<Character> enemies = new List<Character>();
-        List<Obstacle> obstacles = new List<Obstacle>();
-        private int floor = 0;
+        public List<Potato> collectedPotatoes = new List<Potato>();
+        public List<Character> enemies = new List<Character>();
+        public List<Obstacle> obstacles = new List<Obstacle>();
+        private int floor = 375;
 
         public Level()
         {
@@ -31,6 +31,26 @@ namespace SpudSnatch.Model
         public int GetFloor()
         {
             return floor;
+        }
+
+        public string GetPlayerState()
+        {
+            string state = "";
+            if (player.State == Homer.HomerState.Jumping)
+            {
+                 state = "jumping";
+                return state;
+            }
+            else if (player.State == Homer.HomerState.Ducking)
+            {
+                 state = "ducking";
+                return state;
+            }
+            else
+            {
+                 state = "standing";
+                return state;
+            }
         }
 
         public List<Potato> GetPotatoes()
