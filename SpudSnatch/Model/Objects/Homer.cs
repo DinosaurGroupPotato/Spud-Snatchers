@@ -54,6 +54,11 @@ namespace SpudSnatch.Model.Objects
             }
         }
 
+        public HomerState GetHomerState()
+        {
+            return State;
+        }
+
         public void Walk(Direction dir)
         {
             playerDirection = dir;

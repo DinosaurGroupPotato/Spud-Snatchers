@@ -109,7 +109,26 @@ namespace SpudSnatch
             GameController.level.player.Update();
             GameController.UpdateGameController();
             UpdateScore();
-            UpdateTime(); 
+            UpdateTime();
+            HomerAnimations();
+        }
+
+        private void HomerAnimations()
+        {
+            string currentAnimation = GameController.level.GetPlayerState();
+            switch (currentAnimation)
+            {
+                case "jumping":
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
+                    //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
+                    break;
+                case "ducking":
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
+                    break;
+                default:
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
+                    break;
+            }
         }
 
         private int gameTime = 0;

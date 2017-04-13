@@ -33,6 +33,26 @@ namespace SpudSnatch.Model
             return floor;
         }
 
+        public string GetPlayerState()
+        {
+            string state = "";
+            if (player.State == Homer.HomerState.Jumping)
+            {
+                 state = "jumping";
+                return state;
+            }
+            else if (player.State == Homer.HomerState.Ducking)
+            {
+                 state = "ducking";
+                return state;
+            }
+            else
+            {
+                 state = "standing";
+                return state;
+            }
+        }
+
         public List<Potato> GetPotatoes()
         {
             return potatoes;
