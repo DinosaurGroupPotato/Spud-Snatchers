@@ -13,7 +13,7 @@ namespace SpudSnatch.Model
         private static GameController instance = new GameController();
         private static Dictionary<string, int> scores = new Dictionary<string, int>();
         private static string LevelDifficulty;
-        private static bool GameOver = false;
+        public static bool GameOver { get; set;}
 
         public static Level level { get; set; }
         public static int Score { get; set; }
@@ -27,6 +27,8 @@ namespace SpudSnatch.Model
             GameController.LevelProgress = 1;
             GameController.Score = 0;
             GameController.Time = 0;
+            GameOver = false;
+            Task collect = Task.Run(() => Homer.GrabTater());
         }
 
         public static GameController Instance
@@ -110,9 +112,9 @@ namespace SpudSnatch.Model
 
         public static void IncreaseScore(bool big, bool poisoned)
         {
-            if (big)
+            if (big && !poisoned)
                 GameController.Score += 60;
-            else if (poisoned)
+            else if (poisoned && !big)
                 GameController.Score = GameController.Score - 20;
             else if (poisoned && big)
                 GameController.Score = GameController.Score - 60;

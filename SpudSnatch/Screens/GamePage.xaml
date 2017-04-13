@@ -10,5 +10,6 @@
     <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp">
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TemplateBackground.png" Stretch="Fill" />
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp" FontFamily="Goudy Old Style" FontSize="18" IsReadOnly="True" />
+       
     </Grid>
 </Page>
