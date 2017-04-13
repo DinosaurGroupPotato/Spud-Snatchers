@@ -50,23 +50,24 @@ namespace SpudSnatch.Model.Objects
             if (State == HomerState.Standing)
             {
                 State = HomerState.Jumping;
-                momentumY = 10;
+                momentumY = 35;
             }
         }
 
-        public void Walk(Direction dir)
+        public void Walk(Direction dir, int distance)
         {
-            playerDirection = dir;
             //Walking left
             if (dir == Direction.Left)
             {
-                positionX -= 7;
+                playerDirection = dir;
+                positionX -= distance;
             }
 
             //Walking right
             if (dir == Direction.Right)
             {
-                positionX += 7;
+                playerDirection = dir;
+                positionX += distance;
             }
         }
 
@@ -74,11 +75,11 @@ namespace SpudSnatch.Model.Objects
         {
             if ((KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down) && State != HomerState.Ducking)
             {
-                Walk(Direction.Left);
+                Walk(Direction.Left, 15);
             }
             if ((KeyboardState.D == KeyState.Down || KeyboardState.Right == KeyState.Down) && State != HomerState.Ducking)
             {
-                Walk(Direction.Right);
+                Walk(Direction.Right, 15);
             }
             if ((KeyboardState.W == KeyState.Down || KeyboardState.Up == KeyState.Down) && State == HomerState.Standing)
             {
@@ -89,16 +90,16 @@ namespace SpudSnatch.Model.Objects
             //    State = HomerState.Ducking;
             //}
 
-            if (State == HomerState.Jumping)
+            if (GameController.level.GetFloor() < positionY)
             {
-                //positionY += 1;
-                //while (GameController.level.GetFloor() != positionY)
-                //{
-                    positionY -= momentumY;
-                    momentumY--;
-                //}
-                //State = HomerState.Standing;
+                State = HomerState.Standing;
             }
+            else
+            {
+                positionY -= momentumY;
+                momentumY -= 3;
+            }
+            
             HomerUpdated?.Invoke(this, null);
         }
     }
