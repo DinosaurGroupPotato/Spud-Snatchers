@@ -78,21 +78,40 @@ namespace SpudSnatch.Model.Objects
             return State;
         }
 
-        public void Walk(Direction dir, int distance)
+        public bool Walk(Direction dir, int distance)
         {
             //Walking left
-            if (dir == Direction.Left)
+            if (dir == Direction.Left && positionX - distance > -500)
             {
                 playerDirection = dir;
                 positionX -= distance;
+                return true;
             }
 
             //Walking right
-            if (dir == Direction.Right)
+            if (dir == Direction.Right && positionX + distance + 20 < 500)
             {
                 playerDirection = dir;
                 positionX += distance;
+                return true;
             }
+
+            //Jumping up
+            if (dir == Direction.Up && positionY - distance > 375)
+            {
+                positionY -= distance;
+                return true;
+            }
+
+            //Falling down
+            if (dir == Direction.Down && positionY + distance + 50 < 375)
+            {
+                positionY += distance;
+                return true;
+            }
+
+            return false;
+
         }
 
         public void Update()
@@ -118,13 +137,8 @@ namespace SpudSnatch.Model.Objects
                 State = HomerState.Standing;
             }
 
-            if (GameController.level.GetFloor() < positionY)
-            {
-                State = HomerState.Standing;
-            }
-            else
-            {
-                positionY -= momentumY;
+            if (Walk(Direction.Up, momentumY))
+            { 
                 momentumY -= 3;
             }
             
