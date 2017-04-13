@@ -16,7 +16,7 @@ namespace SpudSnatch
         
         // Timer to keep track of updates
         DispatcherTimer timer;
-
+        private int gameTime = 0;
         // Labels for score and time
         TextBlock ScoreLabel;
         TextBlock TimeLabel;
@@ -132,7 +132,7 @@ namespace SpudSnatch
             }
         }
 
-        private int gameTime = 0;
+
         private void UpdateTime()
         {
             gameTime++;

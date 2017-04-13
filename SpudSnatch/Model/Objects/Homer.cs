@@ -8,8 +8,9 @@ using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Homer: Character
+    public class Homer : Character
     {
+        int positionYpast;
         public enum HomerState
         {
             Standing,
@@ -47,7 +48,7 @@ namespace SpudSnatch.Model.Objects
         public static void GrabTater()
         {
             Homer player = GameController.level.GetHomer();
-            while(!GameController.GameOver)
+            while (!GameController.GameOver)
             {
                 foreach (Potato tater in GameController.level.GetPotatoes())
                 {
@@ -63,7 +64,7 @@ namespace SpudSnatch.Model.Objects
 
         }
 
-        public Homer(){ }
+        public Homer() { }
         public void Jump()
         {
             if (State == HomerState.Standing)
@@ -95,20 +96,39 @@ namespace SpudSnatch.Model.Objects
                 positionX += distance;
                 return true;
             }
-
             //Jumping up
-            if (dir == Direction.Up && positionY - distance > 375)
+            if (dir == Direction.Up)
             {
-                positionY -= distance;
+                positionY += distance;
+                if (positionY + distance > 100)
+                {
+                    positionY = 0;
+                    State = HomerState.Standing;
+                }
+                if (positionY == 0)
+                {
+                    return false;
+                }
                 return true;
             }
 
             //Falling down
-            if (dir == Direction.Down && positionY + distance + 50 < 375)
+            if (dir == Direction.Down)
             {
+               
                 positionY += distance;
+                if (positionY + distance < -100)
+                {
+                    positionY = 0;
+                    State = HomerState.Standing;
+                }
+                if (positionY == 0)
+                {
+                    return false;
+                }
                 return true;
             }
+
 
             return false;
 
@@ -138,10 +158,10 @@ namespace SpudSnatch.Model.Objects
             }
 
             if (Walk(Direction.Up, momentumY))
-            { 
+            {
                 momentumY -= 3;
             }
-            
+
             HomerUpdated?.Invoke(this, null);
         }
     }
