@@ -75,6 +75,10 @@ namespace SpudSnatch.Model
                     potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250) * -1));
                 }
             }
+
+            obstacles.Add(new PlatformObstacle(150,-200));
+            obstacles.Add(new PlatformObstacle(-300, -150));
+            obstacles.Add(new Wall(-500,-300));
         }
 
         public void PlaceEnemies()
