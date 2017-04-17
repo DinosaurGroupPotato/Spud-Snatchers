@@ -16,17 +16,17 @@ namespace SpudSnatch.Model.Serialization
         public static void SerializeInfo(string filename)
         {
             csv = new List<string>();
-            csv.Add(GameController.Serialize());
-            csv.Add(GameController.ScoreSerialize());
-            foreach (Potato obj in GameController.level.GetPotatoes())
+            csv.Add(GameController.Instance.Serialize());
+            csv.Add(GameController.Instance.ScoreSerialize());
+            foreach (Potato obj in GameController.Instance.level.GetPotatoes())
             {
                 csv.Add(obj.Serialize());
             }
-            foreach (Enemy obj in GameController.level.GetEnemies())
+            foreach (Enemy obj in GameController.Instance.level.GetEnemies())
             {
                 csv.Add(obj.Serialize());
             }
-            csv.Add(GameController.level.player.Serialize());
+            csv.Add(GameController.Instance.level.player.Serialize());
             //  Task save = Task.Run(() =>
             // {
             using (StreamWriter saveFile = File.AppendText(@"C:\Users\Public\Documents\SaveData.txt"))// +filename + ".txt"))
@@ -56,7 +56,7 @@ namespace SpudSnatch.Model.Serialization
                 string[] attr = line.Split(',');
                 if (attr[0] == "gc")
                 {
-                    GameController.Deserialize(attr);
+                    GameController.Instance.Deserialize(attr);
                 }
                 else if (attr[0] == "hm")
                 {

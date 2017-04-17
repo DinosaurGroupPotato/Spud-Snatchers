@@ -32,7 +32,7 @@ namespace SpudSnatch.Model.Objects
             if(!retrieved)
             {
                 retrieved = true;
-                GameController.IncreaseScore(big, poisoned);
+                GameController.Instance.IncreaseScore(big, poisoned);
             }
             
         }
@@ -46,7 +46,7 @@ namespace SpudSnatch.Model.Objects
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
             potato.retrieved = Convert.ToBoolean(line[3]);
-            List<Potato> potatoes = GameController.level.GetPotatoes();
+            List<Potato> potatoes = GameController.Instance.level.GetPotatoes();
             potatoes.Add(potato);
         }
 

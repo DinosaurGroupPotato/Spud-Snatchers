@@ -37,7 +37,7 @@ namespace SpudSnatch
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            GameController.level.player.HomerUpdated += UpdateHomer;
+            GameController.Instance.level.player.HomerUpdated += UpdateHomer;
             
             SetUpImages();
             KeyboardState.InitializeKeys();
@@ -47,7 +47,7 @@ namespace SpudSnatch
         {
             // Add potatoes
             Potatoes = new List<Image>();
-            foreach (Potato potato in GameController.level.GetPotatoes())
+            foreach (Potato potato in GameController.Instance.level.GetPotatoes())
             {
                 Image PotatoImage = new Image();
                 PotatoImage.Margin = new Windows.UI.Xaml.Thickness(potato.positionX, potato.positionY, 0, 0);
@@ -60,7 +60,7 @@ namespace SpudSnatch
             }
             // Add enemies
             Enemies = new List<Image>();
-            foreach (Enemy enemy in GameController.level.GetEnemies())
+            foreach (Enemy enemy in GameController.Instance.level.GetEnemies())
             {
                 Image EnemyImage = new Image();
                 EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.positionX, enemy.positionY, 0, 0);
@@ -73,7 +73,7 @@ namespace SpudSnatch
             }
             // Add Obstacles
             Obstacles = new List<Image>();
-            foreach (Obstacle obstacle in GameController.level.GetObstacles())
+            foreach (Obstacle obstacle in GameController.Instance.level.GetObstacles())
             {
                 Image obstacleImage = new Image();
                 obstacleImage.Margin = new Windows.UI.Xaml.Thickness(obstacle.positionX, obstacle.positionY, 0, 0);
@@ -86,7 +86,7 @@ namespace SpudSnatch
             }
             // Add Homer
             Homer = new Image();
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.ReturnPlayerPosition("x", GameController.Instance.level.GetHomer()), GameController.Instance.level.ReturnPlayerPosition("y", GameController.Instance.level.GetHomer()), 0, 0);
             Homer.Width = 50;
             Homer.Height = 50;
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
@@ -107,8 +107,8 @@ namespace SpudSnatch
         {
             // Update objects (using KeyBoardState)
 
-            GameController.level.player.Update();
-            GameController.UpdateGameController();
+            GameController.Instance.level.player.Update();
+            GameController.Instance.UpdateGameController();
             UpdateScore();
             UpdateTime();
             HomerAnimations();
@@ -116,7 +116,7 @@ namespace SpudSnatch
 
         private void HomerAnimations()
         {
-            string currentAnimation = GameController.level.GetPlayerState();
+            string currentAnimation = GameController.Instance.level.GetPlayerState();
             switch (currentAnimation)
             {
                 case "jumping":
@@ -141,8 +141,8 @@ namespace SpudSnatch
 
         private void UpdateScore()
         {
-            ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Score);
-            if (GameController.Score > 100)
+            ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
+            if (GameController.Instance.Score > 100)
             {
                 Frame.Navigate(typeof(EndScreen));
             }
@@ -151,11 +151,11 @@ namespace SpudSnatch
         private void UpdatePotatoes(int id)
         {
             Potato updatedPotato;
-            for (int i = 0; i < GameController.level.potatoes.Count; i++)
+            for (int i = 0; i < GameController.Instance.level.potatoes.Count; i++)
             {
-                if (GameController.level.potatoes[i].ID == id)
+                if (GameController.Instance.level.potatoes[i].ID == id)
                 {
-                    updatedPotato = GameController.level.potatoes[i];
+                    updatedPotato = GameController.Instance.level.potatoes[i];
                     break;
                 }
             }
@@ -163,7 +163,7 @@ namespace SpudSnatch
 
         private void UpdateHomer(object sender, EventArgs e)
         {
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.ReturnPlayerPosition("x", GameController.Instance.level.GetHomer()), GameController.Instance.level.ReturnPlayerPosition("y", GameController.Instance.level.GetHomer()), 0, 0);
         }
 
         private void UpdateObjects(int id)

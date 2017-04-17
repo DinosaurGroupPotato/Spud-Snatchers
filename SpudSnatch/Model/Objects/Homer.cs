@@ -34,7 +34,7 @@ namespace SpudSnatch.Model.Objects
         public static void Deserialize(string[] line)
         {
             Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            GameController.level.player = ida;
+            GameController.Instance.level.player = ida;
         }
 
         public Homer(int x, int y)
@@ -47,10 +47,10 @@ namespace SpudSnatch.Model.Objects
 
         public static void GrabTater()
         {
-            Homer player = GameController.level.GetHomer();
-            while (!GameController.GameOver)
+            Homer player = GameController.Instance.level.GetHomer();
+            while (!GameController.Instance.GameOver)
             {
-                foreach (Potato tater in GameController.level.GetPotatoes())
+                foreach (Potato tater in GameController.Instance.level.GetPotatoes())
                 {
                     if (tater.positionX - 5 < player.positionX && player.positionX < tater.positionX + 5)
                     {
