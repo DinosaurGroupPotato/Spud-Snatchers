@@ -78,9 +78,24 @@ namespace SpudSnatch
                 Image obstacleImage = new Image();
                 obstacleImage.Margin = new Windows.UI.Xaml.Thickness(obstacle.positionX, obstacle.positionY, 0, 0);
                 obstacleImage.Tag = obstacle.ID;
-                obstacleImage.Width = 150;
-                obstacleImage.Height = 100;
-                obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Platform/Platform.png"));
+                if (obstacle is PlatformObstacle)
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 100;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Platform/Platform.png"));
+                }
+                else if (obstacle is Wall)
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 150;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Wall/wall.png"));
+                }
+                else
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 100;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Window/window.png"));
+                }
                 Obstacles.Add(obstacleImage);
                 GameGrid.Children.Add(obstacleImage);
             }
