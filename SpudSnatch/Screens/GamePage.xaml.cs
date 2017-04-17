@@ -22,7 +22,7 @@ namespace SpudSnatch
         TextBlock TimeLabel;
 
         // Lists of image objects
-        List<Image> Potatoes, Obstacles, Enemies;
+        List<Image> Potatoes, Obstacles, Enemies, Platforms;
         Image Homer;
 
         public GamePage()
@@ -37,7 +37,7 @@ namespace SpudSnatch
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            GameController.Instance.level.player.HomerUpdated += UpdateHomer;
+            GameController.Instance.level.Player.HomerUpdated += UpdateHomer;
             
             SetUpImages();
             KeyboardState.InitializeKeys();
@@ -63,7 +63,7 @@ namespace SpudSnatch
             foreach (Enemy enemy in GameController.Instance.level.GetEnemies())
             {
                 Image EnemyImage = new Image();
-                EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.positionX, enemy.positionY, 0, 0);
+                EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.PositionX, enemy.PositionY, 0, 0);
                 EnemyImage.Tag = enemy.ID;
                 EnemyImage.Width = 50;
                 EnemyImage.Height = 50;
@@ -86,7 +86,7 @@ namespace SpudSnatch
             }
             // Add Homer
             Homer = new Image();
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.ReturnPlayerPosition("x", GameController.Instance.level.GetHomer()), GameController.Instance.level.ReturnPlayerPosition("y", GameController.Instance.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.Player.PositionX, GameController.Instance.level.Player.PositionY, 0, 0);
             Homer.Width = 50;
             Homer.Height = 50;
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
@@ -107,7 +107,7 @@ namespace SpudSnatch
         {
             // Update objects (using KeyBoardState)
 
-            GameController.Instance.level.player.Update();
+            GameController.Instance.level.Player.Update();
             GameController.Instance.UpdateGameController();
             UpdateScore();
             UpdateTime();
@@ -116,14 +116,13 @@ namespace SpudSnatch
 
         private void HomerAnimations()
         {
-            string currentAnimation = GameController.Instance.level.GetPlayerState();
-            switch (currentAnimation)
+            switch (GameController.Instance.level.Player.State)
             {
-                case "jumping":
+                case HomerState.Jumping:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
                     //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
                     break;
-                case "ducking":
+                case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
                     break;
                 default:
@@ -131,7 +130,6 @@ namespace SpudSnatch
                     break;
             }
         }
-
 
         private void UpdateTime()
         {
@@ -163,7 +161,7 @@ namespace SpudSnatch
 
         private void UpdateHomer(object sender, EventArgs e)
         {
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.ReturnPlayerPosition("x", GameController.Instance.level.GetHomer()), GameController.Instance.level.ReturnPlayerPosition("y", GameController.Instance.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.Player.PositionX, GameController.Instance.level.Player.PositionY, 0, 0);
         }
 
         private void UpdateObjects(int id)

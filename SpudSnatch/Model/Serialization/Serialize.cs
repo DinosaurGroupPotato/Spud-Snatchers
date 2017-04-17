@@ -26,7 +26,7 @@ namespace SpudSnatch.Model.Serialization
             {
                 csv.Add(obj.Serialize());
             }
-            csv.Add(GameController.Instance.level.player.Serialize());
+            csv.Add(GameController.Instance.level.Player.Serialize());
             //  Task save = Task.Run(() =>
             // {
             using (StreamWriter saveFile = File.AppendText(@"C:\Users\Public\Documents\SaveData.txt"))// +filename + ".txt"))
