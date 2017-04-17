@@ -142,7 +142,7 @@ namespace SpudSnatch
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
-            if (GameController.Instance.Score > 100)
+            if (GameController.Instance.Score > 1000)
             {
                 Frame.Navigate(typeof(EndScreen));
             }
