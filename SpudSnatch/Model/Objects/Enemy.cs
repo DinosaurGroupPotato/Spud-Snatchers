@@ -26,7 +26,7 @@ namespace SpudSnatch.Model.Objects
         public static void Deserialize(string[] line)
         {
             Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            List<Character> enemies = GameController.level.GetEnemies();
+            List<Character> enemies = GameController.Instance.level.GetEnemies();
             enemies.Add(enemy);
         }
         public int[] Jump()
