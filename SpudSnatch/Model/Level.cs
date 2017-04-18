@@ -50,7 +50,6 @@ namespace SpudSnatch.Model
 
         public void PlaceObjects()
         {
-            potatoes.Add(new Potato(150,0));
             //Places platforms, potatoes, and damaging objects
             var rand = new Random();
             var neg = new Random();
@@ -59,25 +58,25 @@ namespace SpudSnatch.Model
                 int check_polarity = neg.Next(4);
                 if (check_polarity == 0)
                 {
-                    potatoes.Add(new Potato(rand.Next(250), rand.Next(550)));
+                    potatoes.Add(new Potato(rand.Next(250), rand.Next(550), 20, 20));
                 }
                 else if (check_polarity == 1)
                 {
-                    potatoes.Add(new Potato(rand.Next(250), rand.Next(250) * -1));
+                    potatoes.Add(new Potato(rand.Next(250), rand.Next(250) * -1, 20, 20));
                 }
                 else if (check_polarity == 2)
                 {
-                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250)));
+                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250), 20, 20));
                 }
                 else 
                 {
-                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250) * -1));
+                    potatoes.Add(new Potato(rand.Next(250) * -1, rand.Next(250) * -1, 20, 20));
                 }
             }
 
-            obstacles.Add(new PlatformObstacle(150,-200));
-            obstacles.Add(new PlatformObstacle(-300, -150));
-            obstacles.Add(new Wall(-500,-300));
+            obstacles.Add(new PlatformObstacle(150,-200, 150, 100));
+            obstacles.Add(new PlatformObstacle(-300, -150, 150, 100));
+            obstacles.Add(new Wall(-500,-300, 150, 100));
         }
 
         public void PlaceEnemies()
@@ -90,19 +89,19 @@ namespace SpudSnatch.Model
                 int check_polarity = neg.Next(4);
                 if (check_polarity == 0)
                 {
-                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250)));
+                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250), 50, 50));
                 }
                 else if (check_polarity == 1)
                 {
-                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250) * -1));
+                    enemies.Add(new Enemy(rand.Next(250), rand.Next(250) * -1, 50, 50));
                 }
                 else if (check_polarity == 2)
                 {
-                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250)));
+                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250), 50, 50));
                 }
                 else
                 {
-                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250) * -1));
+                    enemies.Add(new Enemy(rand.Next(250) * -1, rand.Next(250) * -1, 50, 50));
                 }
             }
             for (int pot = 0; pot < potatoes.Count(); pot += 3)

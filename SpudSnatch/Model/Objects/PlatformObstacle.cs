@@ -10,12 +10,14 @@ namespace SpudSnatch.Model.Objects
     class PlatformObstacle: Obstacle
     {
 
-        public PlatformObstacle(int x, int y)
+        public PlatformObstacle(int x, int y, int width, int height)
         {
             ID = nextID;
             nextID++;
             positionX = x;
             positionY = y;
+            Width = width;
+            Height = height;
         }
     }
 }

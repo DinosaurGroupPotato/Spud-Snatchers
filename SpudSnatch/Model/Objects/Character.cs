@@ -28,11 +28,37 @@ namespace SpudSnatch.Model.Objects
         public int PositionX { get { return positionX; } set { positionX = value; } }
         private int positionY;
         public int PositionY { get { return positionY; } set { positionY = value; } }
+
+        public int Width { get; set; }
+        public int Height { get; set; }
+
         public Direction playerDirection;
 
-        //TODO: Add logic here.
-        public bool IsCollided(Character chr)
+        // Checks for collision with a character
+        public bool IsCollidedChar(Character chr)
         {
+            if (chr.PositionX >= PositionX && chr.PositionX <= PositionX + Width && chr.PositionY >= PositionY && chr.PositionY <= PositionY + Height)
+                return true;
+            if (chr.PositionX + chr.Width >= PositionX && chr.PositionX + chr.Width <= PositionX + Width && chr.PositionY >= PositionY && chr.PositionY <= PositionY + Height)
+                return true;
+            if (chr.PositionX >= PositionX && chr.PositionX <= PositionX + Width && chr.PositionY + chr.Height >= PositionY && chr.PositionY + chr.Height <= PositionY + Height)
+                return true;
+            if (chr.PositionX + chr.Width >= PositionX && chr.PositionX + chr.Width <= PositionX + Width && chr.PositionY + chr.Height >= PositionY && chr.PositionY + chr.Height <= PositionY + Height)
+                return true;
+            return false;
+        }
+
+        // Checks for collision with a obstacle
+        public bool IsCollidedObs(Obstacle obs)
+        {
+            if (obs.PositionX >= PositionX && obs.PositionX <= PositionX + Width && obs.PositionY >= PositionY && obs.PositionY <= PositionY + Height)
+                return true;
+            if (obs.PositionX + obs.Width >= PositionX && obs.PositionX + obs.Width <= PositionX + Width && obs.PositionY >= PositionY && obs.PositionY <= PositionY + Height)
+                return true;
+            if (obs.PositionX >= PositionX && obs.PositionX <= PositionX + Width && obs.PositionY + obs.Height >= PositionY && obs.PositionY + obs.Height <= PositionY + Height)
+                return true;
+            if (obs.PositionX + obs.Width >= PositionX && obs.PositionX + obs.Width <= PositionX + Width && obs.PositionY + obs.Height >= PositionY && obs.PositionY + obs.Height <= PositionY + Height)
+                return true;
             return false;
         }
         
