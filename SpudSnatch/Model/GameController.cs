@@ -85,8 +85,8 @@ namespace SpudSnatch.Model
 
 		public void UpdateHomer()
         {
-            int xpos = level.ReturnPlayerPosition("x", level.GetHomer());
-            int ypos = level.ReturnPlayerPosition("y", level.GetHomer());
+            int xpos = level.Player.PositionX;
+            int ypos = level.Player.PositionY;
             foreach (Potato potato in level.GetPotatoes())
             {
                 CheckPotatoCollected(xpos, ypos, potato);

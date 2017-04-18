@@ -56,7 +56,7 @@ namespace SpudTest
         {
             SerializeData.DeserializeInfo("SaveDataTest");
             Assert.IsTrue(GameController.LevelProgress == 5 && GameController.Score == 9001);
-            Assert.IsTrue(GameController.level.player.positionX == 15 && GameController.level.player.positionY == 87);
+            Assert.IsTrue(GameController.level.Player.positionX == 15 && GameController.level.Player.positionY == 87);
             List<Potato> potatoes = GameController.level.GetPotatoes();
             Assert.IsTrue(potatoes[0].positionX == 5 && potatoes[0].positionY == 15 && potatoes[0].retrieved == true);
             Assert.IsTrue(potatoes[1].positionX == 9 && potatoes[1].positionY == 67 && potatoes[1].retrieved == false);

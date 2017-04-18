@@ -9,7 +9,7 @@ namespace SpudSnatch.Model
 {
     public class Level
     {
-        public Homer player = new Homer(0, 0);
+        public Homer Player = new Homer(0, 0);
         public List<Potato> potatoes = new List<Potato>();
         public List<Potato> collectedPotatoes = new List<Potato>();
         public List<Character> enemies = new List<Character>();
@@ -25,7 +25,7 @@ namespace SpudSnatch.Model
 
         public Homer GetHomer()
         {
-            return player;
+            return Player;
         }
 
         public int GetFloor()
@@ -33,25 +33,6 @@ namespace SpudSnatch.Model
             return floor;
         }
 
-        public string GetPlayerState()
-        {
-            string state = "";
-            if (player.State == Homer.HomerState.Jumping)
-            {
-                 state = "jumping";
-                return state;
-            }
-            else if (player.State == Homer.HomerState.Ducking)
-            {
-                 state = "ducking";
-                return state;
-            }
-            else
-            {
-                 state = "standing";
-                return state;
-            }
-        }
 
         public List<Potato> GetPotatoes()
         {
@@ -141,26 +122,6 @@ namespace SpudSnatch.Model
             }
 
             //Should have some way to check if they're on a platform
-        }
-
-        public int ReturnPlayerPosition(string partial, Homer homer)
-        {
-            int partialcoordinate;
-            int[] fullcoordinates;
-
-            fullcoordinates = homer.GetLocation();
-
-            if (partial == "x")
-            {
-                partialcoordinate = fullcoordinates[0];
-                return partialcoordinate;
-            }
-
-            else
-            {
-                partialcoordinate = fullcoordinates[1];
-                return partialcoordinate;
-            }
         }
 
     }
