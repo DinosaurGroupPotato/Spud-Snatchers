@@ -9,6 +9,7 @@ using SpudSnatch.State;
 using SpudSnatch.Screens;
 using Windows.UI.Core;
 
+
 namespace SpudSnatch
 {
 
@@ -66,6 +67,22 @@ namespace SpudSnatch
                 PotatoImage.Width = 20;
                 PotatoImage.Height = 20;
                 PotatoImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Potato/Potato.png"));
+                if (potato.State == PotatoState.Big)
+                {
+                    PotatoImage.Width = 30;
+                    PotatoImage.Height = 30;
+                }
+                else if (potato.State == PotatoState.SmallPoisoned)
+                {
+                    PotatoImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Potato/PotatoPoisoned.png"));
+                }
+                else if (potato.State == PotatoState.BigPoisoned)
+                {
+                    PotatoImage.Width = 30;
+                    PotatoImage.Height = 30;
+                    PotatoImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Potato/PotatoPoisoned.png"));
+                }
+                
                 Potatoes.Add(PotatoImage);
                 GameGrid.Children.Add(PotatoImage);
             }
@@ -139,12 +156,31 @@ namespace SpudSnatch
             GameController.Instance.UpdateGameController();
             UpdateScore();
             UpdateTime();
+            UpdateScene();
             HomerAnimations();
             if (GameController.Instance.GameOver == true)
             {
                 passparams.Score = ScoreLabel.Text;
                 passparams.Time = TimeLabel.Text;
                 Frame.Navigate(typeof(EndScreen), passparams);
+            }
+        }
+
+        private void UpdateScene()
+        {
+            foreach(Potato tater in GameController.Instance.level.potatoes)
+            {
+                if(tater.Retrieved)
+                {
+                    foreach(Image chip in Potatoes)
+                    {
+                        if(Convert.ToInt32(chip.Tag) == tater.ID)
+                        {
+                          chip.Opacity = 0.0;
+                        }
+                    }
+                    
+                }
             }
         }
 
