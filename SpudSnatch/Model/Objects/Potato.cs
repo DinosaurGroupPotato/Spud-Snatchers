@@ -7,46 +7,49 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Potato
+    public enum PotatoState
     {
-        public static int nextID = 1;
-        public int ID;
+        Small,
+        Big,
+        SmallPoisoned,
+        BigPoisoned
+        
+    }
 
-        public int positionX;
-        public int positionY;
+    public class Potato : Character
+    {
 
-        public bool retrieved = false;
-        public bool big = false;
-        public bool poisoned = false;
+        public PotatoState State;
+        public bool Retrieved = false;
 
         public Potato(int x,int y)
         {
             ID = nextID;
             nextID++;
-            positionX = x;
-            positionY = y;
+            PositionX = x;
+            PositionY = y;
         }
 
         public void CollectPotato()
         {
-            if(!retrieved)
+            if(!Retrieved)
             {
-                retrieved = true;
-                GameController.IncreaseScore(big, poisoned);
+                Retrieved = true;
+                GameController.Instance.IncreaseScore(State);
             }
             
         }
         public string Serialize()
         {
-            string data = "po" + Convert.ToString(positionX) + "," + Convert.ToString(positionX) + "," + Convert.ToString(retrieved);
+            string data = "po" + Convert.ToString(PositionX) + "," + Convert.ToString(PositionX) + "," + Convert.ToString(Retrieved);
             return data;
         }
 
         public static void Deserialize(string[] line)
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            potato.retrieved = Convert.ToBoolean(line[3]);
-            List<Potato> potatoes = GameController.level.GetPotatoes();
+            potato.Retrieved = Convert.ToBoolean(line[3]);
+            List<Potato> potatoes = GameController.Instance.level.GetPotatoes();
             potatoes.Add(potato);
         }
 

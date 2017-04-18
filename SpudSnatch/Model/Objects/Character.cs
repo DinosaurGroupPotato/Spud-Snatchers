@@ -22,16 +22,18 @@ namespace SpudSnatch.Model.Objects
         public static int nextID = 1;
 
         public int ID;
-        public int positionX;
-        public int positionY;
+
+        // Property  and instance variables for the position
+        private int positionX;
+        public int PositionX { get { return positionX; } set { positionX = value; } }
+        private int positionY;
+        public int PositionY { get { return positionY; } set { positionY = value; } }
         public Direction playerDirection;
 
-        public int[] GetLocation()
+        //TODO: Add logic here.
+        public bool IsCollided(Character chr)
         {
-            int[] position = new int[2];
-            position[0] = positionX;
-            position[1] = positionY;
-            return position;
+            return false;
         }
         
     }

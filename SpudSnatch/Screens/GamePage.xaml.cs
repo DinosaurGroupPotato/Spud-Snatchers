@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Windows.UI.Xaml.Media.Imaging;
 using SpudSnatch.State;
 using SpudSnatch.Screens;
+using Windows.UI.Core;
 
 namespace SpudSnatch
 {
@@ -22,7 +23,7 @@ namespace SpudSnatch
         TextBlock TimeLabel;
 
         // Lists of image objects
-        List<Image> Potatoes, Obstacles, Enemies;
+        List<Image> Potatoes, Obstacles, Enemies, Platforms;
         Image Homer;
 
         public GamePage()
@@ -37,7 +38,10 @@ namespace SpudSnatch
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            GameController.level.player.HomerUpdated += UpdateHomer;
+            Window.Current.CoreWindow.KeyDown += CheckKeyDown;
+            Window.Current.CoreWindow.KeyUp += CheckKeyUp;
+
+            GameController.Instance.level.Player.HomerUpdated += UpdateHomer;
             
             SetUpImages();
             KeyboardState.InitializeKeys();
@@ -47,10 +51,10 @@ namespace SpudSnatch
         {
             // Add potatoes
             Potatoes = new List<Image>();
-            foreach (Potato potato in GameController.level.GetPotatoes())
+            foreach (Potato potato in GameController.Instance.level.GetPotatoes())
             {
                 Image PotatoImage = new Image();
-                PotatoImage.Margin = new Windows.UI.Xaml.Thickness(potato.positionX, potato.positionY, 0, 0);
+                PotatoImage.Margin = new Windows.UI.Xaml.Thickness(potato.PositionX, potato.PositionY, 0, 0);
                 PotatoImage.Tag = potato.ID;
                 PotatoImage.Width = 20;
                 PotatoImage.Height = 20;
@@ -60,10 +64,10 @@ namespace SpudSnatch
             }
             // Add enemies
             Enemies = new List<Image>();
-            foreach (Enemy enemy in GameController.level.GetEnemies())
+            foreach (Enemy enemy in GameController.Instance.level.GetEnemies())
             {
                 Image EnemyImage = new Image();
-                EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.positionX, enemy.positionY, 0, 0);
+                EnemyImage.Margin = new Windows.UI.Xaml.Thickness(enemy.PositionX, enemy.PositionY, 0, 0);
                 EnemyImage.Tag = enemy.ID;
                 EnemyImage.Width = 50;
                 EnemyImage.Height = 50;
@@ -73,20 +77,35 @@ namespace SpudSnatch
             }
             // Add Obstacles
             Obstacles = new List<Image>();
-            foreach (Obstacle obstacle in GameController.level.GetObstacles())
+            foreach (Obstacle obstacle in GameController.Instance.level.GetObstacles())
             {
                 Image obstacleImage = new Image();
                 obstacleImage.Margin = new Windows.UI.Xaml.Thickness(obstacle.positionX, obstacle.positionY, 0, 0);
                 obstacleImage.Tag = obstacle.ID;
-                obstacleImage.Width = 150;
-                obstacleImage.Height = 100;
-                obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Platform/Platform.png"));
+                if (obstacle is PlatformObstacle)
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 100;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Platform/Platform.png"));
+                }
+                else if (obstacle is Wall)
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 150;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Wall/wall.png"));
+                }
+                else
+                {
+                    obstacleImage.Width = 150;
+                    obstacleImage.Height = 100;
+                    obstacleImage.Source = new BitmapImage(new Uri("ms-appx:///Data/Objects/Window/window.png"));
+                }
                 Obstacles.Add(obstacleImage);
                 GameGrid.Children.Add(obstacleImage);
             }
             // Add Homer
             Homer = new Image();
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.Player.PositionX, GameController.Instance.level.Player.PositionY, 0, 0);
             Homer.Width = 50;
             Homer.Height = 50;
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
@@ -105,10 +124,12 @@ namespace SpudSnatch
 
         private void Timer_Tick(object sender, object e)
         {
+            // Re-focus the grid for the keyboard update methods
+
             // Update objects (using KeyBoardState)
 
-            GameController.level.player.Update();
-            GameController.UpdateGameController();
+            GameController.Instance.level.Player.Update();
+            GameController.Instance.UpdateGameController();
             UpdateScore();
             UpdateTime();
             HomerAnimations();
@@ -116,14 +137,13 @@ namespace SpudSnatch
 
         private void HomerAnimations()
         {
-            string currentAnimation = GameController.level.GetPlayerState();
-            switch (currentAnimation)
+            switch (GameController.Instance.level.Player.State)
             {
-                case "jumping":
+                case HomerState.Jumping:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
                     //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
                     break;
-                case "ducking":
+                case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
                     break;
                 default:
@@ -131,7 +151,6 @@ namespace SpudSnatch
                     break;
             }
         }
-
 
         private void UpdateTime()
         {
@@ -141,8 +160,8 @@ namespace SpudSnatch
 
         private void UpdateScore()
         {
-            ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Score);
-            if (GameController.Score > 100)
+            ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
+            if (GameController.Instance.Score > 1000)
             {
                 Frame.Navigate(typeof(EndScreen));
             }
@@ -151,11 +170,11 @@ namespace SpudSnatch
         private void UpdatePotatoes(int id)
         {
             Potato updatedPotato;
-            for (int i = 0; i < GameController.level.potatoes.Count; i++)
+            for (int i = 0; i < GameController.Instance.level.potatoes.Count; i++)
             {
-                if (GameController.level.potatoes[i].ID == id)
+                if (GameController.Instance.level.potatoes[i].ID == id)
                 {
-                    updatedPotato = GameController.level.potatoes[i];
+                    updatedPotato = GameController.Instance.level.potatoes[i];
                     break;
                 }
             }
@@ -163,7 +182,7 @@ namespace SpudSnatch
 
         private void UpdateHomer(object sender, EventArgs e)
         {
-            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.level.ReturnPlayerPosition("x", GameController.level.GetHomer()), GameController.level.ReturnPlayerPosition("y", GameController.level.GetHomer()), 0, 0);
+            Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.Player.PositionX, GameController.Instance.level.Player.PositionY, 0, 0);
         }
 
         private void UpdateObjects(int id)
@@ -172,31 +191,31 @@ namespace SpudSnatch
         }
 
         // Handles the key-up event and sets the values in the keyboard state accordingly
-        private void Grid_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void CheckKeyDown(CoreWindow sender, KeyEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
-            if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
         }
 
         // Handles the key-down event and sets the values in the keyboard state accordingly
-        private void Grid_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void CheckKeyUp(CoreWindow sender, KeyEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Up; }
-            if (e.Key == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.A) { KeyboardState.A = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.S) { KeyboardState.S = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.D) { KeyboardState.D = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Up) { KeyboardState.Up = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Left) { KeyboardState.Left = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Up; }
         }
 
     }

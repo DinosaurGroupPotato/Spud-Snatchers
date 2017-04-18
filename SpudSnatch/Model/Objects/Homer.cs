@@ -8,15 +8,16 @@ using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
-    public class Homer : Character
-    {
-        int positionYpast;
-        public enum HomerState
+
+    public enum HomerState
         {
             Standing,
             Jumping,
             Ducking
         }
+
+    public class Homer : Character
+    {
 
         public HomerState State;
 
@@ -27,34 +28,34 @@ namespace SpudSnatch.Model.Objects
 
         public string Serialize()
         {
-            string data = "hm" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            string data = "hm" + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY);
             return data;
         }
 
         public static void Deserialize(string[] line)
         {
             Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            GameController.level.player = ida;
+            GameController.Instance.level.Player = ida;
         }
 
         public Homer(int x, int y)
         {
             ID = 0;
-            positionX = x;
-            positionY = y;
+            PositionX = x;
+            PositionY = y;
             State = HomerState.Standing;
         }
 
         public static void GrabTater()
         {
-            Homer player = GameController.level.GetHomer();
-            while (!GameController.GameOver)
+            Homer player = GameController.Instance.level.GetHomer();
+            while (!GameController.Instance.GameOver)
             {
-                foreach (Potato tater in GameController.level.GetPotatoes())
+                foreach (Potato tater in GameController.Instance.level.GetPotatoes())
                 {
-                    if (tater.positionX - 5 < player.positionX && player.positionX < tater.positionX + 5)
+                    if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
                     {
-                        if (tater.positionY - 500 < player.positionY && player.positionY < tater.positionY + 500)
+                        if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
                         {
                             tater.CollectPotato();
                         }
@@ -82,27 +83,27 @@ namespace SpudSnatch.Model.Objects
         public bool Walk(Direction dir, int distance)
         {
             //Walking left
-            if (dir == Direction.Left && positionX - distance > -500)
+            if (dir == Direction.Left && PositionX - distance > -500)
             {
                 playerDirection = dir;
-                positionX -= distance;
+                PositionX -= distance;
                 return true;
             }
 
             //Walking right
-            if (dir == Direction.Right && positionX + distance + 20 < 500)
+            if (dir == Direction.Right && PositionX + distance + 20 < 500)
             {
                 playerDirection = dir;
-                positionX += distance;
+                PositionX += distance;
                 return true;
             }
             //Jumping up
             if (dir == Direction.Down)
             {
-                positionY -= distance;
-                if (positionY + distance < -200)
+                PositionY -= distance;
+                if (PositionY + distance < -200)
                 {
-                    positionY = 0;
+                    PositionY = 0;
                     State = HomerState.Standing;
                     return false;
                 }
@@ -113,10 +114,10 @@ namespace SpudSnatch.Model.Objects
             if (dir == Direction.Up)
             {
 
-                positionY += distance;
-                if (positionY + distance > 200)
+                PositionY += distance;
+                if (PositionY + distance > 200)
                 {
-                    positionY = 200;
+                    PositionY = 200;
                     State = HomerState.Standing;
                 }
                 return true;

@@ -14,19 +14,19 @@ namespace SpudSnatch.Model.Objects
         {
             ID = nextID;
             nextID++;
-            positionX = x;
-            positionY = y;
+            PositionX = x;
+            PositionY = y;
         }
         public string Serialize()
         {
-            string data = "en" + Convert.ToString(positionX) + "," + Convert.ToString(positionY);
+            string data = "en" + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY);
             return data;
         }
 
         public static void Deserialize(string[] line)
         {
             Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
-            List<Character> enemies = GameController.level.GetEnemies();
+            List<Character> enemies = GameController.Instance.level.GetEnemies();
             enemies.Add(enemy);
         }
         public int[] Jump()
@@ -56,7 +56,7 @@ namespace SpudSnatch.Model.Objects
         {
             for (int steps = 0; steps < 10; steps++)
             {
-                Jack.positionX += 1;
+                Jack.PositionX += 1;
             }
         }
 
@@ -64,7 +64,7 @@ namespace SpudSnatch.Model.Objects
         {
             for (int steps = 0; steps < 10; steps++)
             {
-                Toledo.positionX -= 1;
+                Toledo.PositionX -= 1;
             }
         }
     }
