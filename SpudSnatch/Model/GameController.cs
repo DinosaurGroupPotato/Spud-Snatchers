@@ -8,6 +8,13 @@ using SpudSnatch.Model.Objects;
 
 namespace SpudSnatch.Model
 {
+    enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
     public class GameController
     {
         private static GameController instance = new GameController();
@@ -25,7 +32,7 @@ namespace SpudSnatch.Model
 
 
         private Dictionary<string, int> scores = new Dictionary<string, int>();
-        private string LevelDifficulty;
+        private Difficulty LevelDifficulty;
         public bool GameOver { get; set;}
 
         public Level level { get; set; }
@@ -99,13 +106,13 @@ namespace SpudSnatch.Model
             throw new NotImplementedException();
         }
 
-        public void IncreaseScore(bool big, bool poisoned)
+        public void IncreaseScore(PotatoState state)
         {
-            if (big && !poisoned)
+            if (state == PotatoState.Big)
                 Score += 60;
-            else if (poisoned && !big)
+            else if (state == PotatoState.SmallPoisoned )
                 Score = Score - 20;
-            else if (poisoned && big)
+            else if (state == PotatoState.BigPoisoned)
                 Score = Score - 60;
             else
                 Score += 20;
@@ -113,7 +120,7 @@ namespace SpudSnatch.Model
         
         public void CheckPotatoCollected(int xposit, int yposit, Potato potato)
         {
-            if (xposit == potato.positionX && yposit == potato.positionY)
+            if (xposit == potato.PositionX && yposit == potato.PositionY)
             {
                 potato.CollectPotato();
             }

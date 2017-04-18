@@ -18,8 +18,6 @@ namespace SpudSnatch.Model.Objects
 
     public class Homer : Character
     {
-        int positionYpast;
-
 
         public HomerState State;
 
@@ -55,9 +53,9 @@ namespace SpudSnatch.Model.Objects
             {
                 foreach (Potato tater in GameController.Instance.level.GetPotatoes())
                 {
-                    if (tater.positionX - 5 < player.PositionX && player.PositionX < tater.positionX + 5)
+                    if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
                     {
-                        if (tater.positionY - 500 < player.PositionY && player.PositionY < tater.positionY + 500)
+                        if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
                         {
                             tater.CollectPotato();
                         }

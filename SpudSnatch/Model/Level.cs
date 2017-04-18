@@ -33,7 +33,6 @@ namespace SpudSnatch.Model
             return floor;
         }
 
-
         public List<Potato> GetPotatoes()
         {
             return potatoes;
@@ -110,14 +109,14 @@ namespace SpudSnatch.Model
             {
                 if(pot < potatoes.Count())
                 {
-                    potatoes[pot].big = true;
+                    potatoes[pot].State = PotatoState.Big;
                 }
             }
             for (int pot = 0; pot < potatoes.Count(); pot += 8)
             {
                 if (pot < potatoes.Count())
                 {
-                    potatoes[pot].poisoned = true;
+                    potatoes[pot].State = PotatoState.SmallPoisoned;
                 }
             }
 

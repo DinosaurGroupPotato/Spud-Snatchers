@@ -29,6 +29,12 @@ namespace SpudSnatch.Model.Objects
         private int positionY;
         public int PositionY { get { return positionY; } set { positionY = value; } }
         public Direction playerDirection;
+
+        //TODO: Add logic here.
+        public bool IsCollided(Character chr)
+        {
+            return false;
+        }
         
     }
 }
