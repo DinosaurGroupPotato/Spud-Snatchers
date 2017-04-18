@@ -43,7 +43,7 @@ namespace SpudSnatch
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage));
+            Frame.Navigate(typeof(LevelDifficultyScreen));
         }
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
