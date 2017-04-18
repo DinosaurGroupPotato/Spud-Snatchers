@@ -11,7 +11,7 @@
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TemplateBackground.png" Stretch="Fill" />
         <TextBlock x:Name="HelpMe" HorizontalAlignment="Center" Margin="0,0,950,500" TextWrapping="Wrap" Text="Help" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="72"/>
         <Image x:Name="HelpScreen" Source="/Data/ScreenBackgrounds/HelpScreen.png" Stretch="None" />
-        <Button x:Name="returnToMainPage" Content="Go Back" HorizontalAlignment="Left" Margin="1015,603,0,0" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="32" Click="returnToMainPage_Click"/>
-
+        <Button x:Name="returnToMainPage" Content="Go Back" HorizontalAlignment="Left" Width="190" Margin="1015,603,0,0" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="32" Click="returnToMainPage_Click"/>
+        <Button x:Name="getActualHelp" Content="Call for help?" HorizontalAlignment="Left" Margin="1015,503,0,0" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="32" Click="getActualHelp_Click"/>
     </Grid>
 </Page>

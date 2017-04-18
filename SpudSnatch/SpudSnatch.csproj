@@ -100,6 +100,9 @@
     <Compile Include="Screens\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\ActualHelp.xaml.cs">
+      <DependentUpon>ActualHelp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\EndScreen.xaml.cs">
       <DependentUpon>EndScreen.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Screens\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\ActualHelp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

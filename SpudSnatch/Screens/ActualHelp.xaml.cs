@@ -20,9 +20,9 @@ namespace SpudSnatch.Screens
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Help : Page
+    public sealed partial class ActualHelp : Page
     {
-        public Help()
+        public ActualHelp()
         {
             this.InitializeComponent();
         }
@@ -30,11 +30,6 @@ namespace SpudSnatch.Screens
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
-        }
-
-        private void getActualHelp_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(ActualHelp));
         }
     }
 }
