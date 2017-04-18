@@ -12,6 +12,12 @@ using Windows.UI.Core;
 namespace SpudSnatch
 {
 
+    public class HighScoreVariables
+    {
+        public string Score { get; set; }
+        public string Time { get; set; }
+    }
+
     public sealed partial class GamePage : Page
     {
         
@@ -21,6 +27,7 @@ namespace SpudSnatch
         // Labels for score and time
         TextBlock ScoreLabel;
         TextBlock TimeLabel;
+        HighScoreVariables passparams = new HighScoreVariables();
 
         // Lists of image objects
         List<Image> Potatoes, Obstacles, Enemies, Platforms;
@@ -133,6 +140,12 @@ namespace SpudSnatch
             UpdateScore();
             UpdateTime();
             HomerAnimations();
+            if (GameController.Instance.GameOver == true)
+            {
+                passparams.Score = ScoreLabel.Text;
+                passparams.Time = TimeLabel.Text;
+                Frame.Navigate(typeof(EndScreen), passparams);
+            }
         }
 
         private void HomerAnimations()
@@ -161,9 +174,9 @@ namespace SpudSnatch
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
-            if (GameController.Instance.Score > 1000)
+            if (GameController.Instance.Score > 300)
             {
-                Frame.Navigate(typeof(EndScreen));
+                GameController.Instance.GameOver = true;
             }
         }
 

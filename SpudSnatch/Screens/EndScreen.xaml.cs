@@ -22,9 +22,24 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class EndScreen : Page
     {
+        HighScoreVariables passmoreparams = new HighScoreVariables();
+
         public EndScreen()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            passmoreparams= (HighScoreVariables)e.Parameter;
+            
+        }
+
+        private void checkHighScore_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HighScore), passmoreparams);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace SpudSnatch.Screens
         public HighScore()
         {
             this.InitializeComponent();
+            score.Text = "Nobody wins.";
         }
 
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
