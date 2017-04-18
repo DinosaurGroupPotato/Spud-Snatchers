@@ -25,6 +25,7 @@ namespace SpudSnatch
         // Timer to keep track of updates
         DispatcherTimer timer;
         private int gameTime = 0;
+        private bool navigatedAway = false;
         // Labels for score and time
         TextBlock ScoreLabel;
         TextBlock TimeLabel;
@@ -160,6 +161,8 @@ namespace SpudSnatch
             HomerAnimations();
             if (GameController.Instance.GameOver == true)
             {
+                GameController.Instance.GameOver = false;
+                navigatedAway = true;
                 passparams.Score = ScoreLabel.Text;
                 passparams.Time = TimeLabel.Text;
                 Frame.Navigate(typeof(EndScreen), passparams);
@@ -210,7 +213,7 @@ namespace SpudSnatch
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
-            if (GameController.Instance.Score > 300)
+            if (GameController.Instance.Score > 300 && navigatedAway == false)
             {
                 GameController.Instance.GameOver = true;
             }

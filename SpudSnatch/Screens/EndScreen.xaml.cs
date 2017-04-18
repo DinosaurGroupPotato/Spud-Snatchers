@@ -34,9 +34,12 @@ namespace SpudSnatch.Screens
             base.OnNavigatedTo(e);
 
             passmoreparams= (HighScoreVariables)e.Parameter;
+
+            Score.Text = passmoreparams.Score;
+            Time.Text = passmoreparams.Time;
             
         }
-
+        
         private void checkHighScore_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HighScore), passmoreparams);
