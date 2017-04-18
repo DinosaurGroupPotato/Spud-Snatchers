@@ -22,12 +22,14 @@ namespace SpudSnatch.Model.Objects
         public PotatoState State;
         public bool Retrieved = false;
 
-        public Potato(int x,int y)
+        public Potato(int x,int y, int width, int height)
         {
             ID = nextID;
             nextID++;
             PositionX = x;
             PositionY = y;
+            Width = width;
+            Height = height;
         }
 
         public void CollectPotato()
@@ -47,7 +49,7 @@ namespace SpudSnatch.Model.Objects
 
         public static void Deserialize(string[] line)
         {
-            Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
+            Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]));
             potato.Retrieved = Convert.ToBoolean(line[3]);
             List<Potato> potatoes = GameController.Instance.level.GetPotatoes();
             potatoes.Add(potato);

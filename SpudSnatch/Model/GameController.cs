@@ -96,7 +96,10 @@ namespace SpudSnatch.Model
             int ypos = level.Player.PositionY;
             foreach (Potato potato in level.GetPotatoes())
             {
-                CheckPotatoCollected(xpos, ypos, potato);
+                if (level.Player.IsCollidedChar(potato))
+                {
+                    potato.CollectPotato();
+                }
             }
         }
 

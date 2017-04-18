@@ -14,32 +14,12 @@ namespace SpudSnatch.Model.Objects
 
         public int positionX;
         public int positionY;
-        public int[] GetLocation()
-        {
-            int[] position = new int[2];
-            position[1] = positionX;
-            position[2] = positionY;
-            return position;
-        }
 
-        public int ReturnObstaclePosition(string partial, Obstacle obs)
-        {
-            int partialcoordinate;
-            int[] fullcoordinates;
+        public int Width { get; set; }
+        public int Height { get; set; }
 
-            fullcoordinates = obs.GetLocation();
+        public int PositionX { get { return positionX; } set { positionX = value; } }
+        public int PositionY { get { return positionY; } set { positionY = value; } }
 
-            if (partial == "x")
-            {
-                partialcoordinate = fullcoordinates[0];
-                return partialcoordinate;
-            }
-
-            else
-            {
-                partialcoordinate = fullcoordinates[1];
-                return partialcoordinate;
-            }
-        }
     }
 }

@@ -10,12 +10,14 @@ namespace SpudSnatch.Model.Objects
     public class Enemy: Character
     {
 
-        public Enemy(int x, int y)
+        public Enemy(int x, int y, int width, int height)
         {
             ID = nextID;
             nextID++;
             PositionX = x;
             PositionY = y;
+            Width = width;
+            Height = height;
         }
         public string Serialize()
         {
@@ -25,7 +27,7 @@ namespace SpudSnatch.Model.Objects
 
         public static void Deserialize(string[] line)
         {
-            Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));
+            Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]));
             List<Character> enemies = GameController.Instance.level.GetEnemies();
             enemies.Add(enemy);
         }
