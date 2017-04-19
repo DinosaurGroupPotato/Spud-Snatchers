@@ -60,6 +60,7 @@ namespace SpudSnatch.Model
         {
             UpdateHomer();
             UpdateEnemies();
+            //UpdateObstacles();
         }
 
         public string Serialize()
@@ -97,8 +98,7 @@ namespace SpudSnatch.Model
 
 		public void UpdateHomer()
         {
-            int xpos = level.Player.PositionX;
-            int ypos = level.Player.PositionY;
+            level.Player.Update();
             foreach (Potato potato in level.GetPotatoes())
             {
                 if (level.Player.IsCollidedChar(potato))
@@ -137,6 +137,7 @@ namespace SpudSnatch.Model
         {
             LevelDifficulty = type;
         }
+
         public void CheckPotatoCollected(int xposit, int yposit, Potato potato)
         {
             if (xposit == potato.PositionX && yposit == potato.PositionY)
@@ -144,5 +145,6 @@ namespace SpudSnatch.Model
                 potato.CollectPotato();
             }
         }
+
     }
 }

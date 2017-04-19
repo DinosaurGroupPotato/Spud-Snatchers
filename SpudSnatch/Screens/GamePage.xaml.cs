@@ -149,16 +149,16 @@ namespace SpudSnatch
 
         private void Timer_Tick(object sender, object e)
         {
-            // Re-focus the grid for the keyboard update methods
 
             // Update objects (using KeyBoardState)
-
-            GameController.Instance.level.Player.Update();
+            
             GameController.Instance.UpdateGameController();
+
             UpdateScore();
             UpdateTime();
             UpdateScene();
             HomerAnimations();
+
             if (GameController.Instance.GameOver == true)
             {
                 GameController.Instance.ResetGame();
