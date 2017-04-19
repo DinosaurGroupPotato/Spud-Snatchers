@@ -17,6 +17,7 @@ namespace SpudSnatch
     {
         public string Score { get; set; }
         public string Time { get; set; }
+        public string Name { get; set; }
     }
 
     public sealed partial class GamePage : Page
@@ -25,14 +26,13 @@ namespace SpudSnatch
         // Timer to keep track of updates
         DispatcherTimer timer;
         private int gameTime = 0;
-        private bool navigatedAway = false;
         // Labels for score and time
         TextBlock ScoreLabel;
         TextBlock TimeLabel;
         HighScoreVariables passparams = new HighScoreVariables();
 
         // Lists of image objects
-        List<Image> Potatoes, Obstacles, Enemies, Platforms;
+        List<Image> Potatoes, Obstacles, Enemies;
         Image Homer;
 
         public GamePage()
@@ -161,8 +161,7 @@ namespace SpudSnatch
             HomerAnimations();
             if (GameController.Instance.GameOver == true)
             {
-                GameController.Instance.GameOver = false;
-                navigatedAway = true;
+                GameController.Instance.ResetGame();
                 passparams.Score = ScoreLabel.Text;
                 passparams.Time = TimeLabel.Text;
                 Frame.Navigate(typeof(EndScreen), passparams);
@@ -193,7 +192,7 @@ namespace SpudSnatch
             {
                 case HomerState.Jumping:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
-                    //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
+                    //Homer.Source = new BitmapImage(new Uri("pack:///Data/Homer/StaticImages/jump.gif"));
                     break;
                 case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
@@ -213,7 +212,7 @@ namespace SpudSnatch
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
-            if (GameController.Instance.Score > 300 && navigatedAway == false)
+            if (GameController.Instance.Score > 300)
             {
                 GameController.Instance.GameOver = true;
             }

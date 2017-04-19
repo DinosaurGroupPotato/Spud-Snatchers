@@ -11,8 +11,9 @@
         <Image x:Name="EndOfGameScreen" Source="/Data/ScreenBackgrounds/EasyModeEnd.jpg" Stretch="Fill" />
         <TextBlock x:Name="EasyEnd" TextAlignment="Center"  VerticalAlignment="Center" Text="Game Over" FontFamily="Goudy Old Style" FontSize="72" Margin="0,275,0,358"/>
         <Button x:Name="goToHighScore" Content="Check High Score" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="24" Click="checkHighScore_Click" Background="Gray"/>
-        <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="150,350,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="24"/>
-        <TextBlock x:Name="Time" HorizontalAlignment="Left" Margin="150,400,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="24"/>
+        <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="150,350,0,0" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="24"/>
+        <TextBlock x:Name="Time" HorizontalAlignment="Left" Margin="150,400,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" FontFamily="Goudy Old Style" FontSize="24"/>
+        <TextBox x:Name="PlayerName" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" PlaceholderText="Enter name here." VerticalAlignment="Center"/>
 
     </Grid>
 </Page>

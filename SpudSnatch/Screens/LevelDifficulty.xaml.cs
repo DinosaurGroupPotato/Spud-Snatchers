@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SpudSnatch.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,21 +31,25 @@ namespace SpudSnatch.Screens
 
         private void EasyButton_Click(object sender, RoutedEventArgs e)
         {
+            GameController.Instance.SetDifficulty(Difficulty.Easy);
             Frame.Navigate(typeof(GamePage));
         }
 
         private void MedButton_Click(object sender, RoutedEventArgs e)
         {
+            GameController.Instance.SetDifficulty(Difficulty.Medium);
             Frame.Navigate(typeof(GamePage));
         }
 
         private void HardButton_Click(object sender, RoutedEventArgs e)
         {
+            GameController.Instance.SetDifficulty(Difficulty.Hard);
             Frame.Navigate(typeof(GamePage));
         }
 
         private void DeathButton_Click(object sender, RoutedEventArgs e)
         {
+            GameController.Instance.SetDifficulty(Difficulty.Death);
             Frame.Navigate(typeof(GamePage));
         }
     }
