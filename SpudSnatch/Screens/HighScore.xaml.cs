@@ -22,10 +22,18 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class HighScore : Page
     {
+        HighScoreVariables finalPass = new HighScoreVariables();
         public HighScore()
         {
             this.InitializeComponent();
-            score.Text = "Nobody wins.";
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            finalPass = (HighScoreVariables)e.Parameter;
+            score.Text += "Player: " + finalPass.Name + "                                        " + finalPass.Score + "                                  " + finalPass.Time + "\n";
         }
 
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
