@@ -17,6 +17,7 @@ namespace SpudSnatch
     {
         public string Score { get; set; }
         public string Time { get; set; }
+        public string Name { get; set; }
     }
 
     public sealed partial class GamePage : Page
@@ -31,7 +32,7 @@ namespace SpudSnatch
         HighScoreVariables passparams = new HighScoreVariables();
 
         // Lists of image objects
-        List<Image> Potatoes, Obstacles, Enemies, Platforms;
+        List<Image> Potatoes, Obstacles, Enemies;
         Image Homer;
 
         public GamePage()
@@ -191,7 +192,7 @@ namespace SpudSnatch
             {
                 case HomerState.Jumping:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
-                    //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump.gif"));
+                    //Homer.Source = new BitmapImage(new Uri("pack:///Data/Homer/StaticImages/jump.gif"));
                     break;
                 case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));

@@ -19,5 +19,21 @@ namespace SpudSnatch.Model.Objects
             Width = width;
             Height = height;
         }
+
+        public int CheckWidth(PlatformObstacle platform, string direction)
+        {
+            int extremis = 0;
+            if (direction == "left")
+            {
+                extremis = platform.positionX + 50;
+                return extremis;
+            }
+            else
+            {
+                extremis = platform.positionX - 50;
+                return extremis;
+            }
+        }
+
     }
 }
