@@ -1,7 +1,7 @@
 # Spud-Snatchers
 Instructions: push the left and right keys to move (alt keys are A and D).  
 Work Completed: Potato objects in all forms, Score calculation, GameController, Level, KeyboardState all completed for Beta.
-      All objects and background images drawn. Homer done. Collision Logic completed. Screen navigation completed. Serialization complete, yet buggy. Health implemented.
+      All objects and background images drawn. Homer done. Collision Logic completed. Screen navigation completed. Serialization complete, yet buggy. Health implemented.   
 Known Issues:  
       --Load button kills game if no game saved  
       --Succeeding instances of game after first playthrough player moves at enhanced speed  
@@ -9,6 +9,7 @@ Known Issues:
       --Game over points set too low  
       --Y-axis collect set too broad  
       --Duck glitches on platforms only  
+      --High score screen data overlaps with title  
       --Jump gif makes Homer disappear  
       --Level difficulty does not affect damage taken  
       --High score screen navigation from Main Page does not retain data and defaults to no data  
