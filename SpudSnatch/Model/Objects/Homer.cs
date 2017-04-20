@@ -95,6 +95,14 @@ namespace SpudSnatch.Model.Objects
             {
                 playerDirection = dir;
                 PositionX -= distance;
+                foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
+                {
+                    if (IsCollidedObs(platform))
+                    {
+                        PositionX += distance;
+                        return false;
+                    }
+                }
                 return true;
             }
 
@@ -103,6 +111,14 @@ namespace SpudSnatch.Model.Objects
             {
                 playerDirection = dir;
                 PositionX += distance;
+                foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
+                {
+                    if (IsCollidedObs(platform))
+                    {
+                        PositionX -= distance;
+                        return false;
+                    }
+                }
                 return true;
             }
             //Jumping up
@@ -115,6 +131,15 @@ namespace SpudSnatch.Model.Objects
                     State = HomerState.Standing;
                     return false;
                 }
+                foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
+                {
+                    if (IsCollidedObs(platform))
+                    {
+                        PositionY += distance;
+                        momentumY = 0;
+                        return false;
+                    }
+                }
                 return true;
             }
 
@@ -123,10 +148,22 @@ namespace SpudSnatch.Model.Objects
             {
 
                 PositionY += distance;
-                if (PositionY + distance > 200)
+                if (PositionY + distance > GameController.Instance.level.GetFloor())
                 {
-                    PositionY = 200;
+                    PositionY = GameController.Instance.level.GetFloor();
                     State = HomerState.Standing;
+                    momentumY = 0;
+                    return false;
+                }
+                foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
+                {
+                    if (IsCollidedObs(platform))
+                    {
+                        PositionY -= distance;
+                        momentumY = 0;
+                        State = HomerState.Standing;
+                        return false;
+                    }
                 }
                 return true;
             }

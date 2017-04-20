@@ -19,8 +19,13 @@ namespace SpudSnatch.Model
         public Level()
         {
             //initializes the game
-            PlaceObjects();
-            PlaceEnemies();
+            //PlaceObjects();
+            //PlaceEnemies();
+
+            obstacles.Add(new PlatformObstacle(-250, 200, 150, 100));
+            obstacles.Add(new PlatformObstacle(200, 115, 150, 100));
+            obstacles.Add(new PlatformObstacle(-250, 25, 150, 100));
+
         }
 
         public Homer GetHomer()
