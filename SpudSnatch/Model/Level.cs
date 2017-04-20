@@ -21,10 +21,19 @@ namespace SpudSnatch.Model
             //initializes the game
             //PlaceObjects();
             //PlaceEnemies();
+            
+            obstacles.Add(new PlatformObstacle(-350, 250, 150, 100));
+            obstacles.Add(new PlatformObstacle(300, 250, 150, 100));
+            obstacles.Add(new PlatformObstacle(-500, 150, 150, 100));
+            obstacles.Add(new PlatformObstacle(450, 150, 150, 100));
 
-            obstacles.Add(new PlatformObstacle(-250, 200, 150, 100));
-            obstacles.Add(new PlatformObstacle(200, 115, 150, 100));
-            obstacles.Add(new PlatformObstacle(-250, 25, 150, 100));
+            enemies.Add(new Enemy(-500, 100, 50, 50));
+            enemies.Add(new Enemy(450, 100, 50, 50));
+
+            var r = new Random();
+            for (int i = 0; i < 30; i++)
+                potatoes.Add(new Potato(r.Next(-500, 450), r.Next(-100, 375), 50, 50));
+
 
         }
 
