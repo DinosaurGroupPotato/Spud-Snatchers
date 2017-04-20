@@ -33,7 +33,14 @@ namespace SpudSnatch.Screens
             base.OnNavigatedTo(e);
 
             finalPass = (HighScoreVariables)e.Parameter;
-            score.Text += "Player: " + finalPass.Name + "                                        " + finalPass.Score + "                                  " + finalPass.Time + "\n";
+            try
+            {
+                score.Text += "Player: " + finalPass.Name + "                                        " + finalPass.Score + "                                  " + finalPass.Time + "\n";
+            }
+            catch
+            {
+                score.Text = "No one's played yet.";
+            }
         }
 
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
