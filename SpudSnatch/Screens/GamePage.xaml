@@ -9,6 +9,8 @@
 
     <Grid x:Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Image x:Name="TitleScreen" Source="/Data/ScreenBackgrounds/TemplateBackground.png" Stretch="Fill" />
+        <Button x:Name="save" Content="save" HorizontalAlignment="Left" Margin="1150,670,0,0" VerticalAlignment="Top" Click="save_Click"/>
+        <Button x:Name="load" Content="load" HorizontalAlignment="Left" Margin="728,670,0,0" VerticalAlignment="Top" Click="load_Click"/>
         <!--<TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" KeyDown="Grid_KeyDown" KeyUp="Grid_KeyUp" FontFamily="Goudy Old Style" FontSize="18" IsReadOnly="True" />-->
     </Grid>
 </Page>

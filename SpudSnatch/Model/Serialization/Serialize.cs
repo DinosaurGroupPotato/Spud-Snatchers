@@ -5,6 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpudSnatch.Model.Objects;
+using Windows.Storage;
+using Windows.ApplicationModel;
+using SpudSnatch.Screens;
+
 
 namespace SpudSnatch.Model.Serialization
 {
@@ -13,7 +17,7 @@ namespace SpudSnatch.Model.Serialization
     {
         static List<string> csv = new List<string>();
 
-        public static void SerializeInfo(string filename)
+        public async static void SerializeInfo(string filename)
         {
             csv = new List<string>();
             csv.Add(GameController.Instance.Serialize());
@@ -27,55 +31,65 @@ namespace SpudSnatch.Model.Serialization
                 csv.Add(obj.Serialize());
             }
             csv.Add(GameController.Instance.level.Player.Serialize());
-            //  Task save = Task.Run(() =>
-            // {
-            using (StreamWriter saveFile = File.AppendText(@"C:\Users\Public\Documents\SaveData.txt"))// +filename + ".txt"))
+            StorageFolder saves = ApplicationData.Current.LocalFolder;
+            StorageFile save =  await saves.CreateFileAsync(filename + ".txt", CreationCollisionOption.ReplaceExisting);
+            using (Stream saveData = await save.OpenStreamForWriteAsync())
             {
-                foreach (string line in csv)
+                using (StreamWriter content = new StreamWriter(saveData))
                 {
-                    saveFile.WriteLine(line);
+                    foreach (string line in csv)
+                    {
+                        await content.WriteLineAsync(line);
+                    }
                 }
             }
-            //});
-
         }
 
 
-        public static void DeserializeInfo(string filename)
+        public async static void DeserializeInfo(string filename)
         {
-            csv = new List<string>();
-            ///implementation of choosing which type here
-            ///recommend that each type start with its own 2 character identifier
-            using (StreamReader saveFile = File.OpenText(@"../../../..//SaveData.txt")) // + filename + ".txt")
+            List<string> csv = new List<string>();
+            Character.nextID = 1;
+            
+            StorageFolder saves = ApplicationData.Current.LocalFolder;
+            StorageFile save;
+            if (File.Exists(saves.Path +"\\"+ filename + ".txt"))
             {
-                csv.Add(saveFile.ReadLine());
+                save = await saves.GetFileAsync(filename + ".txt");
+                using (Stream saveData = await save.OpenStreamForWriteAsync())
+                {
+                    using (StreamReader content = new StreamReader(saveData))
+                    {
+                        string data;
+                        while ((data = await content.ReadLineAsync()) != null)
+                        {
+                            csv.Add(data);
+                        }
+                    }
+                }
+                foreach (string line in csv)
+                {
+                    string[] attr = line.Split(',');
+                    if (attr[0] == "gc")
+                    {
+                        GameController.Instance.Deserialize(attr);
+                    }
+                    else if (attr[0] == "hm")
+                    {
+                        Homer.Deserialize(attr);
+                    }
+                    else if (attr[0] == "po")
+                    {
+                        Potato.Deserialize(attr);
+                    }
+                    else if (attr[0] == "en")
+                    {
+                        Enemy.Deserialize(attr);
+                    }
+
+                }
             }
-
-            foreach (string line in csv)
-            {
-                string[] attr = line.Split(',');
-                if (attr[0] == "gc")
-                {
-                    GameController.Instance.Deserialize(attr);
-                }
-                else if (attr[0] == "hm")
-                {
-                    Homer.Deserialize(attr);
-                }
-                else if (attr[0] == "po")
-                {
-                    Potato.Deserialize(attr);
-                }
-                else if (attr[0] == "en")
-                {
-                    Enemy.Deserialize(attr);
-                }
-
-            }
-            ///object specific data
-            ///level progress
-            ///x,y,health
-
+            return;
         }
     }
 }

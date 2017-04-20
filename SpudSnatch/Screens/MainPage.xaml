@@ -13,7 +13,7 @@
         <Button x:Name="HighScoreButton" Content="High Score" Margin="0,290,0,200" Height="35" Width ="100" Click="HighScoreButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
         <Button x:Name="HelpButton" Content="Help" Margin="0,390,0,200" Height="35" Width ="100" Click="HelpButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
         <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Center" Margin="220,90,0,0" Height="35" Width="100" VerticalAlignment="Center" Click="AboutButton_Click" FontFamily="Goudy Old Style" FontSize="16"/>
-        <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Center" Margin="-220,90,0,0" Height="35" Width="100" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16"/>
+        <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Center" Margin="-220,90,0,0" Height="35" Width="100" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontSize="16" Click="LoadButton_Click"/>
 
     </Grid>
 </Page>

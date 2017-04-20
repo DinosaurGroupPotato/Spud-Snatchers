@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using SpudSnatch.State;
 using SpudSnatch.Screens;
 using Windows.UI.Core;
+using SpudSnatch.Model.Serialization;
 
 
 namespace SpudSnatch
@@ -239,6 +240,16 @@ namespace SpudSnatch
         private void UpdateObjects(int id)
         {
 
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            SerializeData.SerializeInfo("SaveData");
+        }
+
+        private void load_Click(object sender, RoutedEventArgs e)
+        {
+            SerializeData.DeserializeInfo("SaveData");
         }
 
         // Handles the key-up event and sets the values in the keyboard state accordingly
