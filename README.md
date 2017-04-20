@@ -11,7 +11,7 @@ Known Issues:
       --Duck glitches on platforms only  
       --High score screen data overlaps with title  
       --Jump gif makes Homer disappear  
-      --Damage is not recieved
+      --Damage is not recieved  
       --High score screen navigation from Main Page does not retain data and defaults to no data  
       --Poisonous and big potatoes do not show up in-game  
 Release Candidate Recording: https://youtu.be/mQsFcQxUcIg
