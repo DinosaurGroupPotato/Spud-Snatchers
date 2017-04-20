@@ -220,8 +220,8 @@ namespace SpudSnatch
             switch (GameController.Instance.level.Player.State)
             {
                 case HomerState.Jumping:
-                    PlayAnimation();
-                    //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
+                    //PlayAnimation();
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
                     //Homer.Source = new BitmapImage(new Uri("pack:///Data/Homer/StaticImages/jump.gif"));
                     break;
                 case HomerState.Ducking:
@@ -233,7 +233,7 @@ namespace SpudSnatch
             }
         }
 
-        private void PlayAnimation()
+        /*private void PlayAnimation()
         {
             for (int i = 0; i < 30; i++)
             {
@@ -246,7 +246,7 @@ namespace SpudSnatch
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_right.png"));
                 }
             }
-        }
+        }*/
 
         private void UpdateTime()
         {
