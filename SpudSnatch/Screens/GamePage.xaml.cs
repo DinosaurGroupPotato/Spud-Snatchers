@@ -222,7 +222,7 @@ namespace SpudSnatch
                 case HomerState.Jumping:
                     //PlayAnimation();
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/jump_left.png"));
-                    //Homer.Source = new BitmapImage(new Uri("pack:///Data/Homer/StaticImages/jump.gif"));
+                    //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/Animations/jump.gif"));
                     break;
                 case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
