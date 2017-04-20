@@ -128,7 +128,10 @@ namespace SpudSnatch.Model.Objects
                 if (PositionY + distance < -200)
                 {
                     PositionY = 0;
-                    State = HomerState.Standing;
+                    if (State == HomerState.Jumping)
+                    {
+                        State = HomerState.Standing;
+                    }
                     return false;
                 }
                 foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
@@ -151,8 +154,11 @@ namespace SpudSnatch.Model.Objects
                 if (PositionY + distance > GameController.Instance.level.GetFloor())
                 {
                     PositionY = GameController.Instance.level.GetFloor();
-                    State = HomerState.Standing;
                     momentumY = 0;
+                    if (State == HomerState.Jumping)
+                    {
+                        State = HomerState.Standing;
+                    }
                     return false;
                 }
                 foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
@@ -160,13 +166,13 @@ namespace SpudSnatch.Model.Objects
                     if (IsCollidedObs(platform))
                     {
                         PositionY -= distance;
-                        State = HomerState.Standing;
                         momentumY = 0;
                         return false;
                     }
                 }
                 return true;
             }
+
 
 
             return false;
