@@ -50,7 +50,7 @@ namespace SpudSnatch.Model.Serialization
         {
             List<string> csv = new List<string>();
             Character.nextID = 1;
-            
+            GameController.Instance.level.potatoes = new List<Potato>();
             StorageFolder saves = ApplicationData.Current.LocalFolder;
             StorageFile save;
             if (File.Exists(saves.Path +"\\"+ filename + ".txt"))
