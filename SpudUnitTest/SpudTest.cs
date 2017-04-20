@@ -5,65 +5,56 @@ using System.IO;
 using SpudSnatch.Model.Serialization;
 using SpudSnatch.Model;
 using System.Collections.Generic;
+using Windows.Storage;
+using Windows.ApplicationModel;
+using SpudSnatch.Screens;
 
 namespace SpudTest
 {
     [TestClass]
     public class SpudTest
     {
-        /*[TestMethod]
-        public void TestJump()
-        {
-            Homer homer = new Homer(5,0);
-            int[] height = homer.Jump();
-            int max = height[0];
-            int last = height[1];
-            int start = height[2];
-            int intendedMax = 50;
-            int intendedland = 0;
-            int initialStart = 0;
-            Assert.IsTrue(max == intendedMax && last == intendedland && initialStart == start);
-        }*/
-
-        /*[TestMethod]
-        public void TestWalk()
-        {
-            Homer homer = new Homer(5, 0);
-            int[] distance = homer.Walk();
-            int start = distance[0];
-            int finish = distance[1];
-            int initialStart = 5;
-            int intendedFinish = 20;
-            Assert.IsTrue(finish == intendedFinish && initialStart == start);
-        }*/
-
-        [TestMethod]
-        public void TestSave()
+        public async void TestSave()
         {
             List<string> csv = new List<string>();
-            csv.Add("asdfasdf");
-            //using (FileStream save = new FileStream(@"C:\Users\Public\Documents\SaveData.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-            //{
-            FileStream data = File.Open(@"Data\Levels\TestLevel.txt", FileMode.Open, FileAccess.ReadWrite);
-            //foreach (string line in csv)
-            //wr.WriteLine(line);
+            csv.Add("gc,5,9001");
+            csv.Add("hm, 15, 87");
+            csv.Add("po,5,15,true");
+            csv.Add("po,9,67,false");
+            csv.Add("po, 0, 0, true");
+            csv.Add("en,5,0");
+            csv.Add("en,10,9");
+            StorageFolder saves = ApplicationData.Current.LocalFolder;
+            StorageFile save = await saves.CreateFileAsync("SaveDataTest.txt", CreationCollisionOption.ReplaceExisting);
+            using (Stream saveData = await save.OpenStreamForWriteAsync())
+            {
+                using (StreamWriter content = new StreamWriter(saveData))
+                {
+                    foreach (string line in csv)
+                    {
+                        await content.WriteLineAsync(line);
+                    }
+                }
+            }
 
         }
 
 
-        //[TestMethod]
-        //public void TestLoad()
-        //{
-        //    SerializeData.DeserializeInfo("SaveDataTest");
-        //    Assert.IsTrue(GameController.LevelProgress == 5 && GameController.Score == 9001);
-        //    Assert.IsTrue(GameController.level.Player.positionX == 15 && GameController.level.Player.positionY == 87);
-        //    List<Potato> potatoes = GameController.level.GetPotatoes();
-        //    Assert.IsTrue(potatoes[0].positionX == 5 && potatoes[0].positionY == 15 && potatoes[0].retrieved == true);
-        //    Assert.IsTrue(potatoes[1].positionX == 9 && potatoes[1].positionY == 67 && potatoes[1].retrieved == false);
-        //    Assert.IsTrue(potatoes[2].positionX == 0 && potatoes[2].positionY == 0 && potatoes[2].retrieved == true);
-        //    List<Character> enemies = GameController.level.GetEnemies();
-        //    Assert.IsTrue(enemies[0].positionX == 5 && enemies[0].positionY == 0);
-        //    Assert.IsTrue(enemies[1].positionX == 10 && enemies[1].positionY == 9);
-        //}
+        [TestMethod]
+        public void TestLoad()
+        {
+            TestSave();
+            SerializeData.DeserializeInfo("SaveDataTest");
+            GameController game = GameController.Instance;
+            Assert.IsTrue(game.LevelProgress == 5 && game.Score == 9001);
+            Assert.IsTrue(game.level.Player.PositionX == 15 && game.level.Player.PositionY == 87);
+            List<Potato> potatoes = game.level.GetPotatoes();
+            Assert.IsTrue(potatoes[0].PositionX == 5 && potatoes[0].PositionY == 15 && potatoes[0].Retrieved == true);
+            Assert.IsTrue(potatoes[1].PositionX == 9 && potatoes[1].PositionY == 67 && potatoes[1].Retrieved == false);
+            Assert.IsTrue(potatoes[2].PositionX == 0 && potatoes[2].PositionY == 0 && potatoes[2].Retrieved == true);
+            List<Character> enemies = game.level.GetEnemies();
+            Assert.IsTrue(enemies[0].PositionX == 5 && enemies[0].PositionY == 0);
+            Assert.IsTrue(enemies[1].PositionX == 10 && enemies[1].PositionY == 9);
+        }
     }
 }

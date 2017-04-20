@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SpudSnatch.Model;
 using SpudSnatch.Screens;
+using SpudSnatch.Model.Serialization;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -59,6 +60,12 @@ namespace SpudSnatch
         private void HighScoreButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HighScore));
+        }
+
+        private void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage));
+            SerializeData.DeserializeInfo("SaveData");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace SpudSnatch.Model.Objects
 
         public string Serialize()
         {
-            string data = "hm" + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY);
+            string data = "hm," + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY);
             return data;
         }
 
@@ -52,16 +52,24 @@ namespace SpudSnatch.Model.Objects
             Homer player = GameController.Instance.level.GetHomer();
             while (!GameController.Instance.GameOver)
             {
-                foreach (Potato tater in GameController.Instance.level.GetPotatoes())
+                try
                 {
-                    if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
+                    foreach (Potato tater in GameController.Instance.level.GetPotatoes())
                     {
-                        if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
+                        if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
                         {
-                            tater.CollectPotato();
+                            if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
+                            {
+                                tater.CollectPotato();
+                            }
                         }
                     }
                 }
+                catch
+                {
+                    return;
+                }
+                
             }
 
         }

@@ -43,14 +43,14 @@ namespace SpudSnatch.Model.Objects
         }
         public string Serialize()
         {
-            string data = "po" + Convert.ToString(PositionX) + "," + Convert.ToString(PositionX) + "," + Convert.ToString(Retrieved);
+            string data = "po," + Convert.ToString(PositionX) + "," + Convert.ToString(PositionX) + "," + Convert.ToString(Width) + "," + Convert.ToString(Height) + "," + Convert.ToString(Retrieved);
             return data;
         }
 
         public static void Deserialize(string[] line)
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]));
-            potato.Retrieved = Convert.ToBoolean(line[3]);
+            potato.Retrieved = Convert.ToBoolean(line[5]);
             List<Potato> potatoes = GameController.Instance.level.GetPotatoes();
             potatoes.Add(potato);
         }
