@@ -142,6 +142,8 @@
     <None Include="SpudSnatch_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Homer\StaticImages\walk_left2.jpg" />
+    <Content Include="Data\Homer\StaticImages\walk_right2.jpg" />
     <Content Include="Data\Objects\Potato\PotatoPoisoned.png" />
     <Content Include="Data\Enemy\StaticImages\Enemy_standing.png" />
     <Content Include="Data\Homer\Animations\climb\climb.gif" />

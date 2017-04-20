@@ -227,6 +227,12 @@ namespace SpudSnatch
                 case HomerState.Ducking:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
                     break;
+                /*case HomerState.WalkLeft:
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_left2.jpg"));
+                    break;
+                case HomerState.WalkRight:
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_right2.jpg"));
+                    break;*/
                 default:
                     Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
                     break;
