@@ -23,6 +23,7 @@ namespace SpudSnatch.State
         public static KeyState Down { get; set; }
         public static KeyState Right { get; set; }
         public static KeyState Space { get; set; }
+        public static KeyState C { get; set; }
 
         public static void InitializeKeys()
         {
@@ -35,6 +36,7 @@ namespace SpudSnatch.State
             Down = KeyState.Up;
             Right = KeyState.Up;
             Space = KeyState.Up;
+            C = KeyState.Up;
         }
 
     }

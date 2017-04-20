@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SpudSnatch.Model.Serialization;
 using SpudSnatch.Model.Objects;
+using SpudSnatch.State;
 
 namespace SpudSnatch.Model
 {
@@ -37,8 +38,9 @@ namespace SpudSnatch.Model
         }
 
         private Dictionary<string, int> scores = new Dictionary<string, int>();
-        private Difficulty LevelDifficulty;
+        private Difficulty LevelDifficulty = Difficulty.Easy;
         public bool GameOver { get; set;}
+        public bool IsCheatMode = false;
 
         public Level level { get; set; }
         public int Score { get; set; }
@@ -53,13 +55,22 @@ namespace SpudSnatch.Model
             Score = 0;
             Time = 0;
             GameOver = false;
+            IsCheatMode = false;
             Task collect = Task.Run(() => Homer.GrabTater());
         }
 
 		public void UpdateGameController()
         {
-            UpdateHomer();
-            UpdateEnemies();
+            // Cheat mode
+            if (KeyboardState.C == KeyState.Down)
+            {
+                IsCheatMode = !IsCheatMode;
+            }
+
+            // Update Homer
+            level.Player.Update();
+
+            //UpdateEnemies();
             //UpdateObstacles();
         }
 
@@ -94,18 +105,6 @@ namespace SpudSnatch.Model
         public void LevelProgressAdvance()
         {
             throw new NotImplementedException();
-        }
-
-		public void UpdateHomer()
-        {
-            level.Player.Update();
-            foreach (Potato potato in level.GetPotatoes())
-            {
-                if (level.Player.IsCollidedChar(potato))
-                {
-                    potato.CollectPotato();
-                }
-            }
         }
 
         private void UpdateEnemies()
