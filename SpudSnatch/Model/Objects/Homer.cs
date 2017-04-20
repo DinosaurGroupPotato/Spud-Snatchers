@@ -13,7 +13,9 @@ namespace SpudSnatch.Model.Objects
         {
             Standing,
             Jumping,
-            Ducking
+            Ducking,
+            WalkLeft,
+            WalkRight
         }
 
     public class Homer : Character
@@ -91,8 +93,9 @@ namespace SpudSnatch.Model.Objects
         public bool Walk(Direction dir, int distance)
         {
             //Walking left
-            if (dir == Direction.Left && PositionX - distance > -500)
+            if (dir == Direction.Left && PositionX - distance > -650)
             {
+                //State = HomerState.WalkLeft;
                 playerDirection = dir;
                 PositionX -= distance;
                 foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
@@ -107,8 +110,9 @@ namespace SpudSnatch.Model.Objects
             }
 
             //Walking right
-            if (dir == Direction.Right && PositionX + distance + 20 < 500)
+            if (dir == Direction.Right && PositionX + distance + 20 < 650)
             {
+                //State = HomerState.WalkRight;
                 playerDirection = dir;
                 PositionX += distance;
                 foreach (PlatformObstacle platform in GameController.Instance.level.obstacles)
