@@ -19,5 +19,5 @@ Release Candidate Recording: https://youtu.be/mQsFcQxUcIg
 | Name | Time Used | Time Left |
 |------|-----------|-----------:|
 |Boye| 27.75 hours| 22.25 hours left |
-|Fleisher| 32.11 hours| 17.89 hours left |
+|Fleisher| 32.21 hours| 17.79 hours left |
 |Longacre| 31.5 hours | 18.5 hours left |
