@@ -22,9 +22,9 @@ namespace SpudSnatch.Model.Objects
         public HomerState State;
 
         public int momentumY;
-
+        public int Health;
+        public int delay;
         public EventHandler HomerUpdated;
-
 
         public string Serialize()
         {
@@ -44,6 +44,7 @@ namespace SpudSnatch.Model.Objects
             PositionX = x;
             PositionY = y;
             State = HomerState.Standing;
+            delay = 0;
         }
 
         public static void GrabTater()
@@ -64,8 +65,7 @@ namespace SpudSnatch.Model.Objects
             }
 
         }
-
-        public Homer() { }
+        
         public void Jump()
         {
             if (State == HomerState.Standing)
@@ -152,8 +152,8 @@ namespace SpudSnatch.Model.Objects
                     if (IsCollidedObs(platform))
                     {
                         PositionY -= distance;
-                        momentumY = 0;
                         State = HomerState.Standing;
+                        momentumY = 0;
                         return false;
                     }
                 }
@@ -179,7 +179,7 @@ namespace SpudSnatch.Model.Objects
             {
                 Jump();
             }
-            if ((KeyboardState.S == KeyState.Down || KeyboardState.Down == KeyState.Down) && State != HomerState.Ducking)
+            if ((KeyboardState.S == KeyState.Down || KeyboardState.Down == KeyState.Down) && State == HomerState.Standing)
             {
                 State = HomerState.Ducking;
             }
@@ -192,6 +192,37 @@ namespace SpudSnatch.Model.Objects
             {
                 momentumY += 3;
             }
+
+            // If he's colided with a damaging object subtract something from his health
+            if (!GameController.Instance.IsCheatMode && delay == 0)
+            {
+                foreach (Obstacle obs in GameController.Instance.level.GetObstacles())
+                {
+                    if (obs is DamagingObstacle && IsCollidedObs(obs))
+                    {
+                        Health -= 1;
+                        delay = 100;
+                    }
+                }
+                //Collide with enemies
+                foreach (Enemy en in GameController.Instance.level.GetEnemies())
+                {
+                    if (IsCollidedChar(en))
+                    {
+                        Health -= 1;
+                        delay = 100;
+                    }
+                }
+            }
+            if (delay < 0) delay -= 1;  
+            
+            foreach (Potato spud in GameController.Instance.level.GetPotatoes())
+            {
+                if (IsCollidedChar(spud))
+                {
+                    spud.CollectPotato();
+                }
+            }    
 
             HomerUpdated?.Invoke(this, null);
         }

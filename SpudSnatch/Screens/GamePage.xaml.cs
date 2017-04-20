@@ -28,6 +28,8 @@ namespace SpudSnatch
         private int gameTime = 0;
         // Labels for score and time
         TextBlock ScoreLabel;
+        TextBlock HealthLabel;
+        TextBlock CheatLabel;
         TextBlock TimeLabel;
         HighScoreVariables passparams = new HighScoreVariables();
 
@@ -54,6 +56,22 @@ namespace SpudSnatch
             
             SetUpImages();
             KeyboardState.InitializeKeys();
+
+            switch (GameController.Instance.IsDifficultyLevel())
+            {
+                case Difficulty.Easy:
+                    GameController.Instance.level.Player.Health = 3;
+                    break;
+                case Difficulty.Medium:
+                    GameController.Instance.level.Player.Health = 3;
+                    break;
+                case Difficulty.Hard:
+                    GameController.Instance.level.Player.Health = 2;
+                    break;
+                case Difficulty.Death:
+                    GameController.Instance.level.Player.Health = 1;
+                    break;
+            }
         }
 
         private void SetUpImages()
@@ -136,11 +154,19 @@ namespace SpudSnatch
             Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
             GameGrid.Children.Add(Homer);
 
-            // Add Score and Time labels
+            // Add Score, Health, Cheat, and Time labels
+            StackPanel labelPanel = new StackPanel();
+            labelPanel.Orientation = Orientation.Vertical;
+            labelPanel.HorizontalAlignment = HorizontalAlignment.Left;
+            labelPanel.VerticalAlignment = VerticalAlignment.Top;
             ScoreLabel = new TextBlock();
-            ScoreLabel.HorizontalAlignment = HorizontalAlignment.Left;
-            ScoreLabel.VerticalAlignment = VerticalAlignment.Top;
-            GameGrid.Children.Add(ScoreLabel);
+            labelPanel.Children.Add(ScoreLabel);
+            HealthLabel = new TextBlock();
+            labelPanel.Children.Add(HealthLabel);
+            CheatLabel = new TextBlock();
+            labelPanel.Children.Add(CheatLabel);
+            GameGrid.Children.Add(labelPanel);
+
             TimeLabel = new TextBlock();
             TimeLabel.HorizontalAlignment = HorizontalAlignment.Right;
             TimeLabel.VerticalAlignment = VerticalAlignment.Top;
@@ -156,6 +182,8 @@ namespace SpudSnatch
 
             UpdateScore();
             UpdateTime();
+            UpdateHealth();
+            UpdateCheat();
             UpdateScene();
             HomerAnimations();
 
@@ -218,6 +246,19 @@ namespace SpudSnatch
             }
         }
 
+        private void UpdateHealth()
+        {
+            HealthLabel.Text = "Health: " + GameController.Instance.level.Player.Health.ToString();
+        }
+
+        private void UpdateCheat()
+        {
+            if (GameController.Instance.IsCheatMode)
+                CheatLabel.Text = "Cheat Mode Activated";
+            else
+                CheatLabel.Text = "";
+        }
+
         private void UpdatePotatoes(int id)
         {
             Potato updatedPotato;
@@ -253,6 +294,7 @@ namespace SpudSnatch
             if (e.VirtualKey == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
             if (e.VirtualKey == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
             if (e.VirtualKey == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
+            if (e.VirtualKey == Windows.System.VirtualKey.C) { KeyboardState.C = KeyState.Up; }
         }
 
         // Handles the key-down event and sets the values in the keyboard state accordingly
@@ -267,6 +309,7 @@ namespace SpudSnatch
             if (e.VirtualKey == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Up; }
             if (e.VirtualKey == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Up; }
             if (e.VirtualKey == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.C) { KeyboardState.C = KeyState.Up; }
         }
 
     }
