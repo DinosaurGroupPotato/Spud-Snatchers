@@ -8,7 +8,7 @@ using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
-
+    //States for movement methods
     public enum HomerState
         {
             Standing,
@@ -23,10 +23,10 @@ namespace SpudSnatch.Model.Objects
 
         public HomerState State;
 
-        public int momentumY;
-        public int Health;
-        public int delay;
-        public EventHandler HomerUpdated;
+        public int momentumY; //Momentum variable for gravity
+        public int Health; //Player's health
+        public int delay; //
+        public EventHandler HomerUpdated; //
 
         public string Serialize()
         {
@@ -40,6 +40,9 @@ namespace SpudSnatch.Model.Objects
             GameController.Instance.level.Player = ida;
         }
 
+        //Player constructor
+        //Takes position to create player at and sets to x- and y-coordinates
+        //Initializes state to Standing
         public Homer(int x, int y)
         {
             ID = 0;
@@ -49,6 +52,8 @@ namespace SpudSnatch.Model.Objects
             delay = 0;
         }
 
+        //Checks player's position against potato obstacle positions
+        //If in range, calls CollectPotato method
         public static void GrabTater()
         {
             Homer player = GameController.Instance.level.GetHomer();
@@ -76,6 +81,8 @@ namespace SpudSnatch.Model.Objects
 
         }
         
+        //Sets player's state to Jumping
+        //Decrements player's y-coordinate
         public void Jump()
         {
             if (State == HomerState.Standing)
@@ -85,11 +92,14 @@ namespace SpudSnatch.Model.Objects
             }
         }
 
+        //Returns player's state
         public HomerState GetHomerState()
         {
             return State;
         }
 
+        //Modifies player's x-coordinate either left or right for left and right direction
+        //Modifies player's y-coordinate either up or down for jump and falling
         public bool Walk(Direction dir, int distance)
         {
             //Walking left
@@ -186,6 +196,7 @@ namespace SpudSnatch.Model.Objects
 
         }
 
+        //Updates player's position and health based on input data
         public void Update()
         {
             if ((KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down) && State != HomerState.Ducking)

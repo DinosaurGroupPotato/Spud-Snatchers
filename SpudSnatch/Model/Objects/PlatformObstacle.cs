@@ -9,7 +9,9 @@ namespace SpudSnatch.Model.Objects
 {
     class PlatformObstacle: Obstacle
     {
-
+        //Constructor for PlatformObstacles
+        //Takes initial positions 'x' and 'y'
+        //Takes 'width' and 'height' parameters used for collision detection
         public PlatformObstacle(int x, int y, int width, int height)
         {
             ID = nextID;
@@ -20,6 +22,7 @@ namespace SpudSnatch.Model.Objects
             Height = height;
         }
 
+        //Checks horizonatl extremes of 'platform', end checked based on 'direction'
         public int CheckWidth(PlatformObstacle platform, string direction)
         {
             int extremis = 0;

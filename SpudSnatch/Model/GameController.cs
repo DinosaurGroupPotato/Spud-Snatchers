@@ -9,6 +9,7 @@ using SpudSnatch.State;
 
 namespace SpudSnatch.Model
 {
+    //Difficulty variable states for difficulty selection
     public enum Difficulty
     {
         Easy,
@@ -19,7 +20,11 @@ namespace SpudSnatch.Model
 
     public class GameController
     {
+        //Singleton instance of GameController class
         private static GameController instance = new GameController();
+        //Getter for GameController instance
+        //Calls private constructor if no instance of GameController
+        //has been created yet
         public static GameController Instance
         {
             get
@@ -32,6 +37,7 @@ namespace SpudSnatch.Model
             }
         }
 
+        //Clears GameController instance
         public void ResetGame()
         {
             instance = null;
@@ -48,6 +54,7 @@ namespace SpudSnatch.Model
 
         public int LevelProgress { get; set; }
 
+        //Private constructor for GameController
         private GameController()
         {
             level = new Level();
@@ -102,11 +109,14 @@ namespace SpudSnatch.Model
             Score = Convert.ToInt32(line[2]);
         }
 
+        //Advance to next level
+        //For future expansion
         public void LevelProgressAdvance()
         {
             throw new NotImplementedException();
         }
 
+        //Calls Walk three times for each enemy in the level
         private void UpdateEnemies()
         {
             foreach (Enemy enemy in level.GetEnemies())
@@ -115,6 +125,8 @@ namespace SpudSnatch.Model
             }
         }
 
+        //Takes state of potato
+        //Increases score if state is not poisoned
         public void IncreaseScore(PotatoState state)
         {
             if (state == PotatoState.Big)
@@ -127,16 +139,20 @@ namespace SpudSnatch.Model
                 Score += 20;
         }
 
+        //Gets difficulty selected
         public Difficulty IsDifficultyLevel()
         {
             return LevelDifficulty;
         }
 
+        //Sets difficulty of game
         public void SetDifficulty(Difficulty type)
         {
             LevelDifficulty = type;
         }
 
+        //Checks coordinates of 'potato' against the x- and y- coordinates passed 
+        //in 'xposit' and 'yposit'
         public void CheckPotatoCollected(int xposit, int yposit, Potato potato)
         {
             if (xposit == potato.PositionX && yposit == potato.PositionY)

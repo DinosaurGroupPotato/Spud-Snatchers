@@ -7,6 +7,7 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
+    //PotatoState used to set size and poison
     public enum PotatoState
     {
         Small,
@@ -22,6 +23,7 @@ namespace SpudSnatch.Model.Objects
         public PotatoState State;
         public bool Retrieved = false;
 
+        //Constructor for potato objects
         public Potato(int x,int y, int width, int height)
         {
             ID = nextID;
@@ -32,6 +34,8 @@ namespace SpudSnatch.Model.Objects
             Height = height;
         }
 
+        //Sets Potato retrieved property to true if called
+        //Calls IncreaseScore method and passes State of potato encountered
         public void CollectPotato()
         {
             if(!Retrieved)

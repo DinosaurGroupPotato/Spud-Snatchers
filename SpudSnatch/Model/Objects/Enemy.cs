@@ -9,7 +9,9 @@ namespace SpudSnatch.Model.Objects
 {
     public class Enemy: Character
     {
-
+        //Constructor for enemy
+        //Takes initial position of 'x' and 'y'
+        //Takes 'width' and 'height' for data points used in collision detection
         public Enemy(int x, int y, int width, int height)
         {
             ID = nextID;
@@ -31,11 +33,16 @@ namespace SpudSnatch.Model.Objects
             List<Character> enemies = GameController.Instance.level.GetEnemies();
             enemies.Add(enemy);
         }
+
+        //Jump method for future expansion
         public int[] Jump()
         {
             throw new NotImplementedException();
         }
 
+        //Takes enemy object and number of times to call walk method
+        //Randomly selects between walk left and walk right until
+        //Walk has been called 'callTime' number of times
         public void Walk(Enemy Phil, int callTime)
         {
             var walker = new Random();
@@ -58,6 +65,7 @@ namespace SpudSnatch.Model.Objects
             
         }
 
+        //Increments enemy position to move enemy to the right
         private void walkRight(Enemy Jack)
         {
             for (int steps = 0; steps < 10; steps++)
@@ -66,6 +74,7 @@ namespace SpudSnatch.Model.Objects
             }
         }
 
+        //Decrements enemy position to move enemy to the left
         private void walkLeft(Enemy Toledo)
         {
             for (int steps = 0; steps < 10; steps++)
