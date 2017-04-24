@@ -15,6 +15,9 @@ namespace SpudSnatch.Model.Serialization
 
     public class SerializeData
     {
+        /// <summary>
+        /// Takes all necessary save data and places it into a text file
+        /// </summary>
         static List<string> csv = new List<string>();
 
         public async static void SerializeInfo(string filename)
@@ -48,6 +51,7 @@ namespace SpudSnatch.Model.Serialization
 
         public async static void DeserializeInfo(string filename)
         {
+            ///recieves the name of a text file and takes the data and generates the state of the game.
             List<string> csv = new List<string>();
             Character.nextID = 1;
             GameController.Instance.level.potatoes = new List<Potato>();
