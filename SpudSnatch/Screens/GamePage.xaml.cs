@@ -322,6 +322,7 @@ namespace SpudSnatch
         }
 
         // Handles the key-up event and sets the values in the keyboard state accordingly
+        // Also changes cheat mode
         private void CheckKeyDown(CoreWindow sender, KeyEventArgs e)
         {
             if (e.VirtualKey == Windows.System.VirtualKey.W) { KeyboardState.W = KeyState.Down; }
@@ -333,7 +334,7 @@ namespace SpudSnatch
             if (e.VirtualKey == Windows.System.VirtualKey.Down) { KeyboardState.Down = KeyState.Down; }
             if (e.VirtualKey == Windows.System.VirtualKey.Right) { KeyboardState.Right = KeyState.Down; }
             if (e.VirtualKey == Windows.System.VirtualKey.Space) { KeyboardState.Space = KeyState.Down; }
-            if (e.VirtualKey == Windows.System.VirtualKey.C) { KeyboardState.C = KeyState.Up; }
+            if (e.VirtualKey == Windows.System.VirtualKey.C) { KeyboardState.C = KeyState.Up; GameController.Instance.IsCheatMode = !GameController.Instance.IsCheatMode; }
         }
 
         // Handles the key-down event and sets the values in the keyboard state accordingly
