@@ -199,7 +199,7 @@ namespace SpudSnatch.Model.Objects
             }
 
             // If he's colided with a damaging object subtract something from his health
-            if (!GameController.Instance.IsCheatMode && delay == 0)
+            if (!GameController.Instance.IsCheatMode && delay == 0 && GameController.Instance.IsDifficultyLevel() != Difficulty.Easy)
             {
                 foreach (Obstacle obs in GameController.Instance.level.GetObstacles())
                 {
@@ -219,7 +219,7 @@ namespace SpudSnatch.Model.Objects
                     }
                 }
             }
-            if (delay < 0) delay -= 1;  
+            if (delay > 0) delay -= 1;  
             
             foreach (Potato spud in GameController.Instance.level.GetPotatoes())
             {
