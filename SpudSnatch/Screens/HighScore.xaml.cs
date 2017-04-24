@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SpudSnatch.Model.HighScores;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,9 +34,15 @@ namespace SpudSnatch.Screens
             base.OnNavigatedTo(e);
 
             finalPass = (HighScoreVariables)e.Parameter;
+
             try
             {
-                score.Text += "Player: " + finalPass.Name + "                                        " + finalPass.Score + "                                  " + finalPass.Time + "\n";
+                HighScoreList.Instance.AddEntry(finalPass.Name, Convert.ToInt32(finalPass.Score), finalPass.Time);
+
+                foreach (HighScoreEntry entry in HighScoreList.Instance.Scores)
+                {
+                    score.Text += "Player: " + entry.GiveName() + "                                        " + entry.GiveScore() + "                                  " + entry.GiveTime() + "\n";
+                }
             }
             catch
             {
