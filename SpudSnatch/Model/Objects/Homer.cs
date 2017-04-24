@@ -154,7 +154,8 @@ namespace SpudSnatch.Model.Objects
                     if (IsCollidedObs(platform))
                     {
                         PositionY -= distance;
-                        State = HomerState.Standing;
+                        if (State == HomerState.Jumping)
+                            State = HomerState.Standing;
                         momentumY = 0;
                         return false;
                     }
