@@ -8,8 +8,9 @@ using SpudSnatch.State;
 
 namespace SpudSnatch.Model.Objects
 {
-
+    //States for movement methods
     public enum HomerState
+
         {
             Standing,
             Jumping,
@@ -23,10 +24,10 @@ namespace SpudSnatch.Model.Objects
 
         public HomerState State;
 
-        public int momentumY;
-        public int Health;
-        public int delay;
-        public EventHandler HomerUpdated;
+        public int momentumY; //Momentum variable for gravity
+        public int Health; //Player's health
+        public int delay; //
+        public EventHandler HomerUpdated; //
 
         public string Serialize()
         {
@@ -40,6 +41,9 @@ namespace SpudSnatch.Model.Objects
             GameController.Instance.level.Player = ida;
         }
 
+        //Player constructor
+        //Takes position to create player at and sets to x- and y-coordinates
+        //Initializes state to Standing
         public Homer(int x, int y)
         {
             ID = 0;
@@ -48,34 +52,9 @@ namespace SpudSnatch.Model.Objects
             State = HomerState.Standing;
             delay = 0;
         }
-
-        public static void GrabTater()
-        {
-            Homer player = GameController.Instance.level.GetHomer();
-            while (!GameController.Instance.GameOver)
-            {
-                try
-                {
-                    foreach (Potato tater in GameController.Instance.level.GetPotatoes())
-                    {
-                        if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
-                        {
-                            if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
-                            {
-                                tater.CollectPotato();
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    return;
-                }
-                
-            }
-
-        }
         
+        //Sets player's state to Jumping
+        //Decrements player's y-coordinate
         public void Jump()
         {
             if (State == HomerState.Standing)
@@ -85,11 +64,14 @@ namespace SpudSnatch.Model.Objects
             }
         }
 
+        //Returns player's state
         public HomerState GetHomerState()
         {
             return State;
         }
 
+        //Modifies player's x-coordinate either left or right for left and right direction
+        //Modifies player's y-coordinate either up or down for jump and falling
         public bool Walk(Direction dir, int distance)
         {
             //Walking left
@@ -172,7 +154,8 @@ namespace SpudSnatch.Model.Objects
                     if (IsCollidedObs(platform))
                     {
                         PositionY -= distance;
-                        State = HomerState.Standing;
+                        if (State == HomerState.Jumping)
+                            State = HomerState.Standing;
                         momentumY = 0;
                         return false;
                     }
@@ -186,6 +169,7 @@ namespace SpudSnatch.Model.Objects
 
         }
 
+        //Updates player's position and health based on input data
         public void Update()
         {
             if ((KeyboardState.A == KeyState.Down || KeyboardState.Left == KeyState.Down) && State != HomerState.Ducking)
@@ -215,7 +199,7 @@ namespace SpudSnatch.Model.Objects
             }
 
             // If he's colided with a damaging object subtract something from his health
-            if (!GameController.Instance.IsCheatMode && delay == 0)
+            if (!GameController.Instance.IsCheatMode && delay == 0 && GameController.Instance.IsDifficultyLevel() != Difficulty.Easy)
             {
                 foreach (Obstacle obs in GameController.Instance.level.GetObstacles())
                 {
@@ -235,7 +219,7 @@ namespace SpudSnatch.Model.Objects
                     }
                 }
             }
-            if (delay < 0) delay -= 1;  
+            if (delay > 0) delay -= 1;  
             
             foreach (Potato spud in GameController.Instance.level.GetPotatoes())
             {

@@ -16,52 +16,65 @@ namespace SpudSnatch.Model
         public List<Obstacle> obstacles = new List<Obstacle>();
         private int floor = 375;
 
+        //Level contstructor
         public Level()
         {
             //initializes the game
             //PlaceObjects();
             //PlaceEnemies();
             
+            //Adds four platforms at the given coordinates to the level
             obstacles.Add(new PlatformObstacle(-350, 250, 150, 100));
             obstacles.Add(new PlatformObstacle(300, 250, 150, 100));
             obstacles.Add(new PlatformObstacle(-500, 150, 150, 100));
             obstacles.Add(new PlatformObstacle(450, 150, 150, 100));
 
+            //Adds two enemies at the given coordinates to the level
             enemies.Add(new Enemy(-500, 100, 50, 50));
             enemies.Add(new Enemy(450, 100, 50, 50));
 
+            //Creates RNG
+            //Places 30 potatoes according to the whims of the RNG
             var r = new Random();
             for (int i = 0; i < 30; i++)
-                potatoes.Add(new Potato(r.Next(-500, 450), r.Next(-100, 375), 50, 50));
+                potatoes.Add(new Potato(r.Next(-500, 450), r.Next(-100, 375), 20, 20));
 
 
         }
 
+        //Returns Player object
+        //Player is a Homer object
         public Homer GetHomer()
         {
             return Player;
         }
 
+        //Returns floor, minimum y-position player is allowed to reach
         public int GetFloor()
         {
             return floor;
         }
 
+        //Returns list of potato objects in level
         public List<Potato> GetPotatoes()
         {
             return potatoes;
         }
 
+        //Returns list of enemy objects in level
         public List<Character> GetEnemies()
         {
             return enemies;
         }
-
+        
+        //Returns list of obstacle objects in level
         public List<Obstacle> GetObstacles()
         {
             return obstacles;
         }
 
+        //Adds potato and obstacle objects to level lists
+        //Creates RNG for said shenanigans
         public void PlaceObjects()
         {
             //Places platforms, potatoes, and damaging objects
@@ -93,6 +106,8 @@ namespace SpudSnatch.Model
             obstacles.Add(new Wall(-500,-300, 150, 100));
         }
 
+        //Adds enemies to the level
+        //Creates RNG for shenanigans
         public void PlaceEnemies()
         {
             //Places enemies
