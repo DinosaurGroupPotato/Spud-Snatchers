@@ -314,6 +314,12 @@ namespace SpudSnatch
         {
             SerializeData.DeserializeInfo("SaveData");
         }
+        
+        // Stops the timer so it doesnt keep on updating
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+        }
 
         // Handles the key-up event and sets the values in the keyboard state accordingly
         private void CheckKeyDown(CoreWindow sender, KeyEventArgs e)
