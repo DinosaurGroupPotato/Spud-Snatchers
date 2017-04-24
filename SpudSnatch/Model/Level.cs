@@ -37,7 +37,7 @@ namespace SpudSnatch.Model
             //Places 30 potatoes according to the whims of the RNG
             var r = new Random();
             for (int i = 0; i < 30; i++)
-                potatoes.Add(new Potato(r.Next(-500, 450), r.Next(-100, 375), 50, 50));
+                potatoes.Add(new Potato(r.Next(-500, 450), r.Next(-100, 375), 20, 20));
 
 
         }

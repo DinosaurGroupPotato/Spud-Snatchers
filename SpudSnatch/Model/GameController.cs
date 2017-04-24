@@ -63,7 +63,6 @@ namespace SpudSnatch.Model
             Time = 0;
             GameOver = false;
             IsCheatMode = false;
-            Task collect = Task.Run(() => Homer.GrabTater());
         }
 
 		public void UpdateGameController()

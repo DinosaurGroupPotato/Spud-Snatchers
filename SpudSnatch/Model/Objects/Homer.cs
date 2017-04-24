@@ -10,6 +10,7 @@ namespace SpudSnatch.Model.Objects
 {
     //States for movement methods
     public enum HomerState
+
         {
             Standing,
             Jumping,
@@ -50,35 +51,6 @@ namespace SpudSnatch.Model.Objects
             PositionY = y;
             State = HomerState.Standing;
             delay = 0;
-        }
-
-        //Checks player's position against potato obstacle positions
-        //If in range, calls CollectPotato method
-        public static void GrabTater()
-        {
-            Homer player = GameController.Instance.level.GetHomer();
-            while (!GameController.Instance.GameOver)
-            {
-                try
-                {
-                    foreach (Potato tater in GameController.Instance.level.GetPotatoes())
-                    {
-                        if (tater.PositionX - 5 < player.PositionX && player.PositionX < tater.PositionX + 5)
-                        {
-                            if (tater.PositionY - 500 < player.PositionY && player.PositionY < tater.PositionY + 500)
-                            {
-                                tater.CollectPotato();
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    return;
-                }
-                
-            }
-
         }
         
         //Sets player's state to Jumping
