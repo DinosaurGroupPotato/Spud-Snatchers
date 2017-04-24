@@ -225,16 +225,16 @@ namespace SpudSnatch
                     //Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/Animations/jump.gif"));
                     break;
                 case HomerState.Ducking:
-                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.jpg"));
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/duck.png"));
                     break;
                 /*case HomerState.WalkLeft:
-                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_left2.jpg"));
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_left2.png"));
                     break;
                 case HomerState.WalkRight:
-                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_right2.jpg"));
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/walk_right2.png"));
                     break;*/
                 default:
-                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.jpg"));
+                    Homer.Source = new BitmapImage(new Uri("ms-appx:///Data/Homer/StaticImages/stand.png"));
                     break;
             }
         }

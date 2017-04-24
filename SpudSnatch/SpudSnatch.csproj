@@ -142,8 +142,10 @@
     <None Include="SpudSnatch_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Homer\StaticImages\walk_left2.jpg" />
-    <Content Include="Data\Homer\StaticImages\walk_right2.jpg" />
+    <Content Include="Data\Homer\StaticImages\duck.png" />
+    <Content Include="Data\Homer\StaticImages\stand.png" />
+    <Content Include="Data\Homer\StaticImages\walk_left2.png" />
+    <Content Include="Data\Homer\StaticImages\walk_right2.png" />
     <Content Include="Data\Objects\Potato\PotatoPoisoned.png" />
     <Content Include="Data\Enemy\StaticImages\Enemy_standing.png" />
     <Content Include="Data\Homer\Animations\climb\climb.gif" />
@@ -156,9 +158,7 @@
     <Content Include="Data\Homer\Animations\walk\walk_right\walk_right1.jpg" />
     <Content Include="Data\Homer\Animations\walk\walk_right\walk_right2.jpg" />
     <Content Include="Data\Homer\Animations\walk\walk_right\walk_right3.jpg" />
-    <Content Include="Data\Homer\StaticImages\duck.jpg" />
     <Content Include="Data\Homer\StaticImages\jump_left.png" />
-    <Content Include="Data\Homer\StaticImages\stand.jpg" />
     <Content Include="Data\Levels\TestLevel.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
