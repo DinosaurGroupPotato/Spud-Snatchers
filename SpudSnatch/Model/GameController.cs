@@ -67,11 +67,6 @@ namespace SpudSnatch.Model
 
 		public void UpdateGameController()
         {
-            // Cheat mode
-            if (KeyboardState.C == KeyState.Down)
-            {
-                IsCheatMode = !IsCheatMode;
-            }
 
             // Update Homer
             level.Player.Update();
