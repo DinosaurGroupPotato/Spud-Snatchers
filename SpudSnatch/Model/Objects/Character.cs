@@ -77,21 +77,21 @@ namespace SpudSnatch.Model.Objects
             y2 = PositionY;
             w2 = Width;
             h2 = Height;
-            if (x1 >= x2 && x1 <= x2 - w2 && y1 >= y2 && y1 <= y2 - h2/2)
+            if (x1 >= x2 && x1 <= x2 - w2 && y1 >= y2 && y1 <= y2 - h2 / 2)
                 return true;
-            if (x1 + w1 >= x2 && x1 - w1 <= x2 - w2 && y1 >= y2 && y1 <= y2 - h2/2)
+            if (x1 + w1 >= x2 && x1 - w1 <= x2 - w2 && y1 >= y2 && y1 <= y2 - h2 / 2)
                 return true;
-            if (x1 >= x2 && x1 <= x2 - w2 && y1 + h1/2 >= y2 && y1 + h1/2 <= y2 - h2/2)
+            if (x1 >= x2 && x1 <= x2 - w2 && y1 + h1 / 2 >= y2 && y1 + h1 / 2 <= y2 - h2 / 2)
                 return true;
-            if (x1 + w1 >= x2 && x1 - w1 <= x2 - w2 && y1 + h1/2 >= y2 && y1 - h1/2 <= y2 - h2/2)
+            if (x1 + w1 >= x2 && x1 - w1 <= x2 - w2 && y1 + h1 / 2 >= y2 && y1 - h1 / 2 <= y2 - h2 / 2)
                 return true;
-            if (x2 >= x1 && x2 <= x1 - w1 && y2 >= y1 && y2 <= y1 - h1/2)
+            if (x2 >= x1 && x2 <= x1 - w1 && y2 >= y1 && y2 <= y1 - h1 / 2)
                 return true;
-            if (x2 + w2 >= x1 && x2 - w2 <= x1 - w1 && y2 >= y1 && y2 <= y1 - h1/2)
+            if (x2 + w2 >= x1 && x2 - w2 <= x1 - w1 && y2 >= y1 && y2 <= y1 - h1 / 2)
                 return true;
-            if (x2 >= x1 && x2 <= x1 - w1 && y2 + h2/2 >= y1 && y2 - h2/2 <= y1 - h1/2)
+            if (x2 >= x1 && x2 <= x1 - w1 && y2 + h2 / 2 >= y1 && y2 - h2 / 2 <= y1 - h1 / 2)
                 return true;
-            if (x2 + w2 >= x1 && x2 - w2 <= x1 - w1 && y2 + h2/2 >= y1 && y2 - h2/2 <= y1 - h1/2)
+            if (x2 + w2 >= x1 && x2 - w2 <= x1 - w1 && y2 + h2 / 2 >= y1 && y2 - h2 / 2 <= y1 - h1 / 2)
                 return true;
             return false;
         }
