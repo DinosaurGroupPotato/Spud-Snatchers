@@ -8,6 +8,7 @@ Known Issues:
       --High score screen does not produce list, only last player to have played  
       --High score screen navigation from Main Page does not retain data and defaults to no data  
       --Poisonous and big potatoes do not show up in-game  
+Release Recording: https://youtu.be/L2n45iyyOZ0
 ## Expenses  
 | Name | Time Used | Time Left |
 |------|-----------|-----------:|
