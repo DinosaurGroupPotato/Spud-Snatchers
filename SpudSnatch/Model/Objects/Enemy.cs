@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Enemy.cs
+// Holds the state of an enemy object in the game.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +24,15 @@ namespace SpudSnatch.Model.Objects
             Width = width;
             Height = height;
         }
+
+        // Serialization method
         public string Serialize()
         {
             string data = "en," + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY) + "," + Convert.ToString(Width) + "," + Convert.ToString(Height);
             return data;
         }
 
+        // Deserialization method
         public static void Deserialize(string[] line)
         {
             Enemy enemy = new Enemy(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]));

@@ -1,4 +1,7 @@
-﻿using System;
+﻿// GamePage.xaml.cs
+// Contains the code for the in-game page
+
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using SpudSnatch.Model;
@@ -14,6 +17,7 @@ using SpudSnatch.Model.Serialization;
 namespace SpudSnatch
 {
 
+    // High score class
     public class HighScoreVariables
     {
         public string Score { get; set; }
@@ -21,6 +25,7 @@ namespace SpudSnatch
         public string Name { get; set; }
     }
 
+    // Class for the in-game page
     public sealed partial class GamePage : Page
     {
         
@@ -38,11 +43,13 @@ namespace SpudSnatch
         List<Image> Potatoes, Obstacles, Enemies;
         Image Homer;
 
+        // Constructor
         public GamePage()
         {
             this.InitializeComponent();
         }
 
+        // Instantiation of the controls
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             timer = new DispatcherTimer();
@@ -75,6 +82,7 @@ namespace SpudSnatch
             }
         }
 
+        // Set up the images for the in-game objects
         private void SetUpImages()
         {
             // Add potatoes
@@ -174,6 +182,7 @@ namespace SpudSnatch
             GameGrid.Children.Add(TimeLabel);
         }
 
+        // Update method
         private void Timer_Tick(object sender, object e)
         {
 
@@ -196,7 +205,8 @@ namespace SpudSnatch
                 Frame.Navigate(typeof(EndScreen), passparams);
             }
         }
-
+        
+        // Update the potatoes in the game
         private void UpdateScene()
         {
             foreach(Potato tater in GameController.Instance.level.potatoes)
@@ -215,6 +225,7 @@ namespace SpudSnatch
             }
         }
 
+        // Method to animate Homer
         private void HomerAnimations()
         {
             switch (GameController.Instance.level.Player.State)
@@ -254,12 +265,14 @@ namespace SpudSnatch
             }
         }*/
 
+        // Method to update the time label
         private void UpdateTime()
         {
             gameTime++;
             TimeLabel.Text = "Time: " + Convert.ToString(gameTime);
         }
 
+        // Method to update the score label
         private void UpdateScore()
         {
             ScoreLabel.Text = "Score: " + Convert.ToString(GameController.Instance.Score);
@@ -269,11 +282,13 @@ namespace SpudSnatch
             }
         }
 
+        // Method to update the health label
         private void UpdateHealth()
         {
             HealthLabel.Text = "Health: " + GameController.Instance.level.Player.Health.ToString();
         }
 
+        // Method to update the cheat mode indicator
         private void UpdateCheat()
         {
             if (GameController.Instance.IsCheatMode)
@@ -282,6 +297,7 @@ namespace SpudSnatch
                 CheatLabel.Text = "";
         }
 
+        // Method to update the potatoes
         private void UpdatePotatoes(int id)
         {
             Potato updatedPotato;
@@ -295,21 +311,26 @@ namespace SpudSnatch
             }
         }
 
+        // Method to update Homer
         private void UpdateHomer(object sender, EventArgs e)
         {
             Homer.Margin = new Windows.UI.Xaml.Thickness(GameController.Instance.level.Player.PositionX, GameController.Instance.level.Player.PositionY, 0, 0);
         }
 
+        // Method to update the in-game objects
         private void UpdateObjects(int id)
         {
 
         }
 
+        // Save button click method
         private void save_Click(object sender, RoutedEventArgs e)
         {
             SerializeData.SerializeInfo("SaveData");
         }
 
+
+        // Load button click method
         private void load_Click(object sender, RoutedEventArgs e)
         {
             SerializeData.DeserializeInfo("SaveData");

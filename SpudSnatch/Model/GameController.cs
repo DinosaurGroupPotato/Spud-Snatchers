@@ -1,4 +1,7 @@
-﻿using System;
+﻿// GameController.cs
+// A singleton class for the gamecontroller, holds the state of the game and all the objects inside of it.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,15 +46,21 @@ namespace SpudSnatch.Model
             instance = null;
         }
 
+        // Holds the highscores
         private Dictionary<string, int> scores = new Dictionary<string, int>();
+        // Holds the level difficulty
         private Difficulty LevelDifficulty = Difficulty.Easy;
+        // Is the game over?
         public bool GameOver { get; set;}
+        // Is cheat mode activated?
         public bool IsCheatMode = false;
 
+        // Holds the current level object, the current score, and the current time.
         public Level level { get; set; }
         public int Score { get; set; }
         public int Time { get; set; }
 
+        // Holds the current level
         public int LevelProgress { get; set; }
 
         //Private constructor for GameController
@@ -65,6 +74,7 @@ namespace SpudSnatch.Model
             IsCheatMode = false;
         }
 
+        // Handles the updating of all the objects in the level
 		public void UpdateGameController()
         {
 
@@ -75,12 +85,14 @@ namespace SpudSnatch.Model
             //UpdateObstacles();
         }
 
+        // Serializes the GameController
         public string Serialize()
         {
             string data = "gc" + "," + Convert.ToString(LevelProgress) + "," + Convert.ToString(Score);
             return data;
         }
 
+        // serializes the score
         public string ScoreSerialize()
         {
             string data = "sc";
@@ -91,12 +103,14 @@ namespace SpudSnatch.Model
             return data;
         }
 
+        // Serializes the level
         public string LevelSerialize()
         {
             string data = "gl" + "," + Convert.ToString(LevelProgress);
             return data;
         }
 
+        // Deserializes the gamecontroller
         public void Deserialize(string[] line)
         {
             LevelProgress = Convert.ToInt32(line[1]);

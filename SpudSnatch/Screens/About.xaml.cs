@@ -1,4 +1,7 @@
-﻿using System;
+﻿// About.xaml.cs
+// Contains the code for the about screen
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,11 +25,13 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class About : Page
     {
+        // Constructor
         public About()
         {
             this.InitializeComponent();
         }
 
+        // Method to return to the main page
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));

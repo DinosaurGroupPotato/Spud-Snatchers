@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Wall.cs
+// A wall object in the game
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

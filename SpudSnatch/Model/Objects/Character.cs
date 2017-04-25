@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Character.cs
+// Holds the information of a character.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +10,7 @@ using SpudSnatch.Model.Serialization;
 
 namespace SpudSnatch.Model.Objects
 {
-
+    // Direction of the player
     public enum Direction
     {
         Left,
@@ -18,9 +21,8 @@ namespace SpudSnatch.Model.Objects
 
     public class Character
     {
-
+        // ID for handling updates
         public static int nextID = 1;
-
         public int ID;
 
         // Property  and instance variables for the position
@@ -29,9 +31,11 @@ namespace SpudSnatch.Model.Objects
         private int positionY;
         public int PositionY { get { return positionY; } set { positionY = value; } }
 
+        // Width and height of the character
         public int Width { get; set; }
         public int Height { get; set; }
 
+        // Direction of the character
         public Direction playerDirection;
 
         // Checks for collision with a character

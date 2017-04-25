@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Potato.cs
+// A potato in the game
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +22,9 @@ namespace SpudSnatch.Model.Objects
 
     public class Potato : Character
     {
-
+        // What kind of potato do we have here?
         public PotatoState State;
+        // Is the potato able to be collected?
         public bool Retrieved = false;
 
         //Constructor for potato objects
@@ -45,12 +49,15 @@ namespace SpudSnatch.Model.Objects
             }
             
         }
+
+        // Serialize the data
         public string Serialize()
         {
             string data = "po," + Convert.ToString(PositionX) + "," + Convert.ToString(PositionX) + "," + Convert.ToString(Width) + "," + Convert.ToString(Height) + "," + Convert.ToString(Retrieved);
             return data;
         }
 
+        // Deserialize the data
         public static void Deserialize(string[] line)
         {
             Potato potato = new Potato(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]));

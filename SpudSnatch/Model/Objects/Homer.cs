@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Homer.cs
+// Handles the player in the game, his updating and collision with the other objects
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,20 +24,22 @@ namespace SpudSnatch.Model.Objects
 
     public class Homer : Character
     {
-
+        // The current state of the plater
         public HomerState State;
 
         public int momentumY; //Momentum variable for gravity
         public int Health; //Player's health
         public int delay; //
-        public EventHandler HomerUpdated; //
+        public EventHandler HomerUpdated; // For updating the view
 
+        // Serialization method
         public string Serialize()
         {
             string data = "hm," + Convert.ToString(PositionX) + "," + Convert.ToString(PositionY);
             return data;
         }
 
+        // Deserialize method
         public static void Deserialize(string[] line)
         {
             Homer ida = new Homer(Convert.ToInt32(line[1]), Convert.ToInt32(line[2]));

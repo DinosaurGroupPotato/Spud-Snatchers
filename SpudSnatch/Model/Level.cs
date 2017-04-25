@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Level.cs
+// Contains the code for the level object, holds the state of a in-game level
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

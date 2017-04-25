@@ -1,4 +1,7 @@
-﻿using System;
+﻿// MainPage.xaml.cs
+// Contains the code for the menu screen
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,43 +28,40 @@ namespace SpudSnatch
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        // Instance of the game controller
         static GameController game = GameController.Instance;
 
+        // Constructor
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        public void PageLoaded()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LoadEnvironment()
-        {
-            throw new NotImplementedException();
-        }
-
+        // Button to start the game
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LevelDifficulty));
         }
 
+        // Button to go to the about screen
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(About));
         }
 
+        // Button to get help
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Help));
         }
 
+        // Button to get to the high score screen
         private void HighScoreButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HighScore));
         }
 
+        // Button to load a saved game
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));

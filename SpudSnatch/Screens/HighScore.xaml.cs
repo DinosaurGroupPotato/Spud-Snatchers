@@ -1,4 +1,7 @@
-﻿﻿using System;
+﻿// HighScore.xaml.cs
+// Contains the code for the high score screen
+
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,12 +26,16 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class HighScore : Page
     {
+        // holds the high score entry
         HighScoreVariables finalPass = new HighScoreVariables();
+
+        // Constructor
         public HighScore()
         {
             this.InitializeComponent();
         }
 
+        // Method called when the page is loaded, gets the new highscore.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -50,6 +57,7 @@ namespace SpudSnatch.Screens
             }
         }
 
+        // Method to return to the menu page
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));

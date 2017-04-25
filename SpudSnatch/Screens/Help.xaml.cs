@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Help.xaml.cs
+// Contains the code for the help screen
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,16 +25,20 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class Help : Page
     {
+        // Constructor
         public Help()
         {
             this.InitializeComponent();
         }
 
+        // Method to go back to the main page
         private void returnToMainPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
 
+
+        // Method to go to the actual help screen
         private void getActualHelp_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ActualHelp));

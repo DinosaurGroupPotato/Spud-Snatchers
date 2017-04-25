@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Serialize.cs
+// Class that handles serialization.
+
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,7 @@ using SpudSnatch.Screens;
 namespace SpudSnatch.Model.Serialization
 {
 
+    // Class that handles serialization.
     public class SerializeData
     {
         /// <summary>
@@ -20,6 +24,7 @@ namespace SpudSnatch.Model.Serialization
         /// </summary>
         static List<string> csv = new List<string>();
 
+        // Serializes the entire game state.
         public async static void SerializeInfo(string filename)
         {
             csv = new List<string>();
@@ -48,7 +53,7 @@ namespace SpudSnatch.Model.Serialization
             }
         }
 
-
+        // Deserializes the entire class
         public async static void DeserializeInfo(string filename)
         {
             ///recieves the name of a text file and takes the data and generates the state of the game.

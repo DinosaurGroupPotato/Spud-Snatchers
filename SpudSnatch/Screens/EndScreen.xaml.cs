@@ -1,4 +1,7 @@
-﻿using System;
+﻿// EndScreen.xaml.cs
+// Contains the code for the end screen
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,13 +25,16 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class EndScreen : Page
     {
+        // variable to hold the high score object
         HighScoreVariables passmoreparams = new HighScoreVariables();
 
+        // Constructor
         public EndScreen()
         {
             this.InitializeComponent();
         }
 
+        // Method called when being navigated to.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -40,6 +46,7 @@ namespace SpudSnatch.Screens
             
         }
         
+        // Button to go to the high score screen.
         private void checkHighScore_Click(object sender, RoutedEventArgs e)
         {
             passmoreparams.Name = PlayerName.Text;

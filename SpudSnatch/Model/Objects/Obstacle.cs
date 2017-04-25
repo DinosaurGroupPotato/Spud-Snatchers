@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Obstacle.cs
+// Holds the values for an obstacle in the game
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +11,7 @@ namespace SpudSnatch.Model.Objects
 {
     public class Obstacle
     {
-
+        // Keeps track of the ID for updating
         public static int nextID = 1;
         public int ID;
 

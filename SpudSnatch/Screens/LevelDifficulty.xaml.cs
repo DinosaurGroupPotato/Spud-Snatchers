@@ -1,4 +1,7 @@
-﻿using System;
+﻿// LevelDifficulty.xaml.cs
+// Contains the code for the difficulty selection screen
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,30 +26,34 @@ namespace SpudSnatch.Screens
     /// </summary>
     public sealed partial class LevelDifficulty : Page
     {
+        // Constructor
         public LevelDifficulty()
         {
             this.InitializeComponent();
         }
 
-
+        // Button to select easy mode
         private void EasyButton_Click(object sender, RoutedEventArgs e)
         {
             GameController.Instance.SetDifficulty(Difficulty.Easy);
             Frame.Navigate(typeof(GamePage));
         }
 
+        // Button to select medium mode
         private void MedButton_Click(object sender, RoutedEventArgs e)
         {
             GameController.Instance.SetDifficulty(Difficulty.Medium);
             Frame.Navigate(typeof(GamePage));
         }
 
+        // Button to select hard mode
         private void HardButton_Click(object sender, RoutedEventArgs e)
         {
             GameController.Instance.SetDifficulty(Difficulty.Hard);
             Frame.Navigate(typeof(GamePage));
         }
 
+        // Button to select death mode
         private void DeathButton_Click(object sender, RoutedEventArgs e)
         {
             GameController.Instance.SetDifficulty(Difficulty.Death);
